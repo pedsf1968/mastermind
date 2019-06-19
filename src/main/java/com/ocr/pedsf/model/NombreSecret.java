@@ -4,6 +4,9 @@ import com.ocr.pedsf.exceptions.TailleDifferenteException;
 
 import java.util.Objects;
 
+/**
+ * NombreSecret : class pour gérer les chaines de nombres
+ */
 public class NombreSecret {
    private String nombre;
    private int taille;
@@ -30,7 +33,6 @@ public class NombreSecret {
 
       for(int i=0; i<n; i++) {
          sb.append(Math.round(Math.floor( (Math.random() * 10.0))));
-         System.out.println("result "+ sb);
       }
 
       return sb.toString();
@@ -63,6 +65,13 @@ public class NombreSecret {
       return Objects.hash(nombre, taille);
    }
 
+   /**
+    * test : compare le NombreSecret avec un autre
+    *
+    * @param nombreSecret à comparer
+    * @return la chaine de caractères montrant les différences
+    * @throws TailleDifferenteException
+    */
    public String test(NombreSecret nombreSecret) throws TailleDifferenteException {
       StringBuilder sb = new StringBuilder();
 
@@ -78,4 +87,28 @@ public class NombreSecret {
       }
       return sb.toString();
    }
+
+   /**
+    * test : compare le NombreSecret avec une chaine
+    *
+    * @param chaine à comparer
+    * @return la chaine de caractères montrant les différences
+    * @throws TailleDifferenteException
+    */
+   public String test(String chaine) throws TailleDifferenteException {
+      StringBuilder sb = new StringBuilder();
+
+      if(chaine.length()!=this.taille) throw new TailleDifferenteException();
+
+      for(int i=0; i<this.taille; i++){
+         if(this.nombre.charAt(i)==chaine.charAt(i))
+            sb.append('=');
+         if(this.nombre.charAt(i)<chaine.charAt(i))
+            sb.append('-');
+         if(this.nombre.charAt(i)>chaine.charAt(i))
+            sb.append('+');
+      }
+      return sb.toString();
+   }
+
 }
