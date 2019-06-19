@@ -81,6 +81,32 @@ public class GestionSaisie {
 
       } while(!bonneReponse);
 
-      return String.valueOf(reponse);
+      return reponse;
+   }
+
+   /**
+    * demandeReponse : demande à l'utilisateur la correspondance avec le code en +-=
+    *
+    * @param digit nombre de digit du code
+    * @return la réponse sous forme de +-=
+    */
+   public String demandeReponse(int digit){
+      String reponse = "";
+      boolean bonneReponse = false;
+      String pattern = "[-+=]{" + digit + "}";
+
+      do {
+         try {
+            reponse = sc.next(pattern);
+            bonneReponse = true;
+
+         } catch (InputMismatchException e) {
+            sc.next();
+            bonneReponse = false;
+         }
+
+      } while(!bonneReponse);
+
+      return reponse;
    }
 }

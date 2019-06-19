@@ -72,7 +72,36 @@ public class Jeu {
    }
 
    private void defenseur(){
+      boolean trouve = false;
+      int nbCoup = 0;
+      String reponse = "";
+      // saisie du code de départ par l'utilisateur
+      NombreSecret nsu = new NombreSecret(affichage.demandeProposition(mp.getLongueur()));
+
       System.out.println("\nMASTERMIND : Mode defenseur");
+
+      IA ia = new IA(mp.getLongueur());
+
+      do {
+         if (!reponse.equals(""))
+            ia.proposition(reponse);
+
+         System.out.println("Vous : " + nsu.getNombre());
+         System.out.println("IA : " + ia.getNombreSecret());
+         reponse = affichage.demandeReponse(mp.getLongueur());
+         nbCoup++;
+
+         if(nsu.getNombre()==ia.getNombreSecret())
+            trouve = true;
+
+      } while (!trouve && nbCoup<mp.getNbEssai());
+
+      if (nbCoup<mp.getNbEssai()) {
+         affichage.perdu(nsu.getNombre());
+      } else {
+         affichage.gagne(nbCoup);
+      }
+
       demarrage();
    }
 

@@ -43,14 +43,31 @@ public class Affichage {
    /**
     * demandeProposition : affichage de la demande de saisie d'un code
     *
-    * @param longueur taille du code à trouver
+    * @param digit taille du code à trouver
     * @return code saisi par l'utilisateur
     */
-   public String demandeProposition(int longueur){
+   public String demandeProposition(int digit){
       System.out.println("\nMASTERMIND");
-      System.out.println("Saisissez un nombre de "+ longueur + " digits");
+      System.out.println("Saisissez un nombre de "+ digit + " digits");
 
-      return gs.demandeProposition(longueur);
+      return gs.demandeProposition(digit);
+   }
+
+   /**
+    * demandeReponse : affichage de la demande de réponse de l'utilisateur à IA
+    *
+    * @param digit taille du code à trouver
+    * @return réponse saisie par l'utilisateur
+    */
+   public String demandeReponse(int digit){
+      System.out.println("\nMASTERMIND");
+      System.out.println("Indiquez pour chaque chiffre de la combinaison proposée si" +
+            " le chiffre de sa combinaison est :");
+      System.out.println("plus grand par un (+)");
+      System.out.println("plus petit par un (-)");
+      System.out.println("plus identique par un (=)");
+
+      return gs.demandeReponse(digit);
    }
 
    /**
