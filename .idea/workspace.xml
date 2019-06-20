@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c4b18241-694b-40d3-ab3c-55cba19ade47" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/Main.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,11 +21,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="162" column="9" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/utils/NombreSecretTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="31" column="41" lean-forward="true" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+            <state relative-caret-position="459">
+              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,11 +112,11 @@
         <option value="$PROJECT_DIR$/src/main/resources/mastermind.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Affichage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/utils/GestionSaisie.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java" />
       </list>
     </option>
   </component>
@@ -157,6 +208,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pedsf" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pedsf" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -183,6 +243,45 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pedsf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pedsf" type="462c0819:PsiDirectoryNode" />
+              <item name="controler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastermind" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pedsf" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
@@ -230,17 +329,34 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.Main" />
+  <component name="RunManager" selected="JUnit.IATest">
+    <configuration name="IATest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mastermind" />
-      <option name="PROGRAM_PARAMETERS" value="?" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ocr.pedsf.*" />
+          <option name="PATTERN" value="com.ocr.pedsf.controler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ocr.pedsf.controler" />
+      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.controler.IATest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IATest.Given_combinaison8181AndResponseMixedUpperLower_When_doProposition_Then_get9090" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mastermind" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ocr.pedsf.controler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ocr.pedsf.controler" />
+      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.controler.IATest" />
+      <option name="METHOD_NAME" value="Given_combinaison8181AndResponseMixedUpperLower_When_doProposition_Then_get9090" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -261,67 +377,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NombreSecretTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IATest.Given_combinaisonWithDifferentLength_When_doProposition_getException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mastermind" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ocr.pedsf.model.*" />
+          <option name="PATTERN" value="com.ocr.pedsf.controler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ocr.pedsf.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.utils.NombreSecretTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NombreSecretTest.Given_twoNombreSecretWithDifferentLength_When_test_getException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mastermind" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ocr.pedsf.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ocr.pedsf.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.utils.NombreSecretTest" />
-      <option name="METHOD_NAME" value="Given_twoNombreSecretWithDifferentLength_When_test_getException" />
+      <option name="PACKAGE_NAME" value="com.ocr.pedsf.controler" />
+      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.controler.IATest" />
+      <option name="METHOD_NAME" value="Given_combinaisonWithDifferentLength_When_doProposition_getException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NombreSecretTest.Given_twoNombreSecret_When_test_Then_getRightAnswer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IATest.Given_combinaisonWithDifferentLength_When_test_getException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mastermind" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ocr.pedsf.utils.*" />
+          <option name="PATTERN" value="com.ocr.pedsf.controler.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ocr.pedsf.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.utils.NombreSecretTest" />
-      <option name="METHOD_NAME" value="Given_twoNombreSecret_When_test_Then_getRightAnswer" />
+      <option name="PACKAGE_NAME" value="com.ocr.pedsf.controler" />
+      <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.controler.IATest" />
+      <option name="METHOD_NAME" value="Given_combinaisonWithDifferentLength_When_test_getException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" />
-      <item itemvalue="JUnit.NombreSecretTest" />
-      <item itemvalue="JUnit.NombreSecretTest.Given_twoNombreSecret_When_test_Then_getRightAnswer" />
-      <item itemvalue="JUnit.NombreSecretTest.Given_twoNombreSecretWithDifferentLength_When_test_getException" />
+      <item itemvalue="JUnit.IATest" />
+      <item itemvalue="JUnit.IATest.Given_combinaison8181AndResponseMixedUpperLower_When_doProposition_Then_get9090" />
+      <item itemvalue="JUnit.IATest.Given_combinaisonWithDifferentLength_When_test_getException" />
+      <item itemvalue="JUnit.IATest.Given_combinaisonWithDifferentLength_When_doProposition_getException" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.IATest" />
+        <item itemvalue="JUnit.IATest.Given_combinaisonWithDifferentLength_When_doProposition_getException" />
+        <item itemvalue="JUnit.IATest.Given_combinaisonWithDifferentLength_When_test_getException" />
+        <item itemvalue="JUnit.IATest.Given_combinaison8181AndResponseMixedUpperLower_When_doProposition_Then_get9090" />
         <item itemvalue="JUnit.IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" />
-        <item itemvalue="JUnit.NombreSecretTest" />
-        <item itemvalue="JUnit.NombreSecretTest.Given_twoNombreSecretWithDifferentLength_When_test_getException" />
-        <item itemvalue="JUnit.NombreSecretTest.Given_twoNombreSecret_When_test_Then_getRightAnswer" />
       </list>
     </recent_temporary>
   </component>
@@ -378,31 +479,17 @@
       <option name="project" value="LOCAL" />
       <updated>1560962315630</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="activation du mode debug en ligne de commande avec -d">
+      <created>1560964141005</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1560964141005</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 16h 52m 52s.xml">
-      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 16h 55m 48s.xml">
-      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 16h 58m 43s.xml">
-      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 16h 59m 25s.xml">
-      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 17h 01m 07s.xml">
-      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 17h 02m 34s.xml">
-      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 17h 02m 56s.xml">
-      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 17h 06m 02s.xml">
       <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
     </history-entry>
@@ -412,12 +499,33 @@
     <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.19 at 17h 13m 30s.xml">
       <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="IATest_Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret - 2019.06.20 at 09h 21m 46s.xml">
+      <configuration name="IATest.Given_combinaisonAndNombreSecret_When_doProposition_Then_modifyTheNombreSecret" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IATest - 2019.06.20 at 09h 26m 10s.xml">
+      <configuration name="IATest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IATest - 2019.06.20 at 09h 26m 51s.xml">
+      <configuration name="IATest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IATest_Given_combinaison8181AndResponseMixedUpperLower_When_doProposition_Then_get9090 - 2019.06.20 at 09h 27m 52s.xml">
+      <configuration name="IATest.Given_combinaison8181AndResponseMixedUpperLower_When_doProposition_Then_get9090" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IATest_Given_combinaisonWithDifferentLength_When_test_getException - 2019.06.20 at 09h 32m 31s.xml">
+      <configuration name="IATest.Given_combinaisonWithDifferentLength_When_test_getException" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IATest_Given_combinaisonWithDifferentLength_When_test_getException - 2019.06.20 at 09h 32m 52s.xml">
+      <configuration name="IATest.Given_combinaisonWithDifferentLength_When_test_getException" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IATest_Given_combinaisonWithDifferentLength_When_test_getException - 2019.06.20 at 09h 33m 33s.xml">
+      <configuration name="IATest.Given_combinaisonWithDifferentLength_When_test_getException" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14552239" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14712153" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -429,7 +537,7 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989339" visible="true" weight="0.42659575" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.19361702" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -437,7 +545,7 @@
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.3287234" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49922958" weight="0.3287234" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.49922958" visible="true" weight="0.3287234" />
       <window_info anchor="bottom" id="Console" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4989339" weight="0.3287234" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -497,7 +605,8 @@
     <MESSAGE value="Package controler&#10;- class IA pour gérer les intelligence artificielle de l'ordinateur&#10;- class Jeu implémentation du mode défenseur&#10;&#10;Package utils&#10;- class GestionSaisie création de la méthode pour vérifier notre réponse à l'ordinateur&#10;&#10;Package vue&#10;- class Affichage ajout de l'écran de demande de réponse de l'utilisateur à l'ordinateur" />
     <MESSAGE value="Package controler&#10;- class Jeu implémentation de la méthode duel" />
     <MESSAGE value="fichier README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="fichier README.md" />
+    <MESSAGE value="activation du mode debug en ligne de commande avec -d" />
+    <option name="LAST_COMMIT_MESSAGE" value="activation du mode debug en ligne de commande avec -d" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/TailleDifferenteException.java">
@@ -606,33 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/utils/NombreSecretTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -669,20 +751,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
+        <state relative-caret-position="459">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/utils/NombreSecretTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+        <state relative-caret-position="387">
+          <caret line="31" column="41" lean-forward="true" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="162" column="9" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

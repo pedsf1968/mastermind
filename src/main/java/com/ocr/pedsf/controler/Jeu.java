@@ -92,8 +92,13 @@ public class Jeu {
       IA ia = new IA(mp.getLongueur());
 
       do {
-         if (!reponse.equals(""))
-            ia.proposition(reponse);
+
+            try {
+               if (!reponse.equals("")) ia.proposition(reponse);
+            } catch (TailleDifferenteException e) {
+               e.printStackTrace();
+            }
+
 
          System.out.println("Vous : " + nsu.getNombre());
          System.out.println("IA : " + ia.getNombreSecret());
@@ -150,8 +155,11 @@ public class Jeu {
          } else {
             // si la réponse n'est pas trouvée c'est au tour de l'ordinateur
             System.out.println("C'est à l'ordinateur de trouver le code");
-           if (!reponse.equals(""))
-               ia.proposition(reponse);
+            try {
+              if (!reponse.equals("")) ia.proposition(reponse);
+            } catch (TailleDifferenteException e) {
+                 e.printStackTrace();
+            }
 
             System.out.println("Vous : " + nsu.getNombre());
             System.out.println("IA : " + ia.getNombreSecret());
