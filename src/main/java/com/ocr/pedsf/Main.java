@@ -17,7 +17,6 @@ public class Main {
       new Jeu(mp);
    }
 
-
    /**
     * gestionParametres : méthode qui récupère la configuration et les arguments
     *                     et retourne un objet du type MastermindProperties

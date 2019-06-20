@@ -98,7 +98,7 @@ public class NombreSecret {
    public String test(String chaine) throws TailleDifferenteException {
       StringBuilder sb = new StringBuilder();
 
-      if(chaine.length()!=this.taille) throw new TailleDifferenteException();
+      if(chaine.length()!=this.getTaille()) throw new TailleDifferenteException();
 
       for(int i=0; i<this.taille; i++){
          if(this.nombre.charAt(i)==chaine.charAt(i))

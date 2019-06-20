@@ -86,6 +86,7 @@ public class MastermindProperties {
    }
 
    public String getTagDebug() {
+
       return tagDebug;
    }
 

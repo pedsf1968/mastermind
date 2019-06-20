@@ -48,7 +48,6 @@ public class IA {
 
 
       StringBuilder sb = new StringBuilder();
-
       String nombre = getNombreSecret();
 
       for(int i=0; i<combinaison.length();i++){
@@ -61,7 +60,6 @@ public class IA {
                codeinf[i] = this.ns.getNombre().charAt(i);
                // on cherche un chiffre entre les bornes min et max
                sb.append( (int) Math.round(Math.floor( (codeinf[i]-'0' + Math.random()*(codesup[i]-codeinf[i])+1))));
-
                break;
             case '-':
                // on défini une nouvelle borne supérieur

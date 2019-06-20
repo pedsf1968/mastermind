@@ -1,12 +1,18 @@
 package com.ocr.pedsf.vue;
 
+import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.utils.GestionSaisie;
 
 /**
  * Affichage : class pour gérer les vues de l'application Mastermind
  */
 public class Affichage {
+   private MastermindProperties mp;
    private GestionSaisie gs = new GestionSaisie();
+
+   public Affichage(MastermindProperties mp){
+      this.mp = mp;
+   }
 
    /**
     * choixDuMode : affichage de la demande du mode de jeu
@@ -21,6 +27,7 @@ public class Affichage {
       System.out.println("1 - Challenger");
       System.out.println("2 - Défenseur");
       System.out.println("3 - Duel");
+      System.out.println("4 - AutoBaston");
       System.out.println("\nSaisissez un nombre plus grand pour quitter");
 
       return gs.demandeChoix(0);
@@ -33,8 +40,6 @@ public class Affichage {
     * @return taille du code souhaité
     */
    public int choixNombreDigit(int max){
-
-      System.out.println("\nMASTERMIND");
       System.out.println("Choisissez le nombre de digit entre 1 et " + max);
 
       return gs.demandeChoix(1,max);
@@ -47,8 +52,11 @@ public class Affichage {
     * @return code saisi par l'utilisateur
     */
    public String demandeProposition(int digit){
-      System.out.println("\nMASTERMIND");
-      System.out.println("Saisissez un nombre de "+ digit + " digits");
+      if(digit == 1) {
+         System.out.print("Saisissez un nombre à un chiffre : ");
+      } else {
+         System.out.print("Saisissez un nombre à " + digit + " chiffres : ");
+      }
 
       return gs.demandeProposition(digit);
    }
@@ -60,40 +68,36 @@ public class Affichage {
     * @return réponse saisie par l'utilisateur
     */
    public String demandeReponse(int digit){
-      System.out.println("\nMASTERMIND");
-      System.out.println("Indiquez pour chaque chiffre de la combinaison proposée si" +
-            " le chiffre de sa combinaison est :");
-      System.out.println("plus grand par un (+)");
-      System.out.println("plus petit par un (-)");
-      System.out.println("plus identique par un (=)");
+
+      if(mp.isModeDeveloppeur()) {
+         System.out.println("Indiquez pour chaque chiffre de la combinaison proposée si" +
+               " le chiffre de sa combinaison est :");
+         System.out.println("plus grand par un (+)");
+         System.out.println("plus petit par un (-)");
+         System.out.println("plus identique par un (=)");
+      } else {
+         System.out.println("Indiquez votre réponse de " + digit + " signes");
+      }
 
       return gs.demandeReponse(digit);
    }
 
    /**
-    * gagne : affichage de l'écran final gagnant
-    *
-    * @param coup effectués par l'utilisateur
+    * resultat : affichage du résultat de la partie
+    * @param gagnant nom du gagnant
+    * @param perdant nom du perdant
+    * @param coup nombre de coups
+    * @param code code recherché
     */
-   public void gagne(int coup){
+   public void resultat(String gagnant, String perdant, int coup, String code){
       System.out.println("\nMASTERMIND");
-
+      System.out.print(gagnant + " a gagné contre " + perdant + " en " + coup);
       if(coup==1) {
-         System.out.println("Vous avez gagné en 1 coup !");
+         System.out.println(" coup !");
       } else {
-         System.out.println("Vous avez gagné en " + coup + " coups !");
+         System.out.println(" coups !");
       }
 
-   }
-
-   /**
-    * perdu : affichage de l'écran final perdant
-    *
-    * @param code caché que l'utilisateur devais trouver
-    */
-   public void perdu(String code){
-      System.out.println("\nMASTERMIND");
-      System.out.println("Vous avez perdu !");
       System.out.println("Le code à trouver était : " + code);
    }
 }
