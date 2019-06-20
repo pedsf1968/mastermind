@@ -9,26 +9,41 @@ public class Main {
    // emplacement du fichier de configuration
    private static String CONFIGURATION_FILE = "src/main/resources/mastermind.properties";
 
-
    public static void main(String[] args){
     // récupération de la configuration
-      MastermindProperties mp = new MastermindProperties(CONFIGURATION_FILE);
+      MastermindProperties mp = gestionParametres(args);
+
+      // lancement du jeu
+      new Jeu(mp);
+   }
+
+
+   /**
+    * gestionParametres : méthode qui récupère la configuration et les arguments
+    *                     et retourne un objet du type MastermindProperties
+    *
+    * @param args arguments de la ligne de commande
+    * @return objet du type MastermindProperties
+    */
+   private static MastermindProperties gestionParametres(String[] args){
+      // récupération de la configuration
+      MastermindProperties response = new MastermindProperties(CONFIGURATION_FILE);
 
       // on active le mode développeur s'il est tapé en ligne de commande
       for(int i=0; i<args.length;i++){
          String option = args[i];
 
-         if (option.equals("-d")) {
-            mp.setModeDeveloppeur(true);
+         if (option.equals(response.getTagDebug())) {
+            response.setModeDeveloppeur(true);
             System.out.println("Mode debug activé !");
          } else {
-            System.out.println("mastermind [-d]");
+            // affichage de l'aide en ligne
+            System.out.println("mastermind ["+ response.getTagDebug()+"]");
             System.out.println("-d : option debug");
             exit(0);
          }
       }
-      // lancement du jeu
-      Jeu jeu = new Jeu(mp);
+      return response;
    }
 
 }

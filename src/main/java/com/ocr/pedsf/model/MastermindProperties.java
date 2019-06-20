@@ -12,11 +12,13 @@ public class MastermindProperties {
    private static int MASTERMIND_ESSAIS = 10;
    private static int MASTERMIND_MAX_DIGIT = 10;
    private static boolean MASTERMIND_DEVELOPPEUR = false;
+   private static String MASTERMIND_TAG_DEBUG = "-d";
 
    private int longueur;
    private int nbEssai;
    private int maxDigit;
    private boolean modeDeveloppeur;
+   private String tagDebug;
 
    public MastermindProperties(String fichier){
       Properties properties = new Properties();
@@ -45,6 +47,10 @@ public class MastermindProperties {
 
       sProp = properties.getProperty("mastermind.mode.developpeur");
       this.modeDeveloppeur = (sProp==null) ? MASTERMIND_DEVELOPPEUR : Boolean.valueOf(sProp);
+
+      sProp = properties.getProperty("mastermind.tag.debug");
+      this.tagDebug = (sProp==null) ? MASTERMIND_TAG_DEBUG : sProp;
+
    }
 
    public int getLongueur() {
@@ -77,6 +83,14 @@ public class MastermindProperties {
 
    public void setModeDeveloppeur(boolean modeDeveloppeur) {
       this.modeDeveloppeur = modeDeveloppeur;
+   }
+
+   public String getTagDebug() {
+      return tagDebug;
+   }
+
+   public void setTagDebug(String tagDebug) {
+      this.tagDebug = tagDebug;
    }
 
    @Override
