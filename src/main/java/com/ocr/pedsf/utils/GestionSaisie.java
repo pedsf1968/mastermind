@@ -6,8 +6,8 @@ import java.util.Scanner;
 /**
  * GestionSaisie : class pour faire des saisies sur l'entrée standard et contrôler la saisie
  */
-public class GestionSaisie {
-   Scanner sc = new Scanner(System.in);
+public abstract class GestionSaisie {
+
 
    /**
     * demandeChoix : demande un entier entre les bornes min et max
@@ -16,7 +16,9 @@ public class GestionSaisie {
     * @param max borne maximale incluse
     * @return le nombre entier >= min et <= max
     */
-   public int demandeChoix(int min, int max){
+   public static int demandeChoix(int min, int max){
+      Scanner sc = new Scanner(System.in);
+
       int reponse = 0;
       boolean bonneReponse = false;
 
@@ -39,7 +41,8 @@ public class GestionSaisie {
     * @param min borne minimale incluse
     * @return le nombre entier >= min
     */
-   public int demandeChoix(int min){
+   public static int demandeChoix(int min){
+      Scanner sc = new Scanner(System.in);
       int reponse = 0;
       boolean bonneReponse = false;
 
@@ -64,7 +67,8 @@ public class GestionSaisie {
     * @param digit taille du code
     * @return code saisi
     */
-   public String demandeProposition(int digit){
+   public static String demandeProposition(int digit){
+      Scanner sc = new Scanner(System.in);
       String reponse = "";
       boolean bonneReponse = false;
       String pattern = "[0-9]{" + digit + "}";
@@ -90,7 +94,8 @@ public class GestionSaisie {
     * @param digit nombre de digit du code
     * @return la réponse sous forme de +-=
     */
-   public String demandeReponse(int digit){
+   public static String demandeReponse(int digit){
+      Scanner sc = new Scanner(System.in);
       String reponse = "";
       boolean bonneReponse = false;
       String pattern = "[-+=]{" + digit + "}";
