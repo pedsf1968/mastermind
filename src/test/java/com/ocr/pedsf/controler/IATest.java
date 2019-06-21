@@ -1,5 +1,6 @@
 package com.ocr.pedsf.controler;
 
+import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public class IATest {
       IA ia = new IA("1234");
       try {
          ia.proposition("====");
-      } catch (TailleDifferenteException e) {
+      } catch (TailleDifferenteException | BornageException e) {
          e.printStackTrace();
       }
       assertEquals("1234", ia.getNombreSecret());
@@ -24,7 +25,7 @@ public class IATest {
       IA ia = new IA("8888");
       try {
          ia.proposition("++++");
-      } catch (TailleDifferenteException e) {
+      } catch (TailleDifferenteException | BornageException e) {
          e.printStackTrace();
       }
       assertEquals("9999", ia.getNombreSecret());
@@ -35,7 +36,7 @@ public class IATest {
       IA ia = new IA("1111");
       try {
          ia.proposition("----");
-      } catch (TailleDifferenteException e) {
+      } catch (TailleDifferenteException | BornageException e) {
          e.printStackTrace();
       }
       assertEquals("0000",ia.getNombreSecret());
@@ -46,7 +47,7 @@ public class IATest {
       IA ia = new IA("8181");
       try {
          ia.proposition("+-+-");
-      } catch (TailleDifferenteException e) {
+      } catch (TailleDifferenteException | BornageException e) {
          e.printStackTrace();
       }
       assertEquals("9090",ia.getNombreSecret());
@@ -55,7 +56,11 @@ public class IATest {
    @Test(expected = TailleDifferenteException.class)
    public void Given_combinaisonWithDifferentLength_When_doProposition_getException() throws TailleDifferenteException {
       IA ia = new IA("8181");
-      ia.proposition("+-+");
+      try {
+         ia.proposition("+-+");
+      } catch (TailleDifferenteException | BornageException e) {
+         e.printStackTrace();
+      }
    }
 
 

@@ -1,5 +1,6 @@
 package com.ocr.pedsf.controler;
 
+import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.NombreSecret;
 
@@ -44,7 +45,7 @@ public class IA {
     *
     * @param combinaison réponse de l'utilisateur sous forme de chaine de +-=
     */
-   public void proposition(String combinaison) throws TailleDifferenteException {
+   public void proposition(String combinaison) throws TailleDifferenteException, BornageException {
       Random rand = new Random();
 
      if(combinaison.length()!=this.ns.getTaille()) throw new TailleDifferenteException();
@@ -59,6 +60,11 @@ public class IA {
                // on défini une nouvelle borne inférieure
                codeinf[i] = this.ns.getNombre().charAt(i);
                codeinf[i]++;
+               if(codeinf[i]>codesup[i]) {
+                  codeinf[i] = '0';
+                  codesup[i] = '9';
+                  throw new BornageException();
+               }
 
                // on cherche un chiffre entre les bornes min et max
                sb.append( (int) rand.nextInt(codesup[i]-codeinf[i]+1)+codeinf[i]-'0');
@@ -67,6 +73,11 @@ public class IA {
                // on défini une nouvelle borne supérieur
                codesup[i] = this.ns.getNombre().charAt(i);
                codesup[i]--;
+               if(codeinf[i]>codesup[i]) {
+                  codeinf[i] = '0';
+                  codesup[i] = '9';
+                  throw new BornageException();
+               }
                // on cherche un chiffre entre les bornes min et max
                sb.append( (int) rand.nextInt(codesup[i]-codeinf[i]+1)+codeinf[i]-'0');
                break;

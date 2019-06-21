@@ -1,5 +1,6 @@
 package com.ocr.pedsf.controler;
 
+import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
@@ -36,7 +37,7 @@ public class Defenseur {
 
          try {
             ia.proposition(reponse);
-         } catch (TailleDifferenteException e) {
+         } catch (TailleDifferenteException | BornageException e) {
             e.printStackTrace();
          }
 

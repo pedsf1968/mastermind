@@ -26,7 +26,7 @@ public abstract class GestionSaisie {
          try {
             reponse = sc.nextInt();
             bonneReponse = (reponse >= min && reponse <= max);
-         } catch (IndexOutOfBoundsException e) {
+         } catch (InputMismatchException | IndexOutOfBoundsException  e) {
             sc.next();
             bonneReponse = false;
          }
@@ -50,7 +50,7 @@ public abstract class GestionSaisie {
          try {
             reponse = sc.nextInt();
             bonneReponse = (reponse >= min);
-         } catch (IndexOutOfBoundsException e) {
+         } catch (InputMismatchException | IndexOutOfBoundsException e) {
             sc.next();
             bonneReponse = false;
          }
