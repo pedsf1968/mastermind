@@ -16,7 +16,7 @@ public class Defenseur {
    public Defenseur(MastermindProperties mp){
       this.mp = mp;
       this.trouve = false;
-      this.nbCoup = 1;
+      this.nbCoup = 0;
       this.reponse = "";
    }
 
@@ -29,20 +29,19 @@ public class Defenseur {
       IA ia = new IA(mp.getLongueur());
 
       do {
+         System.out.println("Votre code : " + nsu.getNombre() + " proposition de l'IA : " + ia.getNombreSecret());
+         reponse = DemandeReponse.get(mp.getLongueur(),mp.isModeDeveloppeur());
+         if(nsu.getNombre().equals(ia.getNombreSecret()))
+            trouve = true;
 
          try {
-            if (!reponse.equals("")) ia.proposition(reponse);
+            ia.proposition(reponse);
          } catch (TailleDifferenteException e) {
             e.printStackTrace();
          }
 
-         System.out.println("Votre code : " + nsu.getNombre() + " proposition de l'IA : " + ia.getNombreSecret());
-         reponse = DemandeReponse.get(mp.getLongueur(),mp.isModeDeveloppeur());
-
-         if(nsu.getNombre().equals(ia.getNombreSecret()))
-            trouve = true;
-
-      } while (!trouve && ++nbCoup<mp.getNbEssai());
+         this.nbCoup++;
+      } while (!trouve && nbCoup<mp.getNbEssai());
 
       if (nbCoup>=mp.getNbEssai()) {
          Resultat.display("Utilisateur", "IA", nbCoup, nsu.getNombre());

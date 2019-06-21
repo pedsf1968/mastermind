@@ -25,26 +25,22 @@ public class Jeu {
       switch(mode){
          case 1 :
             //challenger();
-            if (challenger==null)
-               challenger = new Challenger(mp);
+            challenger = new Challenger(mp);
             challenger.run();
             demarrage();
             break;
          case 2 :
-            if( defenseur==null)
-               defenseur = new Defenseur(mp);
+            defenseur = new Defenseur(mp);
             defenseur.run();
             demarrage();
             break;
          case 3 :
-            if(duel == null)
-               duel = new Duel(mp);
+            duel = new Duel(mp);
             duel.run();
             demarrage();
             break;
          case 4:
-            if(autoBaston == null)
-               autoBaston = new AutoBaston(mp);
+            autoBaston = new AutoBaston(mp);
             autoBaston.run();
             demarrage();
             break;

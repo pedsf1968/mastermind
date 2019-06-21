@@ -1,2 +1,16 @@
-F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\utils\Nombre.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\controler\AutoBaston.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\vue\DemandeProposition.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\model\NombreSecret.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\vue\DemandeReponse.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\controler\Jeu.java
 F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\Main.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\exceptions\TailleDifferenteException.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\controler\IA.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\controler\Challenger.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\model\MastermindProperties.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\vue\Resultat.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\vue\ChoixNombreDigit.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\vue\ChoixDuMode.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\controler\Defenseur.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\utils\GestionSaisie.java
+F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\controler\Duel.java

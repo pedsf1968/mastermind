@@ -2,15 +2,25 @@ package com.ocr.pedsf;
 
 import com.ocr.pedsf.controler.Jeu;
 import com.ocr.pedsf.model.MastermindProperties;
+import  org.apache.logging.log4j.LogManager;
+import  org.apache.logging.log4j.Logger;
+
+
 
 import static java.lang.System.exit;
 
 public class Main {
+   private static final Logger log = LogManager.getLogger(Main.class);
    // emplacement du fichier de configuration
    private static String CONFIGURATION_FILE = "src/main/resources/mastermind.properties";
 
    public static void main(String[] args){
-    // récupération de la configuration
+      log.debug("Example debug message ..");
+      log.info("Example info message ..");
+      log.warn("Example warn message ..");
+      log.error("Example error message ..");
+      log.fatal("Example fatal message ..");
+      // récupération de la configuration
       MastermindProperties mp = gestionParametres(args);
 
       // lancement du jeu

@@ -9,5 +9,8 @@
         <module name="mastermind" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mastermind" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -77,7 +77,7 @@ public class AutoBaston {
          // on incrémente le conteur de tour
          nbCoup++;
 
-      } while (!trouve);
+      } while (!this.trouve);
 
 
 

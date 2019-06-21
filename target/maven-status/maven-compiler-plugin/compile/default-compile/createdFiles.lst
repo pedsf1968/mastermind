@@ -1,0 +1,16 @@
+com\ocr\pedsf\vue\ChoixDuMode.class
+com\ocr\pedsf\vue\ChoixNombreDigit.class
+com\ocr\pedsf\vue\DemandeReponse.class
+com\ocr\pedsf\controler\IA.class
+com\ocr\pedsf\utils\GestionSaisie.class
+com\ocr\pedsf\model\NombreSecret.class
+com\ocr\pedsf\model\MastermindProperties.class
+com\ocr\pedsf\controler\Jeu.class
+com\ocr\pedsf\exceptions\TailleDifferenteException.class
+com\ocr\pedsf\controler\Duel.class
+com\ocr\pedsf\Main.class
+com\ocr\pedsf\vue\DemandeProposition.class
+com\ocr\pedsf\controler\AutoBaston.class
+com\ocr\pedsf\controler\Defenseur.class
+com\ocr\pedsf\vue\Resultat.class
+com\ocr\pedsf\controler\Challenger.class

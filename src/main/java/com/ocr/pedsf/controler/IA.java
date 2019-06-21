@@ -3,6 +3,8 @@ package com.ocr.pedsf.controler;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.NombreSecret;
 
+import java.util.Random;
+
 public class IA {
    private NombreSecret ns; // proposition de l'ordinateur pour trouver un code
    private char[] codesup; // bornes inférieures
@@ -43,6 +45,7 @@ public class IA {
     * @param combinaison réponse de l'utilisateur sous forme de chaine de +-=
     */
    public void proposition(String combinaison) throws TailleDifferenteException {
+      Random rand = new Random();
 
      if(combinaison.length()!=this.ns.getTaille()) throw new TailleDifferenteException();
 
@@ -51,25 +54,25 @@ public class IA {
       String nombre = getNombreSecret();
 
       for(int i=0; i<combinaison.length();i++){
-         // on enlève le code ASCII de zéro pour obtenir un entier
-         int valeur = this.ns.getNombre().charAt(i)-'0';
-
          switch(combinaison.charAt(i)){
             case '+':
                // on défini une nouvelle borne inférieure
                codeinf[i] = this.ns.getNombre().charAt(i);
+               codeinf[i]++;
+
                // on cherche un chiffre entre les bornes min et max
-               sb.append( (int) Math.round(Math.floor( (codeinf[i]-'0' + Math.random()*(codesup[i]-codeinf[i])+1))));
+               sb.append( (int) rand.nextInt(codesup[i]-codeinf[i]+1)+codeinf[i]-'0');
                break;
             case '-':
                // on défini une nouvelle borne supérieur
                codesup[i] = this.ns.getNombre().charAt(i);
+               codesup[i]--;
                // on cherche un chiffre entre les bornes min et max
-               sb.append( (int) Math.round(Math.floor( (codeinf[i]-'0' + Math.random()*(codesup[i]-codeinf[i])))));
+               sb.append( (int) rand.nextInt(codesup[i]-codeinf[i]+1)+codeinf[i]-'0');
                break;
             case '=':
                // c'est le bon chiffre
-               sb.append(valeur);
+               sb.append(this.ns.getNombre().charAt(i));
                codeinf[i] = this.ns.getNombre().charAt(i);
                codesup[i] = this.ns.getNombre().charAt(i);
                break;

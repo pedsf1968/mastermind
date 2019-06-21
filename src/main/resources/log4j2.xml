@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+
+   <Appenders>
+
+      <!-- Console Appender -->
+      <Console name="CONSOLE" target="SYSTEM_OUT">
+         <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
+      </Console>
+
+      <!-- File Appender -->
+      <File name="FILE" fileName="mastermind.log" append="true">
+         <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
+      </File>
+   </Appenders>
+
+   <Loggers>
+      <Logger name="com.dsf" level="debug" >
+         <AppenderRef ref="CONSOLE" />
+         <AppenderRef ref="FILE" />
+      </Logger>
+      <Root level="info">
+         <AppenderRef ref="CONSOLE" />
+         <AppenderRef ref="FILE" />
+      </Root>
+   </Loggers>
+</Configuration>

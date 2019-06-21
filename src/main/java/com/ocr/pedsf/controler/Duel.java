@@ -23,6 +23,10 @@ public class Duel {
       this.reponse = "";
    }
 
+   public void setMp(MastermindProperties mp) {
+      this.mp = mp;
+   }
+
    public void run(){
       System.out.println("\nMASTERMIND : Mode duel");
 
