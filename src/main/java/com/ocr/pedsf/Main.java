@@ -2,24 +2,23 @@ package com.ocr.pedsf;
 
 import com.ocr.pedsf.controler.Jeu;
 import com.ocr.pedsf.model.MastermindProperties;
-import  org.apache.logging.log4j.LogManager;
-import  org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 
 import static java.lang.System.exit;
 
+/**
+ * Main : class principale de lancement du jeu
+ * @author pedsf
+ */
 public class Main {
    private static final Logger log = LogManager.getLogger(Main.class);
    // emplacement du fichier de configuration
    private static String CONFIGURATION_FILE = "src/main/resources/mastermind.properties";
 
    public static void main(String[] args){
-      log.debug("Example debug message ..");
-      log.info("Example info message ..");
-      log.warn("Example warn message ..");
-      log.error("Example error message ..");
-      log.fatal("Example fatal message ..");
       // récupération de la configuration
       MastermindProperties mp = gestionParametres(args);
 
@@ -35,7 +34,7 @@ public class Main {
     * @return objet du type MastermindProperties
     */
    private static MastermindProperties gestionParametres(String[] args){
-      // récupération de la configuration
+      // récupération de la configuration du fichier properties
       MastermindProperties response = new MastermindProperties(CONFIGURATION_FILE);
 
       // on active le mode développeur s'il est tapé en ligne de commande

@@ -5,8 +5,17 @@ import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
 import com.ocr.pedsf.vue.Resultat;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+/**
+ * Autobaston class contrôleur pour le mode AutoBaston
+ *
+ * @author pedsf
+ */
 public class AutoBaston {
+   private static final Logger log = LogManager.getLogger(AutoBaston.class);
+
    private MastermindProperties mp;
    private boolean trouve;
    private int nbCoup;
@@ -27,7 +36,9 @@ public class AutoBaston {
    }
 
    public void run(){
-      System.out.println("\nMASTERMIND : Mode autobaston");
+      log.debug("Lancement du mode AutoBaston");
+      System.out.println("\nMASTERMIND : Mode AutoBaston\n");
+
       // initialisation des nombres secrets des IA
       NombreSecret nso1 = new NombreSecret(mp.getLongueur());
       NombreSecret nso2 = new NombreSecret(mp.getLongueur());
@@ -51,6 +62,7 @@ public class AutoBaston {
             if(proposition1.equals(nso2.getNombre())) {
                trouve = true;
                Resultat.display("IA1", "IA2",nbCoup,nso2.getNombre());
+               log.debug("IA1", "IA2",nbCoup,nso2.getNombre());
             } else {
                // recalcul suivant la réponse de IA2 pour le prochain tour
                ia1.proposition(reponse2);
@@ -66,6 +78,7 @@ public class AutoBaston {
                if (proposition2.equals(nso1.getNombre())) {
                   trouve = true;
                   Resultat.display("IA2", "IA1", nbCoup, nso1.getNombre());
+                  log.debug("IA2", "IA1", nbCoup, nso1.getNombre());
                } else {
                   // recalcul suivant la réponse de IA1
                   ia2.proposition(reponse1);
@@ -79,9 +92,6 @@ public class AutoBaston {
          nbCoup++;
 
       } while (!this.trouve);
-
-
-
 
    }
 }

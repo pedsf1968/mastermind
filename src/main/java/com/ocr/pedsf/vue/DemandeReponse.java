@@ -1,9 +1,13 @@
 package com.ocr.pedsf.vue;
 
-import com.ocr.pedsf.utils.GestionSaisie;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public abstract class DemandeReponse {
-
+   private static final Logger log = LogManager.getLogger(DemandeReponse.class);
 
    /**
     * demandeReponse : affichage de la demande de réponse de l'utilisateur à IA
@@ -13,16 +17,23 @@ public abstract class DemandeReponse {
     */
    public static String get(int digit, boolean isDebug){
 
-      if(isDebug) {
-         System.out.println("Indiquez pour chaque chiffre de la combinaison proposée si" +
-               " le chiffre de sa combinaison est :");
-         System.out.println("plus grand par un (+)");
-         System.out.println("plus petit par un (-)");
-         System.out.println("plus identique par un (=)");
-      } else {
-         System.out.println("Indiquez votre réponse de " + digit + " signes");
-      }
+      Scanner sc = new Scanner(System.in);
+      String reponse = "";
+      String pattern = "[-+=]{" + digit + "}";
 
-      return GestionSaisie.demandeReponse(digit);
+      do {
+         try {
+            reponse = sc.next(pattern);
+            log.debug("Réponse : " + reponse);
+            return reponse;
+         } catch (InputMismatchException e) {
+            sc.next();
+            log.error("Mauvaise saisie !", e);
+            System.out.println("Indiquez pour chaque chiffre de la combinaison proposée si" +
+                  " le chiffre de sa combinaison est :\n" +
+                  "plus grand par un (+), plus petit par un (-) identique par un (=)\n");
+         }
+
+      } while(true);
    }
 }

@@ -2,9 +2,9 @@ com\ocr\pedsf\vue\ChoixDuMode.class
 com\ocr\pedsf\vue\ChoixNombreDigit.class
 com\ocr\pedsf\vue\DemandeReponse.class
 com\ocr\pedsf\controler\IA.class
-com\ocr\pedsf\utils\GestionSaisie.class
 com\ocr\pedsf\model\NombreSecret.class
 com\ocr\pedsf\model\MastermindProperties.class
+com\ocr\pedsf\exceptions\BornageException.class
 com\ocr\pedsf\controler\Jeu.class
 com\ocr\pedsf\exceptions\TailleDifferenteException.class
 com\ocr\pedsf\controler\Duel.class

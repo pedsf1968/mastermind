@@ -3,10 +3,19 @@ package com.ocr.pedsf.controler;
 import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.NombreSecret;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
+/**
+ * IA class contrôleur pour gérer l'intelkligence artificielle de l'ordinateur
+ *
+ * @author pedsf
+ */
 public class IA {
+   private static final Logger log = LogManager.getLogger(IA.class);
+
    private NombreSecret ns; // proposition de l'ordinateur pour trouver un code
    private char[] codesup; // bornes inférieures
    private char[] codeinf; // bornes supérieures
@@ -34,9 +43,14 @@ public class IA {
       }
    }
 
+   public NombreSecret getNs() {
+      return ns;
+   }
+
    public String getNombreSecret() {
       return ns.getNombre();
    }
+
 
    /**
     * proposition : méthode qui fait des propositions de combinaison de chiffre
@@ -52,7 +66,7 @@ public class IA {
 
 
       StringBuilder sb = new StringBuilder();
-      String nombre = getNombreSecret();
+      String nombre = getNs().getNombre();
 
       for(int i=0; i<combinaison.length();i++){
          switch(combinaison.charAt(i)){

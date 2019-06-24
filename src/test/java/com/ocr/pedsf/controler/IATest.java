@@ -53,15 +53,4 @@ public class IATest {
       assertEquals("9090",ia.getNombreSecret());
    }
 
-   @Test(expected = TailleDifferenteException.class)
-   public void Given_combinaisonWithDifferentLength_When_doProposition_getException() throws TailleDifferenteException {
-      IA ia = new IA("8181");
-      try {
-         ia.proposition("+-+");
-      } catch (TailleDifferenteException | BornageException e) {
-         e.printStackTrace();
-      }
-   }
-
-
 }

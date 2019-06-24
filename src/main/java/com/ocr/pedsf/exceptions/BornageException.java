@@ -4,4 +4,7 @@ public class BornageException extends Exception{
    public BornageException(){
       super("Vous avez donné une mauvaise réponse à l'ordinateur !");
    }
+   public BornageException(String message){
+      super(message);
+   }
 }

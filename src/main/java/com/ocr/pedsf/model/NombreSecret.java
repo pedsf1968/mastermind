@@ -1,13 +1,18 @@
 package com.ocr.pedsf.model;
 
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
 
 /**
  * NombreSecret : class pour gérer les chaines de nombres
+ *
+ * @author pedsf
  */
 public class NombreSecret {
+   private static final Logger log = LogManager.getLogger(NombreSecret.class);
    private String nombre;
    private int taille;
 
@@ -24,8 +29,17 @@ public class NombreSecret {
    public String getNombre() {
       return nombre;
    }
+
+   public void setNombre(String nombre) {
+      this.nombre = nombre;
+   }
+
    public int getTaille() {
       return taille;
+   }
+
+   public void setTaille(int taille) {
+      this.taille = taille;
    }
 
    public String initNombreTailleN(int n){

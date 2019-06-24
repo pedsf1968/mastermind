@@ -1,13 +1,20 @@
 package com.ocr.pedsf.model;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 /**
  * MastermindProperties : class pour gérer les propriétés du jeux
+ *
+ * @author pedsf
  */
 public class MastermindProperties {
+   private static final Logger log = LogManager.getLogger(MastermindProperties.class);
+
    private static int MASTERMIND_LONGUEUR = 4;
    private static int MASTERMIND_ESSAIS = 10;
    private static int MASTERMIND_MAX_DIGIT = 10;
@@ -30,9 +37,8 @@ public class MastermindProperties {
          fis = new FileInputStream(fichier);
          properties.load(fis);
 
-      } catch (
-            IOException e) {
-         e.printStackTrace();
+      } catch (IOException e) {
+         log.error(e);
       }
 
       //initialisation des propriétés
