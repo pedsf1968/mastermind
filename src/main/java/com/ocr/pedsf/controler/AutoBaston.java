@@ -85,7 +85,7 @@ public class AutoBaston {
                }
             }
          } catch (TailleDifferenteException | BornageException e) {
-            e.printStackTrace();
+            log.error(e);
          }
 
          // on incrémente le conteur de tour

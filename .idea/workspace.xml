@@ -7,30 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/mastermind.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/MauvaiseReponseException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mastermind.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mastermind.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/AutoBaston.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/AutoBaston.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Challenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Challenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Defenseur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Defenseur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Duel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/BornageException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/BornageException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/TailleDifferenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/TailleDifferenteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/utils/GestionSaisie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixNombreDigit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixNombreDigit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeReponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mastermind.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mastermind.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/exceptions/TailleDifferenteException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/exceptions/TailleDifferenteException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/model/MastermindProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/model/MastermindProperties.class" afterDir="false" />
@@ -76,11 +54,53 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Duel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+            <state relative-caret-position="201">
+              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="717">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Challenger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="677">
+              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/utils/NombreSecretTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/AutoBaston.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1139">
+              <caret line="67" column="41" lean-forward="true" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Jeu.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/TailleDifferenteException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/AutoBaston.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/IA.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mastermind.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" />
@@ -126,6 +145,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeReponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Duel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/AutoBaston.java" />
       </list>
     </option>
   </component>
@@ -428,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561135418315</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ajout des log dans toutes les classes et envoi des messages d'erreur dans la log&#10;&#10;Package controler&#10;test de la mauvaise réponse de l'utilisateur à une proposition de l'ordinateur dans les class&#10;Defenseur et Duel&#10;&#10;ajout de messages d'erreurs">
+      <created>1561396376318</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561396376318</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -461,7 +488,7 @@
     <frame x="7" y="36" width="1866" height="1034" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22812846" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22812846" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -473,7 +500,7 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38952163" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38952163" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -498,7 +525,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ajout de log4j2" />
     <MESSAGE value="Package utils&#10;- class GestionSaisie ajout de l'erreur InputMismatchException si les caractères ne correspondent pas&#10;&#10;Package exceptions&#10;- ajout de BornageException qui est déclenchée si la borne inf et plus grande que la sup à cause d'une mauvaise réponse de l'utilisateur&#10;&#10;Package controler&#10;- class IA ajout du test des bornes sup et inf avec le lancement de BornageException&#10;&#10;modification du pom pour faire un jar avec les dépendances" />
-    <option name="LAST_COMMIT_MESSAGE" value="Package utils&#10;- class GestionSaisie ajout de l'erreur InputMismatchException si les caractères ne correspondent pas&#10;&#10;Package exceptions&#10;- ajout de BornageException qui est déclenchée si la borne inf et plus grande que la sup à cause d'une mauvaise réponse de l'utilisateur&#10;&#10;Package controler&#10;- class IA ajout du test des bornes sup et inf avec le lancement de BornageException&#10;&#10;modification du pom pour faire un jar avec les dépendances" />
+    <MESSAGE value="ajout des log dans toutes les classes et envoi des messages d'erreur dans la log&#10;&#10;Package controler&#10;test de la mauvaise réponse de l'utilisateur à une proposition de l'ordinateur dans les class&#10;Defenseur et Duel&#10;&#10;ajout de messages d'erreurs" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout des log dans toutes les classes et envoi des messages d'erreur dans la log&#10;&#10;Package controler&#10;test de la mauvaise réponse de l'utilisateur à une proposition de l'ordinateur dans les class&#10;Defenseur et Duel&#10;&#10;ajout de messages d'erreurs" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -541,20 +569,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/utils/NombreSecretTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
         </state>
       </provider>
     </entry>
@@ -629,26 +643,6 @@
             <element signature="e#146#147#0" expanded="true" />
             <element signature="e#241#242#0" expanded="true" />
             <element signature="e#258#259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/AutoBaston.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="80" column="66" selection-start-line="80" selection-start-column="66" selection-end-line="80" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Challenger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -733,8 +727,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Duel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+        <state relative-caret-position="201">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/controler/IATest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/utils/NombreSecretTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/AutoBaston.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="67" column="41" lean-forward="true" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/Challenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
