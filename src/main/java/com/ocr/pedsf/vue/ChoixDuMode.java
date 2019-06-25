@@ -1,5 +1,6 @@
 package com.ocr.pedsf.vue;
 
+import com.ocr.pedsf.exceptions.MauvaiseReponseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,15 +13,15 @@ import java.util.Scanner;
  * @author pedsf
  */
 public abstract class ChoixDuMode {
-   private static final Logger log = LogManager.getLogger(ChoixDuMode.class);
+   private static final Logger log = LogManager.getLogger(ChoixDuMode.class.getName());
 
    public static int get() {
-      Scanner sc = new Scanner(System.in);
-
+      log.traceEntry();
+      int reponse;
 
       do {
          try {
-            int reponse;
+            Scanner sc = new Scanner(System.in);
             System.out.println("\nMASTERMIND");
             System.out.println("\nChoisissez le mode de jeu :");
             System.out.println("0 - Choix du nombre de digit");
@@ -31,12 +32,13 @@ public abstract class ChoixDuMode {
             System.out.println("\nSaisissez un nombre plus grand pour quitter");
 
             reponse = sc.nextInt();
-            log.debug("Choix du mode de jeu : "+ reponse);
-            return reponse;
-         } catch (InputMismatchException | IndexOutOfBoundsException e) {
-            log.error("Mauvaise saisie !", e);
-            sc.next();
-            System.out.println("\n Choisissez un nombre positif !\n");
+            if(reponse>=0) {
+               return log.traceExit(reponse);
+            } else {
+               throw new MauvaiseReponseException("\n Erreur de saisie! Choisissez un nombre positif.");
+            }
+         } catch (MauvaiseReponseException | InputMismatchException e) {
+            log.error( e);
          }
 
       } while(true);

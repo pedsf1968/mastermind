@@ -35,6 +35,9 @@ public class AutoBaston {
       this.reponse2 = "";
    }
 
+   /**
+    * run : méthode qui lance l'AutoBaston
+    */
    public void run(){
       log.debug("Lancement du mode AutoBaston");
       System.out.println("\nMASTERMIND : Mode AutoBaston\n");

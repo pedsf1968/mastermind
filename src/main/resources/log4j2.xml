@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="DEBUG">
+<Configuration status="WARN">
 
    <Appenders>
 
@@ -15,11 +15,13 @@
    </Appenders>
 
    <Loggers>
-      <Logger name="com.dsf" level="debug" >
-         <AppenderRef ref="CONSOLE" />
+      <Logger name="com.ocr.pedsf" level="debug" additivity="false">
+          <AppenderRef ref="CONSOLE" />
          <AppenderRef ref="FILE" />
       </Logger>
-      <Root level="info">
+
+
+      <Root level="error">
          <AppenderRef ref="CONSOLE" />
          <AppenderRef ref="FILE" />
       </Root>

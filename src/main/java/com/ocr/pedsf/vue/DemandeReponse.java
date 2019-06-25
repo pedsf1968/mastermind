@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public abstract class DemandeReponse {
-   private static final Logger log = LogManager.getLogger(DemandeReponse.class);
+   private static final Logger log = LogManager.getLogger(DemandeReponse.class.getName());
 
    /**
     * demandeReponse : affichage de la demande de réponse de l'utilisateur à IA
@@ -16,16 +16,14 @@ public abstract class DemandeReponse {
     * @return réponse saisie par l'utilisateur
     */
    public static String get(int digit, boolean isDebug){
-
+      log.traceEntry();
       Scanner sc = new Scanner(System.in);
       String reponse = "";
       String pattern = "[-+=]{" + digit + "}";
 
       do {
          try {
-            reponse = sc.next(pattern);
-            log.debug("Réponse : " + reponse);
-            return reponse;
+            return log.traceExit(sc.next(pattern));
          } catch (InputMismatchException e) {
             sc.next();
             log.error("Mauvaise saisie !", e);

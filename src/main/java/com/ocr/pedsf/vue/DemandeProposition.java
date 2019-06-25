@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 
 public abstract class DemandeProposition {
-   private static final Logger log = LogManager.getLogger(DemandeProposition.class);
+   private static final Logger log = LogManager.getLogger(DemandeProposition.class.getName());
 
    /**
     * demandeProposition : affichage de la demande de saisie d'un code
@@ -22,18 +22,15 @@ public abstract class DemandeProposition {
     * @return code saisi par l'utilisateur
     */
    public static String get(int digit){
+      log.traceEntry();
       Scanner sc = new Scanner(System.in);
       String reponse = "";
       String pattern = "[0-9]{" + digit + "}";
 
       do {
          try {
-            //System.out.print("Proposition : ");
-            reponse = sc.next(pattern);
-            log.debug("Proposition : "+reponse);
-            return reponse;
-
-         } catch (InputMismatchException e) {
+            return log.traceExit(sc.next(pattern));
+        } catch (InputMismatchException e) {
             sc.next();
             log.error("Mauvaise saisie !", e);
             System.out.println("\n Choisissez un nombre de "+ digit + " chiffre(s) !\n");

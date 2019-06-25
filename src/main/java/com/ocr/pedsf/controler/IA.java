@@ -54,6 +54,7 @@ public class IA {
 
    /**
     * proposition : méthode qui fait des propositions de combinaison de chiffre
+    *               à partir de la combinaison donnée à la précédente proposition
     *               en changeant à chaque fois les bornes min et max
     *               un nouveau chiffre est calculé aléatoirement entre les bornes
     *

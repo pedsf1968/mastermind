@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author pedsf
  */
 public abstract class ChoixNombreDigit {
-   private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class);
+   private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());
 
    /**
     * choixNombreDigit : affichage de la demande de changement du nombre de digit pour le code
@@ -22,28 +22,27 @@ public abstract class ChoixNombreDigit {
     * @return taille du code souhaité
     */
    public static int get(int max){
-      Scanner sc = new Scanner(System.in);
+      log.traceEntry();
+
 
       do {
          try {
+            Scanner sc = new Scanner(System.in);
             System.out.print("Choisissez le nombre de digit entre 1 et " + max + " : ");
             int reponse = sc.nextInt();
 
             if (reponse == 1) {
-               log.info("Modification de la longueur du code à 1 digit.");
-               log.debug("Modification de la longueur du code à 1 digit");
-               return reponse;
+               System.out.println("\nModification de la taille du nombre secret à "+reponse + " digit");
+               return log.traceExit(reponse);
             } else if (reponse > 1 && reponse <= max) {
-               log.info("Modification de la longueur du code à " + reponse + " digits.");
-               log.debug("Modification de la longueur du code à " + reponse + " digits");
-               return reponse;
+               System.out.println("\nModification de la taille du nombre secret à "+reponse + " digits");
+               return log.traceExit(reponse);
             } else {
-               throw new BornageException("Entrez un nombre entre 1 et " + max);
+               throw new BornageException("\n Erreur de saisie! Choisissez un nombre de de digit entre 1 et " + max + " .\n");
             }
-         } catch (BornageException | InputMismatchException | IndexOutOfBoundsException  e) {
-            sc.next();
-            log.error("Mauvaise saisie !", e);
-            System.out.println("\n Choisissez un nombre de de digit entre 1 et " + max + " !\n");
+
+         } catch ( BornageException | InputMismatchException | IndexOutOfBoundsException  e) {
+            log.error(e);
          }
 
       } while(true);

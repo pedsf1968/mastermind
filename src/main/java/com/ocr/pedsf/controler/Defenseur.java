@@ -25,12 +25,15 @@ public class Defenseur {
    private String reponse;
 
    public Defenseur(MastermindProperties mp){
-
       this.mp = mp;
       this.trouve = false;
       this.nbCoup = 0;
       this.reponse = "";
    }
+
+   /**
+    * run : méthode qui lance le mode défense
+    */
 
    public void run(){
       log.debug("Lancement du mode Défenseur");
@@ -43,6 +46,7 @@ public class Defenseur {
          System.out.print("Entrez votre nombre secret de " + mp.getLongueur() + " chiffres : ");
       }
       NombreSecret nsu = new NombreSecret(DemandeProposition.get(mp.getLongueur()));
+      System.out.println("Votre nombre secret est : " + nsu.getNombre()+"\n");
 
       IA ia = new IA(mp.getLongueur());
       if(mp.isModeDeveloppeur()) {

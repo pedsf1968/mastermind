@@ -22,14 +22,14 @@ public class Jeu {
 
    public  Jeu(MastermindProperties mp){
       this.mp = mp;
-     demarrage();
+     run();
    }
 
    /**
-    * demarrage : méthode de lancement de l'accueil pour choisir le mode de jeu ou la taille du code
+    * run : méthode de lancement de l'accueil pour choisir le mode de jeu ou la taille du code
     */
-   protected void demarrage(){
-      log.debug("Affichage menu général");
+   protected void run(){
+      log.traceEntry();
       int mode = ChoixDuMode.get();
 
       switch(mode){
@@ -37,31 +37,31 @@ public class Jeu {
             // spécification du nombre de digits du code
             mp.setLongueur(ChoixNombreDigit.get(mp.getMaxDigit()));
             if(mp.isModeDeveloppeur()) System.out.println("Nouveau nombre de digit : " + mp.getLongueur());
-            demarrage();
+            run();
             break;
          case 1 :
             // lancement du mode Challenger
             challenger = new Challenger(mp);
             challenger.run();
-            demarrage();
+            run();
             break;
          case 2 :
             //  lancement du mode défenseur
             defenseur = new Defenseur(mp);
             defenseur.run();
-            demarrage();
+            run();
             break;
          case 3 :
             // lancement du mode duel
             duel = new Duel(mp);
             duel.run();
-            demarrage();
+            run();
             break;
          case 4:
             // lancement du mode AutoBaston
             autoBaston = new AutoBaston(mp);
             autoBaston.run();
-            demarrage();
+            run();
             break;
          default:
             // sortie du jeu
