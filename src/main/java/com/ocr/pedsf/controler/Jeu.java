@@ -15,10 +15,7 @@ public class Jeu {
    private static final Logger log = LogManager.getLogger(Jeu.class);
 
    private MastermindProperties mp = null;
-   private Challenger challenger = null;
-   private Defenseur defenseur = null;
-   private Duel duel = null;
-   private AutoBaston autoBaston = null;
+   private Mode mode = null;
 
    public  Jeu(MastermindProperties mp){
       this.mp = mp;
@@ -30,9 +27,9 @@ public class Jeu {
     */
    protected void run(){
       log.traceEntry();
-      int mode = ChoixDuMode.get();
+      int choixMode = ChoixDuMode.get();
 
-      switch(mode){
+      switch(choixMode){
          case 0 :
             // spécification du nombre de digits du code
             mp.setLongueur(ChoixNombreDigit.get(mp.getMaxDigit()));
@@ -41,26 +38,26 @@ public class Jeu {
             break;
          case 1 :
             // lancement du mode Challenger
-            challenger = new Challenger(mp);
-            challenger.run();
+            mode = new Challenger(mp);
+            mode.run();
             run();
             break;
          case 2 :
             //  lancement du mode défenseur
-            defenseur = new Defenseur(mp);
-            defenseur.run();
+            mode = new Defenseur(mp);
+            mode.run();
             run();
             break;
          case 3 :
             // lancement du mode duel
-            duel = new Duel(mp);
-            duel.run();
+            mode = new Duel(mp);
+            mode.run();
             run();
             break;
          case 4:
             // lancement du mode AutoBaston
-            autoBaston = new AutoBaston(mp);
-            autoBaston.run();
+            mode = new AutoBaston(mp);
+            mode.run();
             run();
             break;
          default:

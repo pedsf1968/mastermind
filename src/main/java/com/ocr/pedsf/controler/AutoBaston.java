@@ -13,26 +13,19 @@ import org.apache.logging.log4j.Logger;
  *
  * @author pedsf
  */
-public class AutoBaston {
+public class AutoBaston implements Mode {
    private static final Logger log = LogManager.getLogger(AutoBaston.class);
 
    private MastermindProperties mp;
-   private boolean trouve;
-   private int nbCoup;
-   private String proposition1;
-   private String proposition2;
-   private String reponse1;
-   private String reponse2;
+   private boolean trouve = false;
+   private int nbCoup = 1;
+   private String proposition1 = "";
+   private String proposition2 = "";
+   private String reponse1 = "";
+   private String reponse2 = "";
 
    public AutoBaston(MastermindProperties mp){
       this.mp = mp;
-
-      this.trouve = false;
-      this.nbCoup = 1;
-      this.proposition1 = "";
-      this.proposition2 = "";
-      this.reponse1 = "";
-      this.reponse2 = "";
    }
 
    /**

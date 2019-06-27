@@ -16,21 +16,17 @@ import org.apache.logging.log4j.Logger;
  *
  * @author pedsf
  */
-public class Duel {
+public class Duel implements Mode{
    private static final Logger log = LogManager.getLogger(Duel.class);
 
    private MastermindProperties mp;
-   private boolean trouve;
-   private int nbCoup;
-   private String proposition;
-   private String reponse;
+   private boolean trouve = false;
+   private int nbCoup = 1;
+   private String proposition = "";
+   private String reponse = "";
 
    public Duel(MastermindProperties mp){
       this.mp = mp;
-      this.trouve = false;
-      this.nbCoup = 1;
-      this.proposition = "";
-      this.reponse = "";
    }
 
    public void setMp(MastermindProperties mp) {

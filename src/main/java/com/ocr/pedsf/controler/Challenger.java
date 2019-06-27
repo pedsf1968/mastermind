@@ -13,20 +13,17 @@ import org.apache.logging.log4j.Logger;
  *
  * @author pedsf
  */
-public class Challenger {
+public class Challenger implements Mode{
    private static final Logger log = LogManager.getLogger(Challenger.class);
 
    private MastermindProperties mp;
-   private boolean trouve;
-   private int nbCoup;
-   private String proposition;
+   private boolean trouve = false;
+   private int nbCoup = 1;
+   private String proposition = "";
 
 
    public Challenger(MastermindProperties mp){
       this.mp = mp;
-      this.trouve = false;
-      this.nbCoup = 1;
-      this.proposition = "";
    }
 
    public void run() {

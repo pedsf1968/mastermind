@@ -16,19 +16,16 @@ import org.apache.logging.log4j.Logger;
  *
  * @author pedsf
  */
-public class Defenseur {
+public class Defenseur implements Mode{
    private static final Logger log = LogManager.getLogger(Defenseur.class);
 
    private MastermindProperties mp;
-   private boolean trouve;
-   private int nbCoup;
-   private String reponse;
+   private boolean trouve = false;
+   private int nbCoup = 1;
+   private String reponse = "";
 
    public Defenseur(MastermindProperties mp){
       this.mp = mp;
-      this.trouve = false;
-      this.nbCoup = 0;
-      this.reponse = "";
    }
 
    /**
@@ -60,14 +57,15 @@ public class Defenseur {
          reponse = DemandeReponse.get(mp.getLongueur(),mp.isModeDeveloppeur());
 
          try {
-            if (!reponse.equals(nsu.test(ia.getNs()))){
+            if (!reponse.equals(nsu.test(ia.getNs())))
                throw new MauvaiseReponseException();
+
+            if (nsu.equals(ia.getNs())) {
+               trouve = true;
             } else {
-               if (nsu.equals(ia.getNs())) trouve = true;
+               ia.proposition(reponse);
                this.nbCoup++;
             }
-
-            ia.proposition(reponse);
          } catch (MauvaiseReponseException | TailleDifferenteException | BornageException e) {
             log.error(e);
          }
