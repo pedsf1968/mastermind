@@ -1,19 +1,19 @@
-package com.ocr.pedsf.controler;
+package com.ocr.pedsf.controler.modes;
 
-import com.ocr.pedsf.exceptions.TailleDifferenteException;
-import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.NombreSecret;
-import com.ocr.pedsf.vue.DemandeProposition;
+import com.ocr.pedsf.controler.Mode;
+import com.ocr.pedsf.model.*;
+import com.ocr.pedsf.model.personnages.Robot;
+import com.ocr.pedsf.model.personnages.User;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Challenger class contrôleur pour le mode Challenger
+ * Challenger class contrôleur pour le modes Challenger
  *
  * @author pedsf
  */
-public class Challenger implements Mode{
+public class Challenger implements Mode {
    private static final Logger log = LogManager.getLogger(Challenger.class);
 
    private MastermindProperties mp;
@@ -26,7 +26,7 @@ public class Challenger implements Mode{
    }
 
    public void run() {
-      log.debug("Lancement du mode Challenger");
+      log.traceEntry();
       System.out.println("\nMASTERMIND : Mode Challenger\n");
 
       // initialisation des protagonistes
@@ -52,10 +52,10 @@ public class Challenger implements Mode{
 
       if (nbCoup < mp.getNbEssai()) {
          Resultat.display(utilisateur.getNom(), ia.getNom(), nbCoup, ia.getNs().getNombre());
-         log.debug(utilisateur.getNom(), ia.getNom(), nbCoup, ia.getNs().getNombre());
       } else {
          Resultat.display(ia.getNom(), utilisateur.getNom(), nbCoup, ia.getNs().getNombre());
-         log.debug(ia.getNom(), utilisateur.getNom(), nbCoup, ia.getNs().getNombre());
       }
+
+      log.traceExit();
    }
 }

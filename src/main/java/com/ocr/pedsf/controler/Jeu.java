@@ -1,5 +1,9 @@
 package com.ocr.pedsf.controler;
 
+import com.ocr.pedsf.controler.modes.AutoBaston;
+import com.ocr.pedsf.controler.modes.Challenger;
+import com.ocr.pedsf.controler.modes.Defenseur;
+import com.ocr.pedsf.controler.modes.Duel;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.vue.ChoixDuMode;
 import com.ocr.pedsf.vue.ChoixNombreDigit;
@@ -23,7 +27,7 @@ public class Jeu {
    }
 
    /**
-    * run : méthode de lancement de l'accueil pour choisir le mode de jeu ou la taille du code
+    * run : méthode de lancement de l'accueil pour choisir le modes de jeu ou la taille du code
     */
    protected void run(){
       log.traceEntry();
@@ -32,38 +36,42 @@ public class Jeu {
       switch(choixMode){
          case 0 :
             // spécification du nombre de digits du code
+            log.trace("Changement du nombre de digit");
             mp.setLongueur(ChoixNombreDigit.get(mp.getMaxDigit()));
-            if(mp.isModeDeveloppeur()) System.out.println("Nouveau nombre de digit : " + mp.getLongueur());
             run();
             break;
          case 1 :
-            // lancement du mode Challenger
+            // lancement du modes Challenger
+            log.trace("Lancement du modes Challenger");
             mode = new Challenger(mp);
             mode.run();
             run();
             break;
          case 2 :
-            //  lancement du mode défenseur
+            //  lancement du modes défenseur
+            log.trace("Lancement du modes Défenseur");
             mode = new Defenseur(mp);
             mode.run();
             run();
             break;
          case 3 :
-            // lancement du mode duel
+            // lancement du modes duel
+            log.trace("Lancement du modes Duel");
             mode = new Duel(mp);
             mode.run();
             run();
             break;
          case 4:
-            // lancement du mode AutoBaston
+            // lancement du modes AutoBaston
+            log.trace("Lancement du modes AutoBaston");
             mode = new AutoBaston(mp);
             mode.run();
             run();
             break;
          default:
             // sortie du jeu
+            log.trace("Sortie du jeu");
             System.out.println("\nMerci d'avoir jouer à MASTERMIND");
-            log.debug("Sortie du jeu");
             break;
       }
    }

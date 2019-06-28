@@ -17,13 +17,15 @@ public abstract class Resultat {
       System.out.println("\nMASTERMIND");
 
       if(coup==1) {
-         System.out.print(gagnant + " a gagné contre " + perdant + " en " + coup + " coup !");
+         System.out.println(gagnant + " a gagné contre " + perdant + " en " + coup + " coup !");
+         log.trace(gagnant + " a gagné contre " + perdant + " en " + coup + " coup !");
       } else {
-         System.out.print(gagnant + " a gagné contre " + perdant + " en " + coup + " coups !");
+         System.out.println(gagnant + " a gagné contre " + perdant + " en " + coup + " coups !");
+         log.trace(gagnant + " a gagné contre " + perdant + " en " + coup + " coups !");
       }
-      log.trace(gagnant + " a gagné contre " + perdant + " en " + coup);
 
       System.out.println("Le code à trouver était : " + code);
+      log.trace("Le code à trouver était : " + code);
       log.traceExit();
    }
 }

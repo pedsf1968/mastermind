@@ -17,9 +17,11 @@
    <Loggers>
       <Logger name="com.ocr.pedsf" level="debug" additivity="false">
           <AppenderRef ref="CONSOLE" />
-         <AppenderRef ref="FILE" />
       </Logger>
 
+      <Logger name="com.ocr.pedsf" level="trace" additivity="false">
+         <AppenderRef ref="FILE" />
+      </Logger>
 
       <Root level="error">
          <AppenderRef ref="CONSOLE" />

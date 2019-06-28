@@ -1,15 +1,15 @@
-package com.ocr.pedsf.controler;
+package com.ocr.pedsf.controler.modes;
 
-import com.ocr.pedsf.exceptions.BornageException;
-import com.ocr.pedsf.exceptions.TailleDifferenteException;
+import com.ocr.pedsf.controler.Mode;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.NombreSecret;
+import com.ocr.pedsf.model.Personnage;
+import com.ocr.pedsf.model.personnages.Robot;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Autobaston class contrôleur pour le mode AutoBaston
+ * Autobaston class contrôleur pour le modes AutoBaston
  *
  * @author pedsf
  */
@@ -19,20 +19,13 @@ public class AutoBaston implements Mode {
    private MastermindProperties mp;
    private boolean trouve = false;
    private int nbCoup = 1;
-   private String proposition1 = "";
-   private String proposition2 = "";
-   private String reponse1 = "";
-   private String reponse2 = "";
 
    public AutoBaston(MastermindProperties mp){
       this.mp = mp;
    }
 
-   /**
-    * run : méthode qui lance l'AutoBaston
-    */
    public void run(){
-      log.debug("Lancement du mode AutoBaston");
+      log.traceEntry();
       System.out.println("\nMASTERMIND : Mode AutoBaston\n");
 
       // initialisation des protagonistes
@@ -56,10 +49,10 @@ public class AutoBaston implements Mode {
 
       if (ia2.getNs().equals(ia1.getNsToSearch())) {
          Resultat.display(ia1.getNom(),ia2.getNom(), nbCoup, ia1.getNs().getNombre());
-         log.debug(ia1.getNom(),ia2.getNom(), nbCoup, ia1.getNs().getNombre());
       } else {
          Resultat.display(ia2.getNom(),ia1.getNom(), nbCoup, ia2.getNs().getNombre());
-         log.debug(ia2.getNom(),ia1.getNom(), nbCoup, ia2.getNs().getNombre());
       }
+
+      log.traceExit();
    }
 }

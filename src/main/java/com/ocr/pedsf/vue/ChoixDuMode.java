@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * ChoixDuMode : choix du mode de jeu
+ * ChoixDuMode : choix du modes de jeu
  *
  * @author pedsf
  */
@@ -23,7 +23,7 @@ public abstract class ChoixDuMode {
          try {
             Scanner sc = new Scanner(System.in);
             System.out.println("\nMASTERMIND");
-            System.out.println("\nChoisissez le mode de jeu :");
+            System.out.println("\nChoisissez le modes de jeu :");
             System.out.println("0 - Choix du nombre de digit");
             System.out.println("1 - Challenger");
             System.out.println("2 - Défenseur");
@@ -42,7 +42,5 @@ public abstract class ChoixDuMode {
          }
 
       } while(true);
-
    }
-
 }

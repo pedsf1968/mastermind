@@ -1,9 +1,10 @@
-package com.ocr.pedsf.controler;
+package com.ocr.pedsf.model.personnages;
 
 import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
+import com.ocr.pedsf.model.Personnage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

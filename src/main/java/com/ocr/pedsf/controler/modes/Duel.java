@@ -1,16 +1,20 @@
-package com.ocr.pedsf.controler;
+package com.ocr.pedsf.controler.modes;
 
+import com.ocr.pedsf.controler.Mode;
 import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.Personnage;
+import com.ocr.pedsf.model.personnages.Robot;
+import com.ocr.pedsf.model.personnages.User;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Duel class contrôleur pour le mode Duel
+ * Duel class contrôleur pour le modes Duel
  *
  * @author pedsf
  */
-public class Duel implements Mode{
+public class Duel implements Mode {
    private static final Logger log = LogManager.getLogger(Duel.class);
 
    private MastermindProperties mp;
@@ -29,7 +33,7 @@ public class Duel implements Mode{
     * run : méthode qui lance le duel
     */
    public void run(){
-      log.debug("Lancement du mode Duel");
+      log.traceEntry();
       System.out.println("\nMASTERMIND : Mode Duel\n");
 
       // initialisation des protagonistes
@@ -60,10 +64,10 @@ public class Duel implements Mode{
 
       if (ia.getNs().equals(utilisateur.getNsToSearch())) {
          Resultat.display(utilisateur.getNom(), ia.getNom(), nbCoup, ia.getNs().getNombre());
-         log.debug(utilisateur.getNom(), ia.getNom(), nbCoup, ia.getNs().getNombre());
       } else {
          Resultat.display(ia.getNom(), utilisateur.getNom(), nbCoup, ia.getNs().getNombre());
-         log.debug(ia.getNom(), utilisateur.getNom(), nbCoup, ia.getNs().getNombre());
       }
+
+      log.traceExit();
    }
 }

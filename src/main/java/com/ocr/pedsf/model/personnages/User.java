@@ -1,14 +1,15 @@
-package com.ocr.pedsf.controler;
+package com.ocr.pedsf.model.personnages;
 
 import com.ocr.pedsf.exceptions.MauvaiseReponseException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
+import com.ocr.pedsf.model.Personnage;
 import com.ocr.pedsf.vue.DemandeProposition;
 import com.ocr.pedsf.vue.DemandeReponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class User implements Personnage{
+public class User implements Personnage {
    private static final Logger log = LogManager.getLogger(User.class);
 
    private String nom = "";

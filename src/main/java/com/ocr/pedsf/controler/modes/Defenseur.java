@@ -1,16 +1,20 @@
-package com.ocr.pedsf.controler;
+package com.ocr.pedsf.controler.modes;
 
+import com.ocr.pedsf.controler.Mode;
 import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.Personnage;
+import com.ocr.pedsf.model.personnages.Robot;
+import com.ocr.pedsf.model.personnages.User;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Defenseur class contrôleur pour le mode Defenseur
+ * Defenseur class contrôleur pour le modes Defenseur
  *
  * @author pedsf
  */
-public class Defenseur implements Mode{
+public class Defenseur implements Mode {
    private static final Logger log = LogManager.getLogger(Defenseur.class);
 
    private MastermindProperties mp;
@@ -22,11 +26,11 @@ public class Defenseur implements Mode{
    }
 
    /**
-    * run : méthode qui lance le mode défense
+    * run : méthode qui lance le modes défense
     */
 
    public void run(){
-      log.debug("Lancement du mode Défenseur");
+      log.traceEntry();
       System.out.println("\nMASTERMIND : Mode Defenseur\n");
 
       // initialisation des protagonistes
@@ -43,17 +47,16 @@ public class Defenseur implements Mode{
       }
 
       do {
-         trouve = ia.attack(utilisateur);
+
          nbCoup++;
-      } while (!trouve && nbCoup<mp.getNbEssai());
+      } while (!ia.attack(utilisateur) && nbCoup<mp.getNbEssai());
 
       if (nbCoup>mp.getNbEssai()) {
          Resultat.display(utilisateur.getNom(), ia.getNom(), nbCoup, utilisateur.getNs().getNombre());
-         log.debug(utilisateur.getNom(), ia.getNom(), nbCoup, utilisateur.getNs());
       } else {
          Resultat.display(ia.getNom(), utilisateur.getNom(),nbCoup, utilisateur.getNs().getNombre());
-         log.debug(ia.getNom(), utilisateur.getNs(),nbCoup, utilisateur.getNs().getNombre());
       }
 
+      log.traceExit();
    }
 }

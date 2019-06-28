@@ -37,7 +37,7 @@ public class Main {
       // récupération de la configuration du fichier properties
       MastermindProperties response = new MastermindProperties(CONFIGURATION_FILE);
 
-      // on active le mode développeur s'il est tapé en ligne de commande
+      // on active le modes développeur s'il est tapé en ligne de commande
       for(int i=0; i<args.length;i++){
          String option = args[i];
 

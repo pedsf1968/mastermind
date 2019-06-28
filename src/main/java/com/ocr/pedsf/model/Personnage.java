@@ -1,6 +1,4 @@
-package com.ocr.pedsf.controler;
-
-import com.ocr.pedsf.model.NombreSecret;
+package com.ocr.pedsf.model;
 
 public interface Personnage {
 
@@ -14,7 +12,7 @@ public interface Personnage {
    void init();
 
    /**
-    * attack : méthode du personnage qui attaque le personnage passé en paramètre
+    * attack : méthode du personnages qui attaque le personnages passé en paramètre
     *
     * @param personage attaqué
     *
