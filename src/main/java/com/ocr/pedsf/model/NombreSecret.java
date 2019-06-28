@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class NombreSecret {
    private static final Logger log = LogManager.getLogger(NombreSecret.class);
-   private String nombre;
+   private String nombre = "";
    private int taille;
 
    public NombreSecret(String nombre) {
@@ -23,7 +23,6 @@ public class NombreSecret {
 
    public NombreSecret(int taille) {
       this.taille = taille;
-      this.nombre = initNombreTailleN(taille);
    }
 
    public String getNombre() {
@@ -42,15 +41,6 @@ public class NombreSecret {
       this.taille = taille;
    }
 
-   public String initNombreTailleN(int n){
-      StringBuilder sb = new StringBuilder();
-
-      for(int i=0; i<n; i++) {
-         sb.append(Math.round(Math.floor( (Math.random() * 10.0))));
-      }
-
-      return sb.toString();
-   }
 
    @Override
    public String toString() {
@@ -86,20 +76,16 @@ public class NombreSecret {
     * @return la chaine de caractères montrant les différences
     * @throws TailleDifferenteException
     */
-   public String test(NombreSecret nombreSecret) throws TailleDifferenteException {
+   public String test(NombreSecret nombreSecret){
       StringBuilder sb = new StringBuilder();
 
-     if(nombreSecret.getTaille()!=this.taille) throw new TailleDifferenteException();
+     if(nombreSecret.getTaille()!=this.taille) try {
+        throw new TailleDifferenteException();
+     } catch (TailleDifferenteException e) {
+        log.error(e);
+     }
 
-      for(int i=0; i<this.taille; i++){
-         if(this.nombre.charAt(i)==nombreSecret.nombre.charAt(i))
-            sb.append('=');
-         if(this.nombre.charAt(i)<nombreSecret.nombre.charAt(i))
-            sb.append('-');
-         if(this.nombre.charAt(i)>nombreSecret.nombre.charAt(i))
-            sb.append('+');
-      }
-      return sb.toString();
+      return test(nombreSecret.getNombre());
    }
 
    /**
@@ -109,10 +95,14 @@ public class NombreSecret {
     * @return la chaine de caractères montrant les différences
     * @throws TailleDifferenteException
     */
-   public String test(String chaine) throws TailleDifferenteException {
+   public String test(String chaine) {
       StringBuilder sb = new StringBuilder();
 
-      if(chaine.length()!=this.getTaille()) throw new TailleDifferenteException();
+      if(chaine.length()!=this.getTaille()) try {
+         throw new TailleDifferenteException();
+      } catch (TailleDifferenteException e) {
+         e.printStackTrace();
+      }
 
       for(int i=0; i<this.taille; i++){
          if(this.nombre.charAt(i)==chaine.charAt(i))

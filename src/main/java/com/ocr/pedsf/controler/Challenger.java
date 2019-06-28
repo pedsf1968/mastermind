@@ -18,8 +18,7 @@ public class Challenger implements Mode{
 
    private MastermindProperties mp;
    private boolean trouve = false;
-   private int nbCoup = 1;
-   private String proposition = "";
+   private int nbCoup = 0;
 
 
    public Challenger(MastermindProperties mp){
@@ -30,12 +29,14 @@ public class Challenger implements Mode{
       log.debug("Lancement du mode Challenger");
       System.out.println("\nMASTERMIND : Mode Challenger\n");
 
-      // initialisation du nombre de l'ordinateur
-      NombreSecret nso = new NombreSecret(mp.getLongueur());
-      NombreSecret nsu = new NombreSecret(mp.getLongueur());
+      // initialisation des protagonistes
+      Personnage ia = new Robot("ia",mp);
+      Personnage utilisateur = new User("utilisateur",mp);
+      // initialisation des NombresSecrets
+      ia.init();
 
       if (mp.isModeDeveloppeur())
-         System.out.println("(Combinaison secrète : " + nso.getNombre() + ")");
+         System.out.println("(Combinaison secrète : " + ia.getNs().getNombre() + ")\n");
 
       if(mp.getLongueur() == 1) {
          System.out.println("Trouvez un nombre à 1 chiffre.");
@@ -44,31 +45,17 @@ public class Challenger implements Mode{
       }
 
       do {
-         // l'utilisateur demande à l'ordinateur
-         if(mp.isModeDeveloppeur()) {
-            System.out.print("Proposition (" + nso.getNombre() + ") : ");
-         } else {
-            System.out.print("Proposition : ");
-         }
-
-         nsu.setNombre(DemandeProposition.get(mp.getLongueur()));
-
-         try {
-            System.out.println("Proposition : " + nsu.getNombre() + " -> Réponse IA : " + nso.test(nsu));
-            if (nsu.equals(nso))
-               trouve = true;
-
-         } catch (TailleDifferenteException e) {
-            log.error(e);
-         }
-      } while (!trouve && ++nbCoup < mp.getNbEssai());
+         // l'utilisateur attaque l'ordinateur
+         trouve = utilisateur.attack(ia);
+         nbCoup++;
+      } while (!trouve && nbCoup < mp.getNbEssai());
 
       if (nbCoup < mp.getNbEssai()) {
-         Resultat.display("Utilisateur", "IA", nbCoup, nso.getNombre());
-         log.debug("Utilisateur", "IA", nbCoup, nso.getNombre());
+         Resultat.display(utilisateur.getNom(), ia.getNom(), nbCoup, ia.getNs().getNombre());
+         log.debug(utilisateur.getNom(), ia.getNom(), nbCoup, ia.getNs().getNombre());
       } else {
-         Resultat.display("IA", "Utilisateur", nbCoup, nso.getNombre());
-         log.debug("IA", "Utilisateur", nbCoup, nso.getNombre());
+         Resultat.display(ia.getNom(), utilisateur.getNom(), nbCoup, ia.getNs().getNombre());
+         log.debug(ia.getNom(), utilisateur.getNom(), nbCoup, ia.getNs().getNombre());
       }
    }
 }

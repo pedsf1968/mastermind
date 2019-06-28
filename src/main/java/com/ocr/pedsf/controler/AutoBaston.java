@@ -35,59 +35,31 @@ public class AutoBaston implements Mode {
       log.debug("Lancement du mode AutoBaston");
       System.out.println("\nMASTERMIND : Mode AutoBaston\n");
 
-      // initialisation des nombres secrets des IA
-      NombreSecret nso1 = new NombreSecret(mp.getLongueur());
-      NombreSecret nso2 = new NombreSecret(mp.getLongueur());
+      // initialisation des protagonistes
+      Personnage ia1 = new Robot("IA 1",mp);
+      Personnage ia2 = new Robot("IA 2",mp);
 
-      if(mp.isModeDeveloppeur())
-         System.out.println("(Combinaison secrète 1: " + nso1.getNombre() + " secrète 2: " + nso2.getNombre() + ")");
+      // initialisation des NombresSecrets
+      ia1.init();
+      ia2.init();
 
-      // on initialise les IA avec leur proposition aléatoire de départ
-      IA ia1 = new IA(mp.getLongueur());
-      IA ia2 = new IA(mp.getLongueur());
 
       do {
-         // on récupère la proposition de IA1
-         proposition1 = ia1.getNombreSecret();
+         // l'utilisateur attaque l'ordinateur
+         trouve = ia1.attack(ia2);
 
-         try {
-            // IA1 fait une proposition à IA2
-            reponse2 = nso2.test(proposition1);
-            System.out.println("Code IA2 : " + nso2.getNombre() + " proposition IA1 : " + proposition1 + " réponse IA2 : " +reponse2);
-
-            if(proposition1.equals(nso2.getNombre())) {
-               trouve = true;
-               Resultat.display("IA1", "IA2",nbCoup,nso2.getNombre());
-               log.debug("IA1", "IA2",nbCoup,nso2.getNombre());
-            } else {
-               // recalcul suivant la réponse de IA2 pour le prochain tour
-               ia1.proposition(reponse2);
-
-               // si la réponse n'est pas trouvée c'est au tour de IA 2
-               // on récupère la proposition de IA2
-               proposition2 = ia2.getNombreSecret();
-
-               // IA2 fait une proposition à IA1
-               reponse1 = nso1.test(proposition2);
-               System.out.println("Code IA1 : " + nso1.getNombre() + " proposition IA2 : " + proposition2 + " réponse IA1 : " + reponse1);
-
-               if (proposition2.equals(nso1.getNombre())) {
-                  trouve = true;
-                  Resultat.display("IA2", "IA1", nbCoup, nso1.getNombre());
-                  log.debug("IA2", "IA1", nbCoup, nso1.getNombre());
-               } else {
-                  // recalcul suivant la réponse de IA1
-                  ia2.proposition(reponse1);
-               }
-            }
-         } catch (TailleDifferenteException | BornageException e) {
-            log.error(e);
-         }
-
-         // on incrémente le conteur de tour
+         // au tour de l'ordinateur si la réponse n'est pas bonne
+         if(!trouve)
+            trouve = ia2.attack(ia1);
          nbCoup++;
+      } while (!trouve);
 
-      } while (!this.trouve);
-
+      if (ia2.getNs().equals(ia1.getNsToSearch())) {
+         Resultat.display(ia1.getNom(),ia2.getNom(), nbCoup, ia1.getNs().getNombre());
+         log.debug(ia1.getNom(),ia2.getNom(), nbCoup, ia1.getNs().getNombre());
+      } else {
+         Resultat.display(ia2.getNom(),ia1.getNom(), nbCoup, ia2.getNs().getNombre());
+         log.debug(ia2.getNom(),ia1.getNom(), nbCoup, ia2.getNs().getNombre());
+      }
    }
 }

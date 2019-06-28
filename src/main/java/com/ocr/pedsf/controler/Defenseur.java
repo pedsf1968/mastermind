@@ -1,12 +1,6 @@
 package com.ocr.pedsf.controler;
 
-import com.ocr.pedsf.exceptions.BornageException;
-import com.ocr.pedsf.exceptions.MauvaiseReponseException;
-import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.NombreSecret;
-import com.ocr.pedsf.vue.DemandeProposition;
-import com.ocr.pedsf.vue.DemandeReponse;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,8 +15,7 @@ public class Defenseur implements Mode{
 
    private MastermindProperties mp;
    private boolean trouve = false;
-   private int nbCoup = 1;
-   private String reponse = "";
+   private int nbCoup = 0;
 
    public Defenseur(MastermindProperties mp){
       this.mp = mp;
@@ -36,16 +29,13 @@ public class Defenseur implements Mode{
       log.debug("Lancement du mode Défenseur");
       System.out.println("\nMASTERMIND : Mode Defenseur\n");
 
-      // saisie du code de départ par l'utilisateur
-      if(mp.getLongueur()==1) {
-         System.out.print("Entrez votre nombre secret de 1 chiffre : ");
-      } else {
-         System.out.print("Entrez votre nombre secret de " + mp.getLongueur() + " chiffres : ");
-      }
-      NombreSecret nsu = new NombreSecret(DemandeProposition.get(mp.getLongueur()));
-      System.out.println("Votre nombre secret est : " + nsu.getNombre()+"\n");
+      // initialisation des protagonistes
+      Personnage ia = new Robot("ia",mp);
+      Personnage utilisateur = new User("utilisateur",mp);
+      // initialisation des NombresSecrets
+      ia.init();
+      utilisateur.init();
 
-      IA ia = new IA(mp.getLongueur());
       if(mp.isModeDeveloppeur()) {
          System.out.println("\nIndiquez pour chaque chiffre de la combinaison proposée si" +
                " le chiffre de sa combinaison est :\n" +
@@ -53,31 +43,16 @@ public class Defenseur implements Mode{
       }
 
       do {
-         System.out.print("Votre code : " + nsu.getNombre() + " proposition de l'IA : " + ia.getNombreSecret() + " réponse : ");
-         reponse = DemandeReponse.get(mp.getLongueur(),mp.isModeDeveloppeur());
-
-         try {
-            if (!reponse.equals(nsu.test(ia.getNs())))
-               throw new MauvaiseReponseException();
-
-            if (nsu.equals(ia.getNs())) {
-               trouve = true;
-            } else {
-               ia.proposition(reponse);
-               this.nbCoup++;
-            }
-         } catch (MauvaiseReponseException | TailleDifferenteException | BornageException e) {
-            log.error(e);
-         }
-
+         trouve = ia.attack(utilisateur);
+         nbCoup++;
       } while (!trouve && nbCoup<mp.getNbEssai());
 
       if (nbCoup>mp.getNbEssai()) {
-         Resultat.display("Utilisateur", "IA", nbCoup, nsu.getNombre());
-         log.debug("Utilisateur", "IA", nbCoup, nsu.getNombre());
+         Resultat.display(utilisateur.getNom(), ia.getNom(), nbCoup, utilisateur.getNs().getNombre());
+         log.debug(utilisateur.getNom(), ia.getNom(), nbCoup, utilisateur.getNs());
       } else {
-         Resultat.display("IA", "Utilisateur",nbCoup,nsu.getNombre());
-         log.debug("IA", "Utilisateur",nbCoup,nsu.getNombre());
+         Resultat.display(ia.getNom(), utilisateur.getNom(),nbCoup, utilisateur.getNs().getNombre());
+         log.debug(ia.getNom(), utilisateur.getNs(),nbCoup, utilisateur.getNs().getNombre());
       }
 
    }

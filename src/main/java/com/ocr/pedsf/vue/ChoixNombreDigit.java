@@ -16,7 +16,7 @@ public abstract class ChoixNombreDigit {
    private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());
 
    /**
-    * choixNombreDigit : affichage de la demande de changement du nombre de digit pour le code
+    * get : affichage de la demande de changement du nombre de digit pour le code
     *
     * @param max nombre de digit maximum que l'utilisateur peut spécifier
     * @return taille du code souhaité
