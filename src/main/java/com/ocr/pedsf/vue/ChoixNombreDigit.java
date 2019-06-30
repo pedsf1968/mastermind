@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author pedsf
  */
-public abstract class ChoixNombreDigit {
+public class ChoixNombreDigit {
    private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());
 
    /**

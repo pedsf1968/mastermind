@@ -30,8 +30,8 @@ public class Challenger implements Mode {
       System.out.println("\nMASTERMIND : Mode Challenger\n");
 
       // initialisation des protagonistes
-      Personnage ia = new Robot("ia",mp);
-      Personnage utilisateur = new User("utilisateur",mp);
+      Personnage ia = new Robot(mp.getNomRobot1(),mp);
+      Personnage utilisateur = new User(mp.getNomUser(),mp);
       // initialisation des NombresSecrets
       ia.init();
 

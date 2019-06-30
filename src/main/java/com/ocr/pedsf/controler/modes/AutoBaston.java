@@ -29,8 +29,8 @@ public class AutoBaston implements Mode {
       System.out.println("\nMASTERMIND : Mode AutoBaston\n");
 
       // initialisation des protagonistes
-      Personnage ia1 = new Robot("IA 1",mp);
-      Personnage ia2 = new Robot("IA 2",mp);
+      Personnage ia1 = new Robot(mp.getNomRobot1(),mp);
+      Personnage ia2 = new Robot(mp.getNomRobot2(),mp);
 
       // initialisation des NombresSecrets
       ia1.init();

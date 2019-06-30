@@ -20,12 +20,18 @@ public class MastermindProperties {
    private static int MASTERMIND_MAX_DIGIT = 10;
    private static boolean MASTERMIND_DEVELOPPEUR = false;
    private static String MASTERMIND_TAG_DEBUG = "-d";
+   private static String MASTERMIND_NOM_USER = "Utilisateur";
+   private static String MASTERMIND_NOM_ROBOT1 = "Chapi";
+   private static String MASTERMIND_NOM_ROBOT2 = "Chapo";
 
    private int longueur;
    private int nbEssai;
    private int maxDigit;
    private boolean modeDeveloppeur;
    private String tagDebug;
+   private String nomUser;
+   private String nomRobot1;
+   private String nomRobot2;
 
    public MastermindProperties(String fichier){
       Properties properties = new Properties();
@@ -56,6 +62,15 @@ public class MastermindProperties {
 
       sProp = properties.getProperty("mastermind.tag.debug");
       this.tagDebug = (sProp==null) ? MASTERMIND_TAG_DEBUG : sProp;
+
+      sProp = properties.getProperty("mastermind.nom.user");
+      this.nomUser = (sProp==null) ? MASTERMIND_NOM_USER : sProp;
+
+      sProp = properties.getProperty("mastermind.nom.robot1");
+      this.nomRobot1 = (sProp==null) ? MASTERMIND_NOM_ROBOT1 : sProp;
+
+      sProp = properties.getProperty("mastermind.nom.robot2");
+      this.nomRobot2 = (sProp==null) ? MASTERMIND_NOM_ROBOT2 : sProp;
 
    }
 
@@ -100,13 +115,41 @@ public class MastermindProperties {
       this.tagDebug = tagDebug;
    }
 
+   public String getNomUser() {
+      return nomUser;
+   }
+
+   public void setNomUser(String nomUser) {
+      this.nomUser = nomUser;
+   }
+
+   public String getNomRobot1() {
+      return nomRobot1;
+   }
+
+   public void setNomRobot1(String nomRobot1) {
+      this.nomRobot1 = nomRobot1;
+   }
+
+   public String getNomRobot2() {
+      return nomRobot2;
+   }
+
+   public void setNomRobot2(String nomRobot2) {
+      this.nomRobot2 = nomRobot2;
+   }
+
    @Override
    public String toString() {
-      String reponse ="MastermindProperties{ " +
-            "Longueur de la chaine = " + longueur +
-            ", Nombre d'essais = " + nbEssai;
-      reponse +=  (modeDeveloppeur) ? ", Mode développeur activé":", Mode normal" ;
-
-      return reponse+ " }";
+      return "MastermindProperties {" +
+            "\nLongueur : " + longueur +
+            "\nNombre d'essais : " + nbEssai +
+            "\nTaille maximale : " + maxDigit +
+            "\nMode développeur actif : " + modeDeveloppeur +
+            "\ntagDebug : '" + tagDebug + '\'' +
+            "\nNom utilisateur : '" + nomUser + '\'' +
+            "\nNom robot 1 : '" + nomRobot1 + '\'' +
+            "\nNom robot 2 : '" + nomRobot2 + '\'' +
+            '}';
    }
 }

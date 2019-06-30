@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author pedsf
  */
 
-public abstract class DemandeProposition {
+public class DemandeProposition {
    private static final Logger log = LogManager.getLogger(DemandeProposition.class.getName());
 
    /**

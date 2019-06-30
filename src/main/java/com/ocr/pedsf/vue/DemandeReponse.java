@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public abstract class DemandeReponse {
+public class DemandeReponse {
    private static final Logger log = LogManager.getLogger(DemandeReponse.class.getName());
 
    /**

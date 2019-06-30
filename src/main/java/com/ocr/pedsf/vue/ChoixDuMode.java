@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author pedsf
  */
-public abstract class ChoixDuMode {
+public class ChoixDuMode {
    private static final Logger log = LogManager.getLogger(ChoixDuMode.class.getName());
 
    public static int get() {
