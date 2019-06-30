@@ -60,10 +60,16 @@ public class Robot implements Personnage {
 
    @Override
    public boolean attack(Personnage personnage) {
+
+
       // on envoie la proposition à l'adversaire
       String combinaison = personnage.reply(nsToSearch);
 
-      System.out.println("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
+      if(mp.isModeDeveloppeur()) {
+         System.out.println(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
+      } else {
+         System.out.println("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
+      }
 
       // on sort de la boucle si c'est la bonne réponse
       if(personnage.isEqual(nsToSearch)) return true;

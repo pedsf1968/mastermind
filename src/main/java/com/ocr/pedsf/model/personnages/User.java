@@ -57,14 +57,18 @@ public class User implements Personnage {
    public boolean attack(Personnage personnage) {
 
       if(mp.isModeDeveloppeur()) {
-         System.out.print("Proposition (" + personnage.getNs().getNombre() + ") : ");
+         System.out.print(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition : ");
       } else {
          System.out.print("Proposition : ");
       }
 
       nsToSearch.setNombre(DemandeProposition.get(mp.getLongueur()));
 
-      System.out.println("Proposition "+ getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
+      if(mp.isModeDeveloppeur()) {
+         System.out.println(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
+      } else {
+         System.out.println("Proposition "+ getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
+      }
 
 
       if (personnage.isEqual(nsToSearch)) return true;
@@ -75,7 +79,8 @@ public class User implements Personnage {
    @Override
    public String reply(NombreSecret nombreSecret) {
 
-      System.out.print("Votre code : " + ns.getNombre() + " proposition de l'adversaire : " + nombreSecret.getNombre() + " réponse : ");
+      System.out.print(getNom() + " (" + getNs().getNombre() + ") : Proposition " + mp.getNomRobot1() + " : " + nombreSecret.getNombre() + " -> Réponse " + getNom() + " : ");
+
       String reponse = DemandeReponse.get(mp.getLongueur(),mp.isModeDeveloppeur());
 
       // on vérifie que l'utilisateur n'a pas fait d'erreur dans la saisie
