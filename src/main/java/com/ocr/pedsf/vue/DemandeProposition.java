@@ -23,20 +23,27 @@ public class DemandeProposition {
     */
    public static String get(int digit){
       log.traceEntry();
+
+      do {
+         display(digit);
+         try {
+            return log.traceExit(ask(digit));
+        } catch (InputMismatchException e) {
+            log.error("Mauvaise saisie !", e);
+         }
+
+      } while(true);
+   }
+
+   protected static void display(int digit){
+      System.out.println("Choisissez un nombre de "+ digit + " chiffre(s).");
+   }
+
+   protected static String ask(int digit) throws InputMismatchException{
       Scanner sc = new Scanner(System.in);
       String reponse = "";
       String pattern = "[0-9]{" + digit + "}";
 
-      do {
-         try {
-            return log.traceExit(sc.next(pattern));
-        } catch (InputMismatchException e) {
-            sc.next();
-            log.error("Mauvaise saisie !", e);
-            System.out.println("\n Choisissez un nombre de "+ digit + " chiffre(s) !\n");
-         }
-
-      } while(true);
-
+      return log.traceExit(sc.next(pattern));
    }
 }

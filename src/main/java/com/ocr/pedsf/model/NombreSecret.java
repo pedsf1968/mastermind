@@ -1,5 +1,6 @@
 package com.ocr.pedsf.model;
 
+import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -76,43 +77,36 @@ public class NombreSecret {
     * @return la chaine de caractères montrant les différences
     * @throws TailleDifferenteException
     */
-   public String test(NombreSecret nombreSecret){
+   public String test(NombreSecret nombreSecret) throws TailleDifferenteException, CaractereIncorrectException {
       StringBuilder sb = new StringBuilder();
 
-     if(nombreSecret.getTaille()!=this.taille) try {
-        throw new TailleDifferenteException();
-     } catch (TailleDifferenteException e) {
-        log.error(e);
-     }
+     if(nombreSecret.getTaille()!=this.taille) throw new TailleDifferenteException();
 
       return test(nombreSecret.getNombre());
    }
 
    /**
-    * test : compare le NombreSecret avec une chaine
+    * test : compare le NombreSecret avec une chaine de chiffre
     *
     * @param chaine à comparer
     * @return la chaine de caractères montrant les différences
     * @throws TailleDifferenteException
     */
-   public String test(String chaine) {
+   public String test(String chaine) throws TailleDifferenteException, CaractereIncorrectException {
       StringBuilder sb = new StringBuilder();
 
-      if(chaine.length()!=this.getTaille()) try {
-         throw new TailleDifferenteException();
-      } catch (TailleDifferenteException e) {
-         e.printStackTrace();
-      }
+      if(chaine.length()!=this.getTaille()) throw new TailleDifferenteException();
 
       for(int i=0; i<this.taille; i++){
-         if(this.nombre.charAt(i)==chaine.charAt(i))
-            sb.append('=');
-         if(this.nombre.charAt(i)<chaine.charAt(i))
-            sb.append('-');
-         if(this.nombre.charAt(i)>chaine.charAt(i))
-            sb.append('+');
+         if (chaine.charAt(i) < '0') throw new CaractereIncorrectException();
+         if (chaine.charAt(i) > '9') throw new CaractereIncorrectException();
+
+         if(this.nombre.charAt(i)==chaine.charAt(i)) sb.append('=');
+         if(this.nombre.charAt(i)<chaine.charAt(i))  sb.append('-');
+         if(this.nombre.charAt(i)>chaine.charAt(i))  sb.append('+');
       }
-      return sb.toString();
+
+      return log.traceExit(sb.toString());
    }
 
 }

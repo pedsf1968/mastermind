@@ -1,6 +1,7 @@
 package com.ocr.pedsf.model.personnages;
 
 import com.ocr.pedsf.exceptions.BornageException;
+import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
@@ -133,8 +134,13 @@ public class Robot implements Personnage {
    @Override
    public String reply(NombreSecret nombreSecret) {
       // appel de la méthode interne de NombreSecret pour avoir la réponse
-      return ns.test(nombreSecret);
+      try {
+         return ns.test(nombreSecret);
+      } catch (TailleDifferenteException | CaractereIncorrectException e) {
+         log.error(e);
+      }
 
+      return null;
    }
 
    @Override

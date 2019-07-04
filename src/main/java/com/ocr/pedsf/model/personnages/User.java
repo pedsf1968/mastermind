@@ -1,6 +1,8 @@
 package com.ocr.pedsf.model.personnages;
 
+import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.MauvaiseReponseException;
+import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
 import com.ocr.pedsf.model.Personnage;
@@ -90,7 +92,7 @@ public class User implements Personnage {
          } else {
             return reponse;
          }
-      } catch (MauvaiseReponseException e) {
+      } catch (CaractereIncorrectException | TailleDifferenteException | MauvaiseReponseException e) {
          log.error(e);
       }
 

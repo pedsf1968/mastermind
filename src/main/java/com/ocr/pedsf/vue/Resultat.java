@@ -25,7 +25,6 @@ public class Resultat {
       }
 
       System.out.println("Le code à trouver était : " + code);
-      log.trace("Le code à trouver était : " + code);
-      log.traceExit();
+      log.traceExit("Le code à trouver était : " + code);
    }
 }

@@ -17,15 +17,12 @@ public class DemandeReponse {
     */
    public static String get(int digit, boolean isDebug){
       log.traceEntry();
-      Scanner sc = new Scanner(System.in);
-      String reponse = "";
-      String pattern = "[-+=]{" + digit + "}";
 
       do {
+         display();
          try {
-            return log.traceExit(sc.next(pattern));
+            return log.traceExit(ask(digit));
          } catch (InputMismatchException e) {
-            sc.next();
             log.error("Mauvaise saisie !", e);
             System.out.println("Indiquez pour chaque chiffre de la combinaison proposée si" +
                   " le chiffre de sa combinaison est :\n" +
@@ -33,5 +30,16 @@ public class DemandeReponse {
          }
 
       } while(true);
+   }
+
+   protected static void display(){
+      System.out.println("Indiquez pour chaque chiffre si le résultat est + grand - petit = égal.");
+   }
+
+   protected static String ask(int digit){
+      Scanner sc = new Scanner(System.in);
+      String pattern = "[-+=]{" + digit + "}";
+
+      return log.traceExit(sc.next(pattern));
    }
 }

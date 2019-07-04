@@ -24,27 +24,34 @@ public class ChoixNombreDigit {
    public static int get(int max){
       log.traceEntry();
 
-
       do {
+         display(max);
+
          try {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Choisissez le nombre de digit entre 1 et " + max + " : ");
-            int reponse = sc.nextInt();
-
-            if (reponse == 1) {
-               System.out.println("\nModification de la taille du nombre secret à "+reponse + " digit");
-               return log.traceExit(reponse);
-            } else if (reponse > 1 && reponse <= max) {
-               System.out.println("\nModification de la taille du nombre secret à "+reponse + " digits");
-               return log.traceExit(reponse);
-            } else {
-               throw new BornageException("\n Erreur de saisie! Choisissez un nombre de de digit entre 1 et " + max + " .\n");
-            }
-
+            return log.traceExit(ask(max));
          } catch ( BornageException | InputMismatchException | IndexOutOfBoundsException  e) {
-            log.error(e);
+            log.error("\n Erreur de saisie! Choisissez un nombre de de digit entre 1 et " + max + " .\n",e);
          }
 
       } while(true);
+   }
+
+   protected static void display(int max){
+      System.out.print("Choisissez le nombre de digit entre 1 et " + max + " : ");
+   }
+
+   protected static int ask(int max) throws BornageException, InputMismatchException {
+      Scanner sc = new Scanner(System.in);
+      int response = sc.nextInt();
+
+      if (response == 1) {
+         System.out.println("\nModification de la taille du nombre secret à "+response + " digit");
+         return log.traceExit(response);
+      } else if (response > 1 && response <= max) {
+         System.out.println("\nModification de la taille du nombre secret à "+response + " digits");
+         return log.traceExit(response);
+      } else {
+         throw new BornageException("\n Erreur de saisie! Choisissez un nombre de de digit entre 1 et " + max + " .\n");
+      }
    }
 }
