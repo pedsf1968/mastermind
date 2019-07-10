@@ -1,6 +1,6 @@
 package com.ocr.pedsf.controler;
 
-import com.ocr.pedsf.controler.modes.AutoBaston;
+import com.ocr.pedsf.controler.modes.Autobaston;
 import com.ocr.pedsf.controler.modes.Challenger;
 import com.ocr.pedsf.controler.modes.Defenseur;
 import com.ocr.pedsf.controler.modes.Duel;
@@ -64,7 +64,7 @@ public class Jeu {
          case 4:
             // lancement du modes AutoBaston
             log.trace("Lancement du modes AutoBaston");
-            mode = new AutoBaston(mp);
+            mode = new Autobaston(mp);
             mode.run();
             run();
             break;

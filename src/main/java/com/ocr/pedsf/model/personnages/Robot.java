@@ -48,10 +48,7 @@ public class Robot implements Personnage {
 
    @Override
    public NombreSecret getNs() {
-      if (mp.isModeDeveloppeur())
-         return ns;
-      else
-         return null;
+      return this.ns;
    }
 
    @Override
