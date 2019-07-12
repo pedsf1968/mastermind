@@ -31,13 +31,14 @@ public class Autobaston implements Mode {
       // initialisation des protagonistes
       Personnage chapi = new Robot(mp.getNomRobot1(),mp);
       Personnage chapo = new Robot(mp.getNomRobot2(),mp);
+
       // initialisation des NombresSecrets
       chapi.init();
       chapo.init();
 
       if (mp.isDebugMode()) {
-         System.out.println("(Combinaison secrète Chapi : " + chapi.getNs().getNombre() + ")\n");
-         System.out.println("(Combinaison secrète Chapo : " + chapo.getNs().getNombre() + ")\n");
+         System.out.println("(Combinaison secrète " + chapi.getNom() + " : " + chapi.getNs().getNombre() + ")\n");
+         System.out.println("(Combinaison secrète " + chapo.getNom() + " : " + chapo.getNs().getNombre() + ")\n");
       }
 
       do {

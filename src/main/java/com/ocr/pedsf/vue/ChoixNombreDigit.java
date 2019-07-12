@@ -16,10 +16,12 @@ public class ChoixNombreDigit {
    private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());
 
    /**
-    * get : affichage de la demande de changement du nombre de digit pour le code
+    * get : méthode générale pour demander un nombre de digit pour le code
+    *       elle pause la question avec display()
+    *       et demande à l'utilisateur avec ask() jusqu'à ce que la réponse soit correcte
     *
     * @param max nombre de digit maximum que l'utilisateur peut spécifier
-    * @return taille du code souhaité
+    * @return nouvelle taille du code souhaité
     */
    public static int get(int max){
       log.traceEntry();
@@ -36,11 +38,24 @@ public class ChoixNombreDigit {
       } while(true);
    }
 
-   protected static void display(int max){
+   /**
+    * display : méthode d'affichage de la question
+    *
+    * @param max valeur maximale possible
+    */
+   static void display(int max){
       System.out.print("Choisissez le nombre de digit entre 1 et " + max + " : ");
    }
 
-   protected static int ask(int max) throws BornageException, InputMismatchException {
+   /**
+    * ask : méthode de lecture sur l'entrée standard de la réponse de l'utilisateur
+    *
+    * @param max valeur maximale acceptée
+    * @return int valeur saisie par l'utilisateur entre 1 et max
+    * @throws BornageException si la valeur n'est pas entre 1 et max
+    * @throws InputMismatchException si ce n'est pas un nombre
+    */
+   static int ask(int max) throws BornageException, InputMismatchException {
       Scanner sc = new Scanner(System.in);
       int response = sc.nextInt();
 

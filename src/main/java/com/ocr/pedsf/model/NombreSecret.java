@@ -75,7 +75,8 @@ public class NombreSecret {
     *
     * @param nombreSecret à comparer
     * @return la chaine de caractères montrant les différences
-    * @throws TailleDifferenteException
+    * @throws TailleDifferenteException si les deux nombres sont de taille différentes
+    * @throws CaractereIncorrectException si un nombre ne comporte pas que des chiffres
     */
    public String test(NombreSecret nombreSecret) throws TailleDifferenteException, CaractereIncorrectException {
       StringBuilder sb = new StringBuilder();
@@ -90,7 +91,8 @@ public class NombreSecret {
     *
     * @param chaine à comparer
     * @return la chaine de caractères montrant les différences
-    * @throws TailleDifferenteException
+    * @throws TailleDifferenteException si les deux nombres sont de taille différentes
+    * @throws CaractereIncorrectException si un nombre ne comporte pas que des chiffres
     */
    public String test(String chaine) throws TailleDifferenteException, CaractereIncorrectException {
       StringBuilder sb = new StringBuilder();

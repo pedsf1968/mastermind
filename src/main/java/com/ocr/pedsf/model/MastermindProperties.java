@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.FileInputStream;
+import java.util.MissingResourceException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -19,7 +20,7 @@ public class MastermindProperties {
 
    // emplacement du fichier de configuration
    private static String CONFIGURATION_FILE = "mastermind";
-
+   private static ResourceBundle bundle;
 
    private static int MASTERMIND_LONGUEUR = 4;
    private static int MASTERMIND_ESSAIS = 10;
@@ -48,121 +49,55 @@ public class MastermindProperties {
    public MastermindProperties( String[] args){
       String sProp;
 
-      ResourceBundle bundle = ResourceBundle.getBundle(CONFIGURATION_FILE);
+      // initialisation de la resource bundle
+      bundle = ResourceBundle.getBundle(CONFIGURATION_FILE);
 
-      //initialisation des propriétés
-      sProp = bundle.getString("mastermind.combinaison.chiffres");
-      this.longueur = (sProp.equals("")) ? MASTERMIND_LONGUEUR : Integer.valueOf(sProp);
-
-      sProp = bundle.getString("mastermind.combinaison.essais");
-      this.nbEssai = (sProp.equals("")) ? MASTERMIND_ESSAIS: Integer.valueOf(sProp);
-
-      sProp = bundle.getString("mastermind.combinaison.maxdigit");
-      this.maxDigit = (sProp.equals("")) ? MASTERMIND_MAX_DIGIT: Integer.valueOf(sProp);
-
-      sProp = bundle.getString("mastermind.mode.developpeur");
-      this.isDebugMode = (sProp.equals("")) ? MASTERMIND_DEBUG_MODE : Boolean.valueOf(sProp);
-
-      sProp = bundle.getString("mastermind.nom.user");
-      this.nomUser = (sProp.isEmpty()) ? MASTERMIND_NOM_USER : sProp;
-
-      sProp = bundle.getString("mastermind.nom.robot1");
-      this.nomRobot1 = (sProp.equals("")) ? MASTERMIND_NOM_ROBOT1 : sProp;
-
-      sProp = bundle.getString("mastermind.nom.robot2");
-      this.nomRobot2 = (sProp.equals("")) ? MASTERMIND_NOM_ROBOT2 : sProp;
-
-      sProp = bundle.getString("mastermind.tag.debug");
-      this.tagDebug = (sProp.equals("")) ? MASTERMIND_TAG_DEBUG : sProp;
-
-      sProp = bundle.getString("mastermind.tag.user");
-      this.tagUser = (sProp.equals("")) ? MASTERMIND_TAG_USER : sProp;
-
-      sProp = bundle.getString("mastermind.tag.maxdigit");
-      this.tagMaxDigit = (sProp.equals("")) ? MASTERMIND_TAG_MAX_DIGIT : sProp;
+      // lecture des paramètres dans le fichier
+      this.longueur = getInt("mastermind.combinaison.chiffres", MASTERMIND_LONGUEUR);
+      this.nbEssai = getInt("mastermind.combinaison.essais", MASTERMIND_ESSAIS);
+      this.maxDigit = getInt("mastermind.combinaison.maxdigit", MASTERMIND_MAX_DIGIT);
+      this.isDebugMode = getBoolean("mastermind.mode.developpeur", MASTERMIND_DEBUG_MODE);
+      this.nomUser = getString("mastermind.nom.user",MASTERMIND_NOM_USER);
+      this.nomRobot1 = getString("mastermind.nom.robot1", MASTERMIND_NOM_ROBOT1);
+      this.nomRobot2 = getString("mastermind.nom.robot2", MASTERMIND_NOM_ROBOT2);
+      this.tagDebug = getString("mastermind.tag.debug", MASTERMIND_TAG_DEBUG);
+      this.tagUser = getString("mastermind.tag.user", MASTERMIND_TAG_USER);
+      this.tagMaxDigit = getString("mastermind.tag.maxdigit", MASTERMIND_TAG_MAX_DIGIT);
 
       // on écrase avec les propriétées passées en ligne de commande
       getArguments(args);
-   }
-
-   public int getLongueur() {
-      return longueur;
    }
 
    public void setLongueur(int longueur) {
       this.longueur = longueur;
    }
 
-   public int getNbEssai() {
-      return nbEssai;
+   public int getLongueur() {
+      return longueur;
    }
 
-   public void setNbEssai(int nbEssai) {
-      this.nbEssai = nbEssai;
+   public int getNbEssai() {
+      return nbEssai;
    }
 
    public int getMaxDigit() {
       return maxDigit;
    }
 
-   public void setMaxDigit(int maxDigit) {
-      this.maxDigit = maxDigit;
-   }
-
    public boolean isDebugMode() {
       return isDebugMode;
    }
 
-   public void setDebugMode(boolean debugMode) {
-      isDebugMode = debugMode;
-   }
-
-   public String getNomUser() {
+  public String getNomUser() {
       return nomUser;
    }
 
-   public void setNomUser(String nomUser) {
-      this.nomUser = nomUser;
-   }
-
-   public String getNomRobot1() {
+  public String getNomRobot1() {
       return nomRobot1;
-   }
-
-   public void setNomRobot1(String nomRobot1) {
-      this.nomRobot1 = nomRobot1;
    }
 
    public String getNomRobot2() {
       return nomRobot2;
-   }
-
-   public void setNomRobot2(String nomRobot2) {
-      this.nomRobot2 = nomRobot2;
-   }
-
-   public String getTagDebug() {
-      return tagDebug;
-   }
-
-   public void setTagDebug(String tagDebug) {
-      this.tagDebug = tagDebug;
-   }
-
-   public String getTagUser() {
-      return tagUser;
-   }
-
-   public void setTagUser(String tagUser) {
-      this.tagUser = tagUser;
-   }
-
-   public String getTagMaxDigit() {
-      return tagMaxDigit;
-   }
-
-   public void setTagMaxDigit(String tagMaxDigit) {
-      this.tagMaxDigit = tagMaxDigit;
    }
 
    @Override
@@ -195,19 +130,22 @@ public class MastermindProperties {
 
          if (this.tagDebug.equals(args[i])) {
             // c'est l'activation du mode développeur
-            setDebugMode(true);
+            this.isDebugMode = true;
+            System.out.println("Mode debug activé !");
             log.trace("Mode debug activé !");
-         } else if (this.tagUser.equals(args[i++])) {
+         } else if (this.tagUser.equals(args[i])) {
             // récupération du nom de l'utilisateur
             if( args[i]!=null) {
-               setNomUser(args[i]);
+               this.nomUser = args[++i];
+               System.out.println("User name : " + getNomUser());
                log.trace("User name : " + getNomUser());
             }
-         } else if (this.tagMaxDigit.equals(args[i++])) {
+         } else if (this.tagMaxDigit.equals(args[i])) {
             // récupération de la taille maximale
-            if( args[i]!=null) {
+            if( args[++i]!=null) {
                try {
-                  setMaxDigit(Integer.valueOf(args[i]));
+                  this.maxDigit = Integer.valueOf(args[i]);
+                  System.out.println("MaxDigit : " + getMaxDigit());
                   log.trace("MaxDigit : " + getMaxDigit());
                } catch (NumberFormatException nfE) {
                   log.error("Mauvaise valeur de MaxDigit : " + args[i] + "\n" + nfE);
@@ -215,12 +153,70 @@ public class MastermindProperties {
             }
          } else {
             // affichage de l'aide en ligne
-            System.out.println("mastermind ["+ this.tagDebug+"]");
-            System.out.println("-d : activate debug");
-            System.out.println("-u nom : set user name");
-            System.out.println("-m nombre: set maxdigit");
+            System.out.println("Option non reconnue : "+args[i]);
+            System.out.println("mastermind ["+ this.tagDebug+"]["+this.tagUser+" nom]["+ this.tagMaxDigit+" nombre]");
+            System.out.println(this.tagDebug + " : activate debug");
+            System.out.println(this.tagUser + " nom : set user name");
+            System.out.println(this.tagMaxDigit + " nombre: set maxdigit");
             exit(0);
          }
+      }
+   }
+
+   /**
+    * getBoolean : méthode qui lit un booléen dans le bundel et retourne la valeur par défaut s'il n'y a pas de valeur
+    *
+    * @param key nom du paramètre dans le fichier properties
+    * @param defaultValue valeur d'initialisation par défaut
+    * @return  valeur lue ou celle par défaut
+    */
+  private  boolean getBoolean(String key, boolean defaultValue){
+      String value;
+
+      try {
+         value = bundle.getString(key);
+         return (value.equals("")) ? defaultValue : Boolean.valueOf(value);
+      } catch (MissingResourceException mrE) {
+         log.error(key + " absente du fichier de configuration " + mrE);
+         return defaultValue;
+      }
+   }
+
+   /**
+    * getInt : méthode qui lit un int dans le bundel et retourne la valeur par défaut s'il n'y a pas de valeur
+    *
+    * @param key nom du paramètre dans le fichier properties
+    * @param defaultValue valeur d'initialisation par défaut
+    * @return  valeur lue ou celle par défaut
+    */
+   private int getInt(String key, int defaultValue){
+      String value;
+
+      try {
+         value = bundle.getString(key);
+         return (value.equals("")) ? defaultValue : Integer.valueOf(value);
+      } catch (MissingResourceException mrE) {
+         log.error(key + " absente du fichier de configuration " + mrE);
+         return defaultValue;
+      }
+   }
+
+   /**
+    * getString : méthode qui lit une String dans le bundel et retourne la valeur par défaut s'il n'y a pas de valeur
+    *
+    * @param key nom du paramètre dans le fichier properties
+    * @param defaultValue valeur d'initialisation par défaut
+    * @return  valeur lue ou celle par défaut
+    */
+   private String getString(String key, String defaultValue){
+      String value;
+
+      try {
+         value = bundle.getString(key);
+         return (value.equals("")) ? defaultValue : value;
+      } catch (MissingResourceException mrE) {
+         log.error(key + " absente du fichier de configuration " + mrE);
+         return defaultValue;
       }
    }
 

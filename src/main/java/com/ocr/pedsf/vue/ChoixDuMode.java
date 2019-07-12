@@ -15,6 +15,13 @@ import java.util.Scanner;
 public class ChoixDuMode {
    private static final Logger log = LogManager.getLogger(ChoixDuMode.class.getName());
 
+   /**
+    * get : méthode générale pour demander le choix du mode de jeu
+    *       elle pause la question avec display()
+    *       et demande à l'utilisateur avec ask() jusqu'à ce que la réponse soit correcte
+    *
+    * @return int réponse de l'utilisateur
+    */
    public static int get() {
       log.traceEntry();
 
@@ -28,7 +35,10 @@ public class ChoixDuMode {
       } while(true);
    }
 
-   protected static void display(){
+   /**
+    * display : méthode d'affichage de la question
+    */
+   static void display(){
       System.out.println("\nMASTERMIND");
       System.out.println("\nChoisissez le modes de jeu :");
       System.out.println("0 - Choix du nombre de digit");
@@ -39,7 +49,14 @@ public class ChoixDuMode {
       System.out.println("\nSaisissez un nombre plus grand pour quitter");
    }
 
-   protected static int ask() throws BornageException, InputMismatchException {
+   /**
+    * ask : méthode de lecture sur l'entrée standard de la réponse de l'utilisateur
+    *
+    * @return int entier positif
+    * @throws BornageException si la valeur est négative
+    * @throws InputMismatchException si ce n'est pas un nombre
+    */
+   static int ask() throws BornageException, InputMismatchException {
       Scanner sc = new Scanner(System.in);
       int response = sc.nextInt();
 

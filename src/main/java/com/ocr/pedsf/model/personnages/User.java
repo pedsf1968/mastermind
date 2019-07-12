@@ -77,7 +77,7 @@ public class User implements Personnage {
 
       System.out.print(getNom() + " (" + getNs().getNombre() + ") : Proposition " + mp.getNomRobot1() + " : " + nombreSecret.getNombre() + " -> Réponse " + getNom() + " : ");
 
-      String reponse = DemandeReponse.get(mp.getLongueur(),mp.isDebugMode());
+      String reponse = DemandeReponse.get(mp.getLongueur());
 
       // on vérifie que l'utilisateur n'a pas fait d'erreur dans la saisie
       try {
