@@ -40,7 +40,7 @@ public class Defenseur implements Mode {
       ia.init();
       utilisateur.init();
 
-      if(mp.isModeDeveloppeur()) {
+      if(mp.isDebugMode()) {
          System.out.println("\nIndiquez pour chaque chiffre de la combinaison proposée si" +
                " le chiffre de sa combinaison est :\n" +
                "plus grand par un (+), plus petit par un (-) identique par un (=)\n");

@@ -14,10 +14,10 @@ import org.apache.logging.log4j.Logger;
 public class User implements Personnage {
    private static final Logger log = LogManager.getLogger(User.class);
 
-   private String nom = "";
-   private MastermindProperties mp = null;
+   private String nom ;
+   private MastermindProperties mp;
    private NombreSecret ns = null; // code secret de l'utilisateur
-   private NombreSecret nsToSearch = null; // proposition de l'utilisateur
+   private NombreSecret nsToSearch; // proposition de l'utilisateur
 
    public User( String nom, MastermindProperties mastermindProperties){
       this.nom = nom;
@@ -55,7 +55,7 @@ public class User implements Personnage {
    @Override
    public boolean attack(Personnage personnage) {
 
-      if(mp.isModeDeveloppeur()) {
+      if(mp.isDebugMode()) {
          System.out.print(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition : ");
       } else {
          System.out.print("Proposition : ");
@@ -63,16 +63,13 @@ public class User implements Personnage {
 
       nsToSearch.setNombre(DemandeProposition.get(mp.getLongueur()));
 
-      if(mp.isModeDeveloppeur()) {
+      if(mp.isDebugMode()) {
          System.out.println(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
       } else {
          System.out.println("Proposition "+ getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
       }
 
-
-      if (personnage.isEqual(nsToSearch)) return true;
-
-      return false;
+      return personnage.isEqual(nsToSearch);
    }
 
    @Override
@@ -80,7 +77,7 @@ public class User implements Personnage {
 
       System.out.print(getNom() + " (" + getNs().getNombre() + ") : Proposition " + mp.getNomRobot1() + " : " + nombreSecret.getNombre() + " -> Réponse " + getNom() + " : ");
 
-      String reponse = DemandeReponse.get(mp.getLongueur(),mp.isModeDeveloppeur());
+      String reponse = DemandeReponse.get(mp.getLongueur(),mp.isDebugMode());
 
       // on vérifie que l'utilisateur n'a pas fait d'erreur dans la saisie
       try {

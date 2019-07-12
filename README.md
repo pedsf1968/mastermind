@@ -1,6 +1,13 @@
 # Mastermind
 Jeu mastermind en ligne de commande
 
+## Compilation
+Lancez le lifecycle package pour créer les archives l'une avec et l'autre sans dépendance.
+ - mastermind.jar
+ - mastermind-jar-with-dependencies.jar
+
+## Exécution
+java -jar mastermind-jar-with-dependencies.jar [-d] [-u nom_utilisateur] [-m valeur]
 
 ## Utilisation
 
@@ -46,7 +53,6 @@ Il contient les class Controler du mode MVC :
 - **Defenseur** implémentation du mode de jeu où l'ordinateur attaque l'utilisateur.
 - **Duel** implémentation du mode de jeu où l'utilisateur et l'ordinateur s'attaquent à tour de rôle.
  
-
 ### Package **model**
 
 Il renferme les class des Modèles du MVC :
@@ -76,6 +82,30 @@ pour la gestion des exceptions.
 comporte le fichier de configuration :
  - **mastermind.properties** pour la configuration du jeu.
  - **log4j2.xml** pour la configuration de log4j2. 
+ 
+ ### fichier mastermind.properties
+ Il contient les paramètres de l'application ainsi 
+ que les tags utilisés pour redéfinir certains paramètres en ligne de commande lors du lancement.
+ 
+ Contenu originel du fichier :
+ #### propriétés générales de mastermind
+ mastermind.combinaison.chiffres=4
+ mastermind.combinaison.maxdigit=10
+ mastermind.combinaison.essais=10
+ 
+ ####Activation du mode développeur
+ mastermind.mode.developpeur=false
+ 
+ ####Nom des personnages
+ mastermind.nom.user=Utilisateur
+ mastermind.nom.robot1=Chapi
+ mastermind.nom.robot2=Chapo
+ 
+ #####Définition des tags pour définir les paramètres en ligne de commande
+ mastermind.tag.debug=-d
+ mastermind.tag.user=-u
+ mastermind.tag.maxdigit=-m
+
 
 
 

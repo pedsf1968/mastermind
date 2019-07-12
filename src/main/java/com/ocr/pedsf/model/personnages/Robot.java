@@ -14,8 +14,8 @@ import java.util.Random;
 public class Robot implements Personnage {
    private static final Logger log = LogManager.getLogger(Robot.class);
 
-   private String nom = "";
-   private MastermindProperties mp = null;
+   private String nom;
+   private MastermindProperties mp;
    private NombreSecret ns = null; // code secret de l'ordinateur
    private NombreSecret nsToSearch = null; // proposition de l'ordinateur pour trouver un code
    private char[] codesup; // bornes inférieures
@@ -63,7 +63,7 @@ public class Robot implements Personnage {
       // on envoie la proposition à l'adversaire
       String combinaison = personnage.reply(nsToSearch);
 
-      if(mp.isModeDeveloppeur()) {
+      if(mp.isDebugMode()) {
          System.out.println(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
       } else {
          System.out.println("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
@@ -96,7 +96,7 @@ public class Robot implements Personnage {
                      throw new BornageException();
                   }
                   // on cherche un chiffre entre les bornes min et max
-                  sb.append((int) rand.nextInt(codesup[i] - codeinf[i] + 1) + codeinf[i] - '0');
+                  sb.append( rand.nextInt(codesup[i] - codeinf[i] + 1) + codeinf[i] - '0');
                   break;
                case '-':
                   // on défini une nouvelle borne supérieur
@@ -108,7 +108,7 @@ public class Robot implements Personnage {
                      throw new BornageException();
                   }
                   // on cherche un chiffre entre les bornes min et max
-                  sb.append((int) rand.nextInt(codesup[i] - codeinf[i] + 1) + codeinf[i] - '0');
+                  sb.append( rand.nextInt(codesup[i] - codeinf[i] + 1) + codeinf[i] - '0');
                   break;
                case '=':
                   // c'est le bon chiffre
@@ -148,9 +148,9 @@ public class Robot implements Personnage {
 
    /**
     * initNombreSecret : initialise un nombreSecret avec une valeur aléatoire
-    * @return
+    * @return NombreSecret aléatoire
     */
-   NombreSecret initNombreSecret(){
+   private NombreSecret initNombreSecret(){
       StringBuilder sb = new StringBuilder();
 
       for(int i=0; i<mp.getLongueur(); i++) {

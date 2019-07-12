@@ -4,7 +4,6 @@ import com.ocr.pedsf.controler.Mode;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.Personnage;
 import com.ocr.pedsf.model.personnages.Robot;
-import com.ocr.pedsf.model.personnages.User;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,7 +35,7 @@ public class Autobaston implements Mode {
       chapi.init();
       chapo.init();
 
-      if (mp.isModeDeveloppeur()) {
+      if (mp.isDebugMode()) {
          System.out.println("(Combinaison secrète Chapi : " + chapi.getNs().getNombre() + ")\n");
          System.out.println("(Combinaison secrète Chapo : " + chapo.getNs().getNombre() + ")\n");
       }
@@ -57,9 +56,6 @@ public class Autobaston implements Mode {
          nbCoup++;
       } while (!trouve);
 
-      System.out.println("chapo.getNs() : " + chapo.getNs()+" chapi.getNsToSearch() : "+ chapi.getNsToSearch());
-
       log.traceExit();
-
    }
 }

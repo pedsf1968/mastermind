@@ -43,7 +43,7 @@ public class Duel implements Mode {
       ia.init();
       utilisateur.init();
 
-      if (mp.isModeDeveloppeur())
+      if (mp.isDebugMode())
          System.out.println("(Combinaison secrète : " + ia.getNs().getNombre() + ")\n");
 
       if(mp.getLongueur() == 1) {
