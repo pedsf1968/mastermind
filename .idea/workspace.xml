@@ -638,9 +638,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DemandeReponseTest_Given_badSign_When_ask_Then_getError - 2019.07.04 at 19h 33m 58s.xml">
-      <configuration name="DemandeReponseTest.Given_badSign_When_ask_Then_getError" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DemandeReponseTest_Given_shortSign_When_ask_Then_getError - 2019.07.04 at 19h 34m 39s.xml">
       <configuration name="DemandeReponseTest.Given_shortSign_When_ask_Then_getError" configurationId="JUnit" />
     </history-entry>
@@ -667,6 +664,9 @@
     </history-entry>
     <history-entry file="NombreSecretTest - 2019.07.12 at 08h 40m 26s.xml">
       <configuration name="NombreSecretTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DemandePropositionTest_Given_number_When_get_Then_getSameNumber - 2019.07.15 at 09h 04m 26s.xml">
+      <configuration name="DemandePropositionTest.Given_number_When_get_Then_getSameNumber" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
