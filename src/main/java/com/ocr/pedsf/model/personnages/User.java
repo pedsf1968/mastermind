@@ -27,13 +27,8 @@ public class User implements Personnage {
 
    public void init(){
       // saisie du code de départ par l'utilisateur
-      if(mp.getLongueur()==1) {
-         System.out.print("Entrez votre nombre secret de 1 chiffre : ");
-      } else {
-         System.out.print("Entrez votre nombre secret de " + mp.getLongueur() + " chiffres : ");
-      }
-
-      this.ns = new NombreSecret(DemandeProposition.get(mp.getLongueur()));
+      System.out.println("Entrez votre nombre secret.");
+      this.ns = new NombreSecret(DemandeProposition.get(mp.getLongueur(),mp.isDebugMode()));
 }
 
 
@@ -61,7 +56,7 @@ public class User implements Personnage {
          System.out.print("Proposition : ");
       }
 
-      nsToSearch.setNombre(DemandeProposition.get(mp.getLongueur()));
+      nsToSearch.setNombre(DemandeProposition.get(mp.getLongueur(),mp.isDebugMode()));
 
       if(mp.isDebugMode()) {
          System.out.println(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
@@ -77,7 +72,7 @@ public class User implements Personnage {
 
       System.out.print(getNom() + " (" + getNs().getNombre() + ") : Proposition " + mp.getNomRobot1() + " : " + nombreSecret.getNombre() + " -> Réponse " + getNom() + " : ");
 
-      String reponse = DemandeReponse.get(mp.getLongueur());
+      String reponse = DemandeReponse.get(mp.getLongueur(),mp.isDebugMode());
 
       // on vérifie que l'utilisateur n'a pas fait d'erreur dans la saisie
       try {

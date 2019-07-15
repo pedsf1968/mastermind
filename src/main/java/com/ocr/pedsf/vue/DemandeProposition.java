@@ -23,11 +23,11 @@ public class DemandeProposition {
     * @param digit taille du code à trouver
     * @return code saisi par l'utilisateur
     */
-   public static String get(int digit){
+   public static String get(int digit, boolean isDebugMode){
       log.traceEntry();
 
       do {
-         display(digit);
+         if(isDebugMode) display(digit);
          try {
             return log.traceExit(ask(digit));
         } catch (InputMismatchException e) {
@@ -43,7 +43,7 @@ public class DemandeProposition {
     * @param digit taille du code à trouver
     */
    static void display(int digit){
-      System.out.println("Choisissez un nombre de "+ digit + " chiffre(s).");
+         System.out.println("Choisissez un nombre de "+ digit + " chiffre(s).");
    }
 
    /**

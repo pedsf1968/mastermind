@@ -17,11 +17,11 @@ public class DemandeReponse {
     * @param digit taille du code à trouver
     * @return réponse saisie par l'utilisateur
     */
-   public static String get(int digit){
+   public static String get(int digit, boolean isDebugMode){
       log.traceEntry();
 
       do {
-         display();
+         if(isDebugMode) display();
          try {
             return log.traceExit(ask(digit));
          } catch (InputMismatchException e) {
