@@ -21,9 +21,9 @@ public class NombreSecretTest {
       NombreSecret n1 = new NombreSecret("1234");
 
       try {
-         assertEquals(n1.test("1234"),"====");
-         assertEquals(n1.test("4278"),"-=--");
-         assertEquals(n1.test("2214"),"-=+=");
+         assertEquals("====",n1.test("1234"));
+         assertEquals("-=--",n1.test("4278"));
+         assertEquals("-=+=",n1.test("2214"));
       } catch (TailleDifferenteException | CaractereIncorrectException e) {
          e.printStackTrace();
       }

@@ -1,9 +1,5 @@
-package com.ocr.pedsf.controler;
+package com.ocr.pedsf.controler.modes;
 
-import com.ocr.pedsf.controler.modes.Autobaston;
-import com.ocr.pedsf.controler.modes.Challenger;
-import com.ocr.pedsf.controler.modes.Defenseur;
-import com.ocr.pedsf.controler.modes.Duel;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.vue.ChoixDuMode;
 import com.ocr.pedsf.vue.ChoixNombreDigit;
@@ -11,11 +7,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Jeu class contrôleur pour le déroulement du Jeu
+ * Jeu : class  implémentant Mode qui sert de contrôleur pour le déroulement du Jeu
  *
  * @author pedsf
+ * @version 1.0
  */
-public class Jeu {
+public class Jeu implements Mode{
    private static final Logger log = LogManager.getLogger(Jeu.class);
 
    private MastermindProperties mp = null;
@@ -29,7 +26,7 @@ public class Jeu {
    /**
     * run : méthode de lancement de l'accueil pour choisir le modes de jeu ou la taille du code
     */
-   protected void run(){
+   public void run(){
       log.traceEntry();
       int choixMode = ChoixDuMode.get();
 

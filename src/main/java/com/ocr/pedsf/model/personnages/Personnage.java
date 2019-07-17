@@ -1,5 +1,13 @@
-package com.ocr.pedsf.model;
+package com.ocr.pedsf.model.personnages;
 
+import com.ocr.pedsf.model.NombreSecret;
+
+/**
+ * Personnage : interface générale pour les acteurs du jeu User ou Robot
+ *
+ * @author PEDSF
+ * @version 1.0
+ */
 public interface Personnage {
 
    String getNom();
@@ -26,7 +34,7 @@ public interface Personnage {
     * @param nombreSecret proposé par l'adversaire
     * @return la réponse sous forme de +-=
     */
-   public String reply(NombreSecret nombreSecret);
+   String reply(NombreSecret nombreSecret);
 
    /**
     * isEqual : méthode qui renvoie true si le NombreSecret passé en paramètre est le même que celui du Personnage

@@ -11,6 +11,7 @@ import java.util.Objects;
  * NombreSecret : class pour gérer les chaines de nombres
  *
  * @author pedsf
+ * @version 1.0
  */
 public class NombreSecret {
    private static final Logger log = LogManager.getLogger(NombreSecret.class);

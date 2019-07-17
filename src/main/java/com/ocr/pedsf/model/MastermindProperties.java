@@ -10,36 +10,50 @@ import static java.lang.System.exit;
 
 /**
  * MastermindProperties : class pour gérer les propriétés du jeux
+ *                        elle récupère les paramètres de l'application
+ *                        dans le fichier mastermind.properties
+ *                        et dans la ligne de commande
  *
  * @author pedsf
+ * @version 1.0
  */
 public class MastermindProperties {
    private static final Logger log = LogManager.getLogger(MastermindProperties.class);
 
-   // emplacement du fichier de configuration
+   // nom du fichier de configuration
    private static String CONFIGURATION_FILE = "mastermind";
-   private static ResourceBundle bundle;
 
+   // constantes pour le nombre secret
    private static int MASTERMIND_LONGUEUR = 4;
    private static int MASTERMIND_ESSAIS = 10;
    private static int MASTERMIND_MAX_DIGIT = 10;
    private static boolean MASTERMIND_DEBUG_MODE = false;
+
+   // les noms des protagonistes par défaut
    private static String MASTERMIND_NOM_USER = "Utilisateur";
    private static String MASTERMIND_NOM_ROBOT1 = "Chapi";
    private static String MASTERMIND_NOM_ROBOT2 = "Chapo";
 
-   // Les tags pour passer des paramètres en arguments de la ligne de commande
+   // Les tags par défaut pour passer des paramètres en arguments de la ligne de commande
    private static String MASTERMIND_TAG_DEBUG = "-d";
    private static String MASTERMIND_TAG_USER = "-u";
    private static String MASTERMIND_TAG_MAX_DIGIT = "-m";
 
+   // variable pour lire les paramètres dans le fichier properties
+   private static ResourceBundle bundle;
+
+   // variables pour le nombre secret
    private int longueur;         // longueur du code à trouver
    private int nbEssai;          // nombre max d'essai
    private int maxDigit;         // longueur max autorisé du code. peut être changé avec : -m nouvelle_valeur
    private boolean isDebugMode;  // mode développeur. peut être activé avec : -d
+
+   // les noms des protagonistes
    private String nomUser;       // nom utilisateur. peut être changé avec : -u nouveau_nom
    private String nomRobot1;     // nom du premier robot qui sert dans tous les modes
    private String nomRobot2;     // nom du second robot pour le mode autobaston
+
+   // les tags de la ligne de commande
    private String tagDebug;      // tag pour activer le mode debug en ligne de commande
    private String tagUser;       // tag pour changer le nom de l'utilisateur
    private String tagMaxDigit;   // tag pour changet le nombre max de digit
@@ -86,11 +100,11 @@ public class MastermindProperties {
       return isDebugMode;
    }
 
-  public String getNomUser() {
+   public String getNomUser() {
       return nomUser;
    }
 
-  public String getNomRobot1() {
+   public String getNomRobot1() {
       return nomRobot1;
    }
 
@@ -120,10 +134,10 @@ public class MastermindProperties {
     * @param args arguments de la ligne de commande
     */
    private void getArguments(String[] args){
-
+      log.traceEntry();
       // on récupère les paramètres en ligne de commande
 
-         for(int i=0; i<args.length;i++){
+      for(int i=0; i<args.length;i++){
          String option = args[i];
 
          if (this.tagDebug.equals(args[i])) {
@@ -159,6 +173,8 @@ public class MastermindProperties {
             exit(0);
          }
       }
+
+      log.traceExit();
    }
 
    /**
@@ -168,15 +184,16 @@ public class MastermindProperties {
     * @param defaultValue valeur d'initialisation par défaut
     * @return  valeur lue ou celle par défaut
     */
-  private  boolean getBoolean(String key, boolean defaultValue){
+   private  boolean getBoolean(String key, boolean defaultValue){
+      log.traceEntry();
       String value;
 
       try {
          value = bundle.getString(key);
-         return (value.equals("")) ? defaultValue : Boolean.valueOf(value);
+         return log.traceExit((value.equals("")) ? defaultValue : Boolean.valueOf(value));
       } catch (MissingResourceException mrE) {
          log.error(key + " absente du fichier de configuration " + mrE);
-         return defaultValue;
+         return log.traceExit(defaultValue);
       }
    }
 
@@ -188,14 +205,15 @@ public class MastermindProperties {
     * @return  valeur lue ou celle par défaut
     */
    private int getInt(String key, int defaultValue){
+      log.traceEntry();
       String value;
 
       try {
          value = bundle.getString(key);
-         return (value.equals("")) ? defaultValue : Integer.valueOf(value);
+         return log.traceExit((value.equals("")) ? defaultValue : Integer.valueOf(value));
       } catch (MissingResourceException mrE) {
          log.error(key + " absente du fichier de configuration " + mrE);
-         return defaultValue;
+         return log.traceExit(defaultValue);
       }
    }
 
@@ -207,14 +225,15 @@ public class MastermindProperties {
     * @return  valeur lue ou celle par défaut
     */
    private String getString(String key, String defaultValue){
+      log.traceEntry();
       String value;
 
       try {
          value = bundle.getString(key);
-         return (value.equals("")) ? defaultValue : value;
+         return log.traceExit((value.equals("")) ? defaultValue : value);
       } catch (MissingResourceException mrE) {
          log.error(key + " absente du fichier de configuration " + mrE);
-         return defaultValue;
+         return log.traceExit(defaultValue);
       }
    }
 

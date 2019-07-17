@@ -3,6 +3,13 @@ package com.ocr.pedsf.vue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * DemandeReponse : class d'affichage du résultat
+ *
+ * @author pedsf
+ * @version 1.0
+ */
+
 public class Resultat {
    private static final Logger log = LogManager.getLogger(Resultat.class.getName());
    /**

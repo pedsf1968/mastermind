@@ -6,7 +6,7 @@
 
    <groupId>PEDSF</groupId>
    <artifactId>mastermind</artifactId>
-   <version>1.0-SNAPSHOT</version>
+   <version>1.0</version>
 
    <name>Mastermind</name>
    <url>http://maven.apache.org</url>

@@ -8,9 +8,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * ChoixNombreDigit : Demande à l'utilisateur une nouvelle longueur du code
+ * ChoixNombreDigit : class d'affichage pour demander à l'utilisateur une nouvelle longueur du code
+ *               on appel la class par la méthode get() qui se sert
+ *               de display() pour afficher la question
+ *               et de ask() pour lire les entrées clavier
+ *               et retourne une réponse valide
  *
  * @author pedsf
+ * @version 1.0
  */
 public class ChoixNombreDigit {
    private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());

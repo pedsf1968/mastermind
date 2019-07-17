@@ -5,18 +5,23 @@ import com.ocr.pedsf.exceptions.MauvaiseReponseException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
-import com.ocr.pedsf.model.Personnage;
 import com.ocr.pedsf.vue.DemandeProposition;
 import com.ocr.pedsf.vue.DemandeReponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * User : class implémentant Personnage pour gérer l'utilisateur
+ *
+ * @author PEDSF
+ * @version 1.0
+ */
 public class User implements Personnage {
    private static final Logger log = LogManager.getLogger(User.class);
 
-   private String nom ;
-   private MastermindProperties mp;
-   private NombreSecret ns = null; // code secret de l'utilisateur
+   private String nom ;             // nom de l'utilisateur
+   private MastermindProperties mp; // propriétés du jeu
+   private NombreSecret ns = null;  // code secret de l'utilisateur
    private NombreSecret nsToSearch; // proposition de l'utilisateur
 
    public User( String nom, MastermindProperties mastermindProperties){
@@ -29,8 +34,7 @@ public class User implements Personnage {
       // saisie du code de départ par l'utilisateur
       System.out.println("Entrez votre nombre secret.");
       this.ns = new NombreSecret(DemandeProposition.get(mp.getLongueur(),mp.isDebugMode()));
-}
-
+   }
 
    @Override
    public String getNom() {

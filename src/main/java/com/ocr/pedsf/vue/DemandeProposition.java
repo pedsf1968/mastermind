@@ -7,11 +7,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * DemandeProposition : demande une proposition au joueur
+ * DemandeProposition : class d'affichage pour demander une proposition de nombre secret au joueur
+ *               on appel la class par la méthode get() qui se sert
+ *               de display() pour afficher la question
+ *               et de ask() pour lire les entrées clavier
+ *               et retourne une réponse valide
  *
  * @author pedsf
+ * @version 1.0
  */
-
 public class DemandeProposition {
    private static final Logger log = LogManager.getLogger(DemandeProposition.class.getName());
 

@@ -5,21 +5,28 @@ import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.NombreSecret;
-import com.ocr.pedsf.model.Personnage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Random;
 
+/**
+ * Robot : class implémentant Personnage pour gérer l'IA
+ *
+ * @author PEDSF
+ * @version 1.0
+ */
 public class Robot implements Personnage {
    private static final Logger log = LogManager.getLogger(Robot.class);
 
-   private String nom;
-   private MastermindProperties mp;
-   private NombreSecret ns = null; // code secret de l'ordinateur
-   private NombreSecret nsToSearch = null; // proposition de l'ordinateur pour trouver un code
-   private char[] codesup; // bornes inférieures
-   private char[] codeinf; // bornes supérieures
+   private String nom;                       // nom du robot
+   private MastermindProperties mp;          // propriétés du jeu
+   private NombreSecret ns = null;           // code secret de l'ordinateur
+
+   // variables pour rechercher le code de l'adversaire
+   private NombreSecret nsToSearch = null;   // proposition de l'ordinateur pour trouver un code
+   private char[] codesup;                   // bornes inférieures
+   private char[] codeinf;                   // bornes supérieures
 
    public Robot(String nom, MastermindProperties mastermindProperties){
       this.nom = nom;

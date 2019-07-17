@@ -1,13 +1,18 @@
 package com.ocr.pedsf.controler.modes;
 
-import com.ocr.pedsf.controler.Mode;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.Personnage;
+import com.ocr.pedsf.model.personnages.Personnage;
 import com.ocr.pedsf.model.personnages.Robot;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Autobaston : class implémentant Mode qui gère le combat entre deux IA
+ *
+ * @author PEDSF
+ * @version 1.0
+ */
 public class Autobaston implements Mode {
    private static final Logger log = LogManager.getLogger(Duel.class);
 

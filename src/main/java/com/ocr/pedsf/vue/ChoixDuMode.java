@@ -8,9 +8,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * ChoixDuMode : choix du modes de jeu
+ * ChoixDuMode : class d'affichage pour le choix du modes de jeu
+ *               on appel la class par la méthode get() qui se sert
+ *               de display() pour afficher la question
+ *               et de ask() pour lire les entrées clavier
+ *               et retourne une réponse valide
  *
  * @author pedsf
+ * @version 1.0
  */
 public class ChoixDuMode {
    private static final Logger log = LogManager.getLogger(ChoixDuMode.class.getName());
