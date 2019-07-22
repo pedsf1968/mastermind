@@ -18,7 +18,6 @@ public class Defenseur implements Mode {
    private static final Logger log = LogManager.getLogger(Defenseur.class);
 
    private MastermindProperties mp;
-   private boolean trouve = false;
    private int nbCoup = 0;
 
    public Defenseur(MastermindProperties mp){
@@ -28,10 +27,9 @@ public class Defenseur implements Mode {
    /**
     * run : méthode qui lance le modes défense
     */
-
    public void run(){
       log.traceEntry();
-      System.out.println("\nMASTERMIND : Mode Defenseur\n");
+      log.info("MASTERMIND : Mode Defenseur\n");
 
       // initialisation des protagonistes
       Personnage ia = new Robot(mp.getNomRobot1(),mp);
@@ -41,19 +39,20 @@ public class Defenseur implements Mode {
       utilisateur.init();
 
       if(mp.isDebugMode()) {
-         System.out.println("\nIndiquez pour chaque chiffre de la combinaison proposée si" +
+         log.info("\nIndiquez pour chaque chiffre de la combinaison proposée si" +
                " le chiffre de sa combinaison est :\n" +
                "plus grand par un (+), plus petit par un (-) identique par un (=)\n");
       }
 
       do {
-
          nbCoup++;
       } while (!ia.attack(utilisateur) && nbCoup<mp.getNbEssai());
 
       if (nbCoup>mp.getNbEssai()) {
+         // l'adversaire n'a pas trouvé la solution
          Resultat.display(utilisateur.getNom(), ia.getNom(), nbCoup, utilisateur.getNs().getNombre());
       } else {
+         // l'adversaire a trouvé la réponse dans la limite du nombre de coups
          Resultat.display(ia.getNom(), utilisateur.getNom(),nbCoup, utilisateur.getNs().getNombre());
       }
 

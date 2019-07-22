@@ -1,12 +1,14 @@
 package com.ocr.pedsf.model;
 
+import com.ocr.pedsf.exceptions.ParametreIncorrectException;
+import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static java.lang.System.exit;
+
 
 /**
  * MastermindProperties : class pour gérer les propriétés du jeux
@@ -19,28 +21,29 @@ import static java.lang.System.exit;
  */
 public class MastermindProperties {
    private static final Logger log = LogManager.getLogger(MastermindProperties.class);
+   private static final String MESSAGE_NO_VALUE = " absente du fichier de configuration ";
 
    // nom du fichier de configuration
-   private static String CONFIGURATION_FILE = "mastermind";
+   private static String constMastermindConfigurationFile = "mastermind";
 
    // constantes pour le nombre secret
-   private static int MASTERMIND_LONGUEUR = 4;
-   private static int MASTERMIND_ESSAIS = 10;
-   private static int MASTERMIND_MAX_DIGIT = 10;
-   private static boolean MASTERMIND_DEBUG_MODE = false;
+   private static int constMastermindLongueur = 4;
+   private static int constMastermindEssais = 10;
+   private static int constMastermindMaxDigit = 10;
+   private static boolean constMastermindDebugMode = false;
 
    // les noms des protagonistes par défaut
-   private static String MASTERMIND_NOM_USER = "Utilisateur";
-   private static String MASTERMIND_NOM_ROBOT1 = "Chapi";
-   private static String MASTERMIND_NOM_ROBOT2 = "Chapo";
+   private static String constMastermindNomUser = "Utilisateur";
+   private static String constMastermindNomRobot1 = "Chapi";
+   private static String constMastermindNomRobot2 = "Chapo";
 
    // Les tags par défaut pour passer des paramètres en arguments de la ligne de commande
-   private static String MASTERMIND_TAG_DEBUG = "-d";
-   private static String MASTERMIND_TAG_USER = "-u";
-   private static String MASTERMIND_TAG_MAX_DIGIT = "-m";
+   private static String constMastermindTagDebug = "-d";
+   private static String constMastermindTagNomUser = "-u";
+   private static String constMastermindTagMaxDigit = "-m";
 
    // variable pour lire les paramètres dans le fichier properties
-   private static ResourceBundle bundle;
+   private ResourceBundle bundle;
 
    // variables pour le nombre secret
    private int longueur;         // longueur du code à trouver
@@ -54,30 +57,29 @@ public class MastermindProperties {
    private String nomRobot2;     // nom du second robot pour le mode autobaston
 
    // les tags de la ligne de commande
-   private String tagDebug;      // tag pour activer le mode debug en ligne de commande
-   private String tagUser;       // tag pour changer le nom de l'utilisateur
-   private String tagMaxDigit;   // tag pour changet le nombre max de digit
+   private final String tagDebug;      // tag pour activer le mode debug en ligne de commande
+   private final String tagUser;       // tag pour changer le nom de l'utilisateur
+   private final String tagMaxDigit;   // tag pour changet le nombre max de digit
 
    public MastermindProperties( String[] args){
-      String sProp;
-
       // initialisation de la resource bundle
-      bundle = ResourceBundle.getBundle(CONFIGURATION_FILE);
+      bundle = ResourceBundle.getBundle(constMastermindConfigurationFile);
 
       // lecture des paramètres dans le fichier
-      this.longueur = getInt("mastermind.combinaison.chiffres", MASTERMIND_LONGUEUR);
-      this.nbEssai = getInt("mastermind.combinaison.essais", MASTERMIND_ESSAIS);
-      this.maxDigit = getInt("mastermind.combinaison.maxdigit", MASTERMIND_MAX_DIGIT);
-      this.isDebugMode = getBoolean("mastermind.mode.developpeur", MASTERMIND_DEBUG_MODE);
-      this.nomUser = getString("mastermind.nom.user",MASTERMIND_NOM_USER);
-      this.nomRobot1 = getString("mastermind.nom.robot1", MASTERMIND_NOM_ROBOT1);
-      this.nomRobot2 = getString("mastermind.nom.robot2", MASTERMIND_NOM_ROBOT2);
-      this.tagDebug = getString("mastermind.tag.debug", MASTERMIND_TAG_DEBUG);
-      this.tagUser = getString("mastermind.tag.user", MASTERMIND_TAG_USER);
-      this.tagMaxDigit = getString("mastermind.tag.maxdigit", MASTERMIND_TAG_MAX_DIGIT);
+      this.longueur = getInt("mastermind.combinaison.chiffres", constMastermindLongueur);
+      this.nbEssai = getInt("mastermind.combinaison.essais", constMastermindEssais);
+      this.maxDigit = getInt("mastermind.combinaison.maxdigit", constMastermindMaxDigit);
+      this.isDebugMode = getBoolean("mastermind.mode.developpeur", constMastermindDebugMode);
+      this.nomUser = getString("mastermind.nom.user",constMastermindNomUser);
+      this.nomRobot1 = getString("mastermind.nom.robot1", constMastermindNomRobot1);
+      this.nomRobot2 = getString("mastermind.nom.robot2", constMastermindNomRobot2);
+      this.tagDebug = getString("mastermind.tag.debug", constMastermindTagDebug);
+      this.tagUser = getString("mastermind.tag.user", constMastermindTagNomUser);
+      this.tagMaxDigit = getString("mastermind.tag.maxdigit", constMastermindTagMaxDigit);
 
       // on écrase avec les propriétées passées en ligne de commande
-      getArguments(args);
+      List<String> paramList = new ArrayList<>(Arrays.asList(args));
+      getArguments(paramList);
    }
 
    public void setLongueur(int longueur) {
@@ -131,47 +133,64 @@ public class MastermindProperties {
    /**
     * getArguments : méthode qui récupère les paramètres en ligne de commande
     *
-    * @param args arguments de la ligne de commande
+    * @param paramList arguments de la ligne de commande
     */
-   private void getArguments(String[] args){
+   private void getArguments(List<String> paramList){
       log.traceEntry();
+      int index = 0;
+
       // on récupère les paramètres en ligne de commande
+      if (paramList.contains(this.tagDebug)){
+         // c'est l'activation du mode développeur
+         this.isDebugMode = true;
+         paramList.remove(this.tagDebug);
+         log.info("Mode debug activé !");
+         log.trace("Mode debug activé !");
+      }
 
-      for(int i=0; i<args.length;i++){
-         String option = args[i];
+      if( paramList.contains(this.tagUser)){
+         // récupération du nom de l'utilisateur
+         index = paramList.indexOf(this.tagUser) + 1;
+         this.nomUser = paramList.get(index);
+         paramList.remove(index);
+         paramList.remove(index-1);
+         log.info("User name : " + getNomUser());
+         log.trace("User name : " + getNomUser());
+      }
 
-         if (this.tagDebug.equals(args[i])) {
-            // c'est l'activation du mode développeur
-            this.isDebugMode = true;
-            System.out.println("Mode debug activé !");
-            log.trace("Mode debug activé !");
-         } else if (this.tagUser.equals(args[i])) {
-            // récupération du nom de l'utilisateur
-            if( args[i]!=null) {
-               this.nomUser = args[++i];
-               System.out.println("User name : " + getNomUser());
-               log.trace("User name : " + getNomUser());
-            }
-         } else if (this.tagMaxDigit.equals(args[i])) {
-            // récupération de la taille maximale
-            if( args[++i]!=null) {
-               try {
-                  this.maxDigit = Integer.valueOf(args[i]);
-                  System.out.println("MaxDigit : " + getMaxDigit());
-                  log.trace("MaxDigit : " + getMaxDigit());
-               } catch (NumberFormatException nfE) {
-                  log.error("Mauvaise valeur de MaxDigit : " + args[i] + "\n" + nfE);
-               }
-            }
-         } else {
-            // affichage de l'aide en ligne
-            System.out.println("Option non reconnue : "+args[i]);
-            System.out.println("mastermind ["+ this.tagDebug+"]["+this.tagUser+" nom]["+ this.tagMaxDigit+" nombre]");
-            System.out.println(this.tagDebug + " : activate debug");
-            System.out.println(this.tagUser + " nom : set user name");
-            System.out.println(this.tagMaxDigit + " nombre: set maxdigit");
-            exit(0);
+      if(paramList.contains(this.tagMaxDigit)) {
+         // récupération de la taille maximale
+         try {
+            index = paramList.indexOf(this.tagMaxDigit) + 1;
+            this.maxDigit = Integer.valueOf(paramList.get(index));
+            paramList.remove(index);
+            paramList.remove(index-1);
+            log.info("MaxDigit : " + getMaxDigit());
+            log.trace("MaxDigit : " + getMaxDigit());
+         } catch (NumberFormatException nfE) {
+            log.error("Mauvaise valeur de MaxDigit : " + paramList.get(index) + "\n" + nfE);
          }
+      }
+
+      // si la liste n'est pas vide il y a des paramètres incompris
+      if(!paramList.isEmpty()
+         &&( !StringUtils.equals(paramList.get(0),this.tagDebug)
+         || !StringUtils.equals(paramList.get(0),this.tagUser)
+         || !StringUtils.equals(paramList.get(0),this.tagMaxDigit))) {
+         try {
+            throw new ParametreIncorrectException();
+         } catch (ParametreIncorrectException e) {
+            // affichage de l'aide en ligne
+            log.info("\nOption non reconnue : {}\n", paramList.get(0));
+            log.info("mastermind [{}][{} nom][{} nombre]", this.tagDebug,this.tagUser,this.tagMaxDigit);
+            log.info("{} : activate debug",this.tagDebug);
+            log.info("{} nom : set user name",this.tagUser);
+            log.info("{} nombre: set maxdigit\n",this.tagMaxDigit);
+            //on supprime le paramètre défectueux et on rappel la méthode de lecture des paramètres
+            paramList.remove(0);
+            getArguments(paramList);
+         }
+
       }
 
       log.traceExit();
@@ -192,7 +211,7 @@ public class MastermindProperties {
          value = bundle.getString(key);
          return log.traceExit((value.equals("")) ? defaultValue : Boolean.valueOf(value));
       } catch (MissingResourceException mrE) {
-         log.error(key + " absente du fichier de configuration " + mrE);
+         log.error(key + MESSAGE_NO_VALUE + mrE);
          return log.traceExit(defaultValue);
       }
    }
@@ -212,7 +231,7 @@ public class MastermindProperties {
          value = bundle.getString(key);
          return log.traceExit((value.equals("")) ? defaultValue : Integer.valueOf(value));
       } catch (MissingResourceException mrE) {
-         log.error(key + " absente du fichier de configuration " + mrE);
+         log.error(key + MESSAGE_NO_VALUE + mrE);
          return log.traceExit(defaultValue);
       }
    }
@@ -232,7 +251,7 @@ public class MastermindProperties {
          value = bundle.getString(key);
          return log.traceExit((value.equals("")) ? defaultValue : value);
       } catch (MissingResourceException mrE) {
-         log.error(key + " absente du fichier de configuration " + mrE);
+         log.error(key + MESSAGE_NO_VALUE + mrE);
          return log.traceExit(defaultValue);
       }
    }

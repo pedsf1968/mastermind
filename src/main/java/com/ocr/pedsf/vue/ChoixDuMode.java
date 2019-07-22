@@ -20,6 +20,10 @@ import java.util.Scanner;
 public class ChoixDuMode {
    private static final Logger log = LogManager.getLogger(ChoixDuMode.class.getName());
 
+   private ChoixDuMode() {
+      throw new UnsupportedOperationException();
+   }
+
    /**
     * get : méthode générale pour demander le choix du mode de jeu
     *       elle pause la question avec display()
@@ -44,14 +48,14 @@ public class ChoixDuMode {
     * display : méthode d'affichage de la question
     */
    static void display(){
-      System.out.println("\nMASTERMIND");
-      System.out.println("\nChoisissez le modes de jeu :");
-      System.out.println("0 - Choix du nombre de digit");
-      System.out.println("1 - Challenger");
-      System.out.println("2 - Défenseur");
-      System.out.println("3 - Duel");
-      System.out.println("4 - AutoBaston");
-      System.out.println("\nSaisissez un nombre plus grand pour quitter");
+      log.info("MASTERMIND\n");
+      log.info("Choisissez le modes de jeu :");
+      log.info("0 - Choix du nombre de digit");
+      log.info("1 - Challenger");
+      log.info("2 - Défenseur");
+      log.info("3 - Duel");
+      log.info("4 - AutoBaston\n");
+      log.info("Saisissez un nombre plus grand pour quitter.\n");
    }
 
    /**
@@ -61,7 +65,7 @@ public class ChoixDuMode {
     * @throws BornageException si la valeur est négative
     * @throws InputMismatchException si ce n'est pas un nombre
     */
-   static int ask() throws BornageException, InputMismatchException {
+   static int ask() throws BornageException {
       Scanner sc = new Scanner(System.in);
       int response = sc.nextInt();
 

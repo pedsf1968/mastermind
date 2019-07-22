@@ -18,14 +18,9 @@ public class Duel implements Mode {
    private static final Logger log = LogManager.getLogger(Duel.class);
 
    private MastermindProperties mp;
-   private boolean trouve = false;
    private int nbCoup = 0;
 
    public Duel(MastermindProperties mp){
-      this.mp = mp;
-   }
-
-   public void setMp(MastermindProperties mp) {
       this.mp = mp;
    }
 
@@ -34,7 +29,9 @@ public class Duel implements Mode {
     */
    public void run(){
       log.traceEntry();
-      System.out.println("\nMASTERMIND : Mode Duel\n");
+      boolean trouve;
+
+      log.info("MASTERMIND : Mode Duel\n");
 
       // initialisation des protagonistes
       Personnage ia = new Robot(mp.getNomRobot1(),mp);
@@ -44,12 +41,12 @@ public class Duel implements Mode {
       utilisateur.init();
 
       if (mp.isDebugMode())
-         System.out.println("(Combinaison secrète : " + ia.getNs().getNombre() + ")\n");
+         log.info("(Combinaison secrète : {})\n",ia.getNs().getNombre());
 
       if(mp.getLongueur() == 1) {
-         System.out.println("Trouvez un nombre à 1 chiffre.");
+         log.info("Trouvez un nombre à 1 chiffre.");
       } else {
-         System.out.println("Trouvez un nombre à " + mp.getLongueur() + " chiffres.");
+         log.info("Trouvez un nombre à {} chiffres.", mp.getLongueur());
       }
 
       do {

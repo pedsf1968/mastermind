@@ -19,12 +19,17 @@ import java.util.Scanner;
 public class DemandeReponse {
    private static final Logger log = LogManager.getLogger(DemandeReponse.class.getName());
 
+   private DemandeReponse() {
+      throw new UnsupportedOperationException();
+   }
+
    /**
     * get : méthode générale pour demander une réponse à la proposition de l'adversaire
     *       elle pause la question avec display()
     *       et demande à l'utilisateur avec ask() jusqu'à ce que la réponse soit correcte
     *
     * @param digit taille du code à trouver
+    * @param isDebugMode activation du mode debug
     * @return réponse saisie par l'utilisateur
     */
    public static String get(int digit, boolean isDebugMode){
@@ -36,7 +41,7 @@ public class DemandeReponse {
             return log.traceExit(ask(digit));
          } catch (InputMismatchException e) {
             log.error("Mauvaise saisie !", e);
-            System.out.println("Indiquez pour chaque chiffre de la combinaison proposée si" +
+            log.info("Indiquez pour chaque chiffre de la combinaison proposée si" +
                   " le chiffre de sa combinaison est :\n" +
                   "plus grand par un (+), plus petit par un (-) identique par un (=)\n");
          }
@@ -48,7 +53,7 @@ public class DemandeReponse {
     * display : méthode d'affichage de la question
     */
    static void display(){
-      System.out.println("Indiquez pour chaque chiffre si le résultat est + grand - petit = égal.");
+      log.info("Indiquez pour chaque chiffre si le résultat est + grand - petit = égal.");
    }
 
    /**
@@ -58,7 +63,7 @@ public class DemandeReponse {
     * @return String code de +-=
     * @throws InputMismatchException si ce n'est pas une correspondance de +-=
     */
-   static String ask(int digit) throws InputMismatchException{
+   static String ask(int digit){
       Scanner sc = new Scanner(System.in);
       String pattern = "[-+=]{" + digit + "}";
 

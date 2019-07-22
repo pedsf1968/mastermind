@@ -17,21 +17,18 @@ public class Autobaston implements Mode {
    private static final Logger log = LogManager.getLogger(Duel.class);
 
    private MastermindProperties mp;
-   private boolean trouve = false;
    private int nbCoup = 0;
 
    public Autobaston(MastermindProperties mp){
       this.mp = mp;
    }
 
-   public void setMp(MastermindProperties mp) {
-      this.mp = mp;
-   }
-
    @Override
    public void run() {
       log.traceEntry();
-      System.out.println("\nMASTERMIND : Mode AutoBaston\n");
+      boolean trouve;
+
+      log.info("MASTERMIND : Mode AutoBaston\n");
 
       // initialisation des protagonistes
       Personnage chapi = new Robot(mp.getNomRobot1(),mp);
@@ -42,8 +39,8 @@ public class Autobaston implements Mode {
       chapo.init();
 
       if (mp.isDebugMode()) {
-         System.out.println("(Combinaison secrète " + chapi.getNom() + " : " + chapi.getNs().getNombre() + ")\n");
-         System.out.println("(Combinaison secrète " + chapo.getNom() + " : " + chapo.getNs().getNombre() + ")\n");
+         log.info("(Combinaison secrète {} : {} )\n", chapi.getNom() ,chapi.getNs().getNombre());
+         log.info("(Combinaison secrète {} : {})\n", chapo.getNom(),chapo.getNs().getNombre());
       }
 
       do {

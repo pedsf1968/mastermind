@@ -32,7 +32,7 @@ public class User implements Personnage {
 
    public void init(){
       // saisie du code de départ par l'utilisateur
-      System.out.println("Entrez votre nombre secret.");
+      log.info("Entrez votre nombre secret.");
       this.ns = new NombreSecret(DemandeProposition.get(mp.getLongueur(),mp.isDebugMode()));
    }
 
@@ -55,17 +55,27 @@ public class User implements Personnage {
    public boolean attack(Personnage personnage) {
 
       if(mp.isDebugMode()) {
-         System.out.print(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition : ");
+         log.info("{} ({}) : Proposition : ",personnage.getNom(),personnage.getNs().getNombre());
       } else {
-         System.out.print("Proposition : ");
+         log.info("Proposition : ");
       }
 
       nsToSearch.setNombre(DemandeProposition.get(mp.getLongueur(),mp.isDebugMode()));
 
       if(mp.isDebugMode()) {
-         System.out.println(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
+         log.info("{} ({}) : Proposition {} : {} ->Réponse {} : {}",
+               personnage.getNom(),
+               personnage.getNs().getNombre(),
+               getNom(),
+               nsToSearch.getNombre(),
+               personnage.getNom(),
+               personnage.reply(nsToSearch));
       } else {
-         System.out.println("Proposition "+ getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + personnage.reply(nsToSearch));
+         log.info("Proposition {} : {} -> Réponse {} : {}",
+               getNom(),
+               nsToSearch.getNombre(),
+               personnage.getNom(),
+               personnage.reply(nsToSearch));
       }
 
       return personnage.isEqual(nsToSearch);
@@ -74,7 +84,12 @@ public class User implements Personnage {
    @Override
    public String reply(NombreSecret nombreSecret) {
 
-      System.out.print(getNom() + " (" + getNs().getNombre() + ") : Proposition " + mp.getNomRobot1() + " : " + nombreSecret.getNombre() + " -> Réponse " + getNom() + " : ");
+      log.info("{} ({}) : Proposition {} : {} -> Réponse {} :",
+            getNom(),
+            getNs().getNombre(),
+            mp.getNomRobot1(),
+            nombreSecret.getNombre(),
+            getNom());
 
       String reponse = DemandeReponse.get(mp.getLongueur(),mp.isDebugMode());
 

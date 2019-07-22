@@ -20,6 +20,10 @@ import java.util.Scanner;
 public class ChoixNombreDigit {
    private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());
 
+   private ChoixNombreDigit() {
+      throw new UnsupportedOperationException();
+   }
+
    /**
     * get : méthode générale pour demander un nombre de digit pour le code
     *       elle pause la question avec display()
@@ -37,7 +41,7 @@ public class ChoixNombreDigit {
          try {
             return log.traceExit(ask(max));
          } catch ( BornageException | InputMismatchException | IndexOutOfBoundsException  e) {
-            log.error("\n Erreur de saisie! Choisissez un nombre de de digit entre 1 et " + max + " .\n",e);
+            log.error("\n Erreur de saisie! Choisissez un nombre de de digit entre 1 et {}.\n", max ,e);
          }
 
       } while(true);
@@ -49,7 +53,7 @@ public class ChoixNombreDigit {
     * @param max valeur maximale possible
     */
    static void display(int max){
-      System.out.print("Choisissez le nombre de digit entre 1 et " + max + " : ");
+      log.info("Choisissez le nombre de digit entre 1 et {} : ",max);
    }
 
    /**
@@ -60,18 +64,18 @@ public class ChoixNombreDigit {
     * @throws BornageException si la valeur n'est pas entre 1 et max
     * @throws InputMismatchException si ce n'est pas un nombre
     */
-   static int ask(int max) throws BornageException, InputMismatchException {
+   static int ask(int max) throws BornageException {
       Scanner sc = new Scanner(System.in);
       int response = sc.nextInt();
 
       if (response == 1) {
-         System.out.println("\nModification de la taille du nombre secret à "+response + " digit");
+         log.info("Modification de la taille du nombre secret à {} digit.\n",response);
          return log.traceExit(response);
       } else if (response > 1 && response <= max) {
-         System.out.println("\nModification de la taille du nombre secret à "+response + " digits");
+         log.info("Modification de la taille du nombre secret à {} digits.\n",response );
          return log.traceExit(response);
       } else {
-         throw new BornageException("\n Erreur de saisie! Choisissez un nombre de de digit entre 1 et " + max + " .\n");
+         throw new BornageException("Erreur de saisie! Choisissez un nombre de de digit entre 1 et " + max + " .\n");
       }
    }
 }

@@ -43,5 +43,4 @@ public interface Personnage {
     * @return true si les nombes sont identique false sinon
     */
    boolean isEqual(NombreSecret nombreSecret);
-
 }

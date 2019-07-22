@@ -22,6 +22,7 @@ public class Robot implements Personnage {
    private String nom;                       // nom du robot
    private MastermindProperties mp;          // propriétés du jeu
    private NombreSecret ns = null;           // code secret de l'ordinateur
+   private Random rand = new Random();
 
    // variables pour rechercher le code de l'adversaire
    private NombreSecret nsToSearch = null;   // proposition de l'ordinateur pour trouver un code
@@ -66,27 +67,17 @@ public class Robot implements Personnage {
    @Override
    public boolean attack(Personnage personnage) {
 
-
       // on envoie la proposition à l'adversaire
       String combinaison = personnage.reply(nsToSearch);
 
       if(mp.isDebugMode()) {
-         System.out.println(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
+         log.info(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
       } else {
-         System.out.println("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
+         log.info("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
       }
 
       // on sort de la boucle si c'est la bonne réponse
       if(personnage.isEqual(nsToSearch)) return true;
-
-      // on fait une nouvelle estimation pour la prochaine fois
-      Random rand = new Random();
-
-      if(combinaison.length()!=this.nsToSearch.getTaille()) try {
-         throw new TailleDifferenteException();
-      } catch (TailleDifferenteException e) {
-         log.error(e);
-      }
 
       StringBuilder sb = new StringBuilder();
 
@@ -123,9 +114,11 @@ public class Robot implements Personnage {
                   codeinf[i] = nsToSearch.getNombre().charAt(i);
                   codesup[i] = nsToSearch.getNombre().charAt(i);
                   break;
+               default:
+                  throw new CaractereIncorrectException();
             }
          }
-      } catch (BornageException e){
+      } catch (BornageException | CaractereIncorrectException e){
          log.error(e);
       }
 

@@ -1,6 +1,5 @@
 package com.ocr.pedsf.exceptions;
 
-
 /**
  * MauvaiseReponseException : exception lancée si l'utilisateur fait une mauvaise saisie
  *

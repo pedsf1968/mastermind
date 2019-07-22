@@ -12,6 +12,11 @@ import org.apache.logging.log4j.Logger;
 
 public class Resultat {
    private static final Logger log = LogManager.getLogger(Resultat.class.getName());
+
+   private Resultat() {
+      throw new UnsupportedOperationException();
+   }
+
    /**
     * display : affichage du résultat de la partie
     * @param gagnant nom du gagnant
@@ -21,17 +26,15 @@ public class Resultat {
     */
    public static void display(String gagnant, String perdant, int coup, String code){
       log.traceEntry();
-      System.out.println("\nMASTERMIND");
+      log.info("MASTERMIND : Résultat\n");
 
       if(coup==1) {
-         System.out.println(gagnant + " a gagné contre " + perdant + " en " + coup + " coup !");
-         log.trace(gagnant + " a gagné contre " + perdant + " en " + coup + " coup !");
+         log.info("{} a gagné contre {} en 1 coup !\n",gagnant, perdant);
       } else {
-         System.out.println(gagnant + " a gagné contre " + perdant + " en " + coup + " coups !");
-         log.trace(gagnant + " a gagné contre " + perdant + " en " + coup + " coups !");
+         log.info("{} a gagné contre {} en {} coups !\n",gagnant, perdant, coup);
       }
 
-      System.out.println("Le code à trouver était : " + code);
+      log.info("Le code à trouver était : {}",code);
       log.traceExit("Le code à trouver était : " + code);
    }
 }

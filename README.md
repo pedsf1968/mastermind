@@ -3,9 +3,10 @@ Jeu mastermind en ligne de commande
 
 ## Compilation
 Lancez le lifecycle package pour créer les archives l'une avec et l'autre sans dépendance.
- - mastermind.jar
- - mastermind-jar-with-dependencies.jar
-
+ 
+``` java
+mvn package
+```
 ## Exécution
 java -jar mastermind-jar-with-dependencies.jar [-d] [-u nom_utilisateur] [-m valeur]
 
@@ -89,23 +90,28 @@ comporte le fichier de configuration :
  
  Contenu originel du fichier :
  #### propriétés générales de mastermind
+ ``` java
  mastermind.combinaison.chiffres=4
  mastermind.combinaison.maxdigit=10
  mastermind.combinaison.essais=10
+ ```
  
  ####Activation du mode développeur
+ ``` java
  mastermind.mode.developpeur=false
+ ```
  
  ####Nom des personnages
+ ``` java
  mastermind.nom.user=Utilisateur
  mastermind.nom.robot1=Chapi
  mastermind.nom.robot2=Chapo
+ ```
  
  #####Définition des tags pour définir les paramètres en ligne de commande
+ ``` java
  mastermind.tag.debug=-d
  mastermind.tag.user=-u
  mastermind.tag.maxdigit=-m
-
-
-
+```
 

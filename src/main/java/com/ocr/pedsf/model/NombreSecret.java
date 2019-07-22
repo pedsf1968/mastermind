@@ -80,11 +80,11 @@ public class NombreSecret {
     * @throws CaractereIncorrectException si un nombre ne comporte pas que des chiffres
     */
    public String test(NombreSecret nombreSecret) throws TailleDifferenteException, CaractereIncorrectException {
-      StringBuilder sb = new StringBuilder();
 
-     if(nombreSecret.getTaille()!=this.taille) throw new TailleDifferenteException();
-
-      return test(nombreSecret.getNombre());
+     if(nombreSecret.getTaille()!=this.taille)
+        throw new TailleDifferenteException();
+     else
+        return test(nombreSecret.getNombre());
    }
 
    /**

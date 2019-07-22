@@ -15,10 +15,12 @@ public class Main {
    private static final Logger log = LogManager.getLogger(Main.class);
 
    public static void main(String[] args){
+      log.traceEntry();
       // récupération de la configuration
       MastermindProperties mp = new MastermindProperties( args);
 
       // lancement du jeu
       new Jeu(mp);
+      log.traceExit();
    }
 }

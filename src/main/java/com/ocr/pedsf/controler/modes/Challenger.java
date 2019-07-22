@@ -18,7 +18,6 @@ public class Challenger implements Mode {
    private static final Logger log = LogManager.getLogger(Challenger.class);
 
    private MastermindProperties mp;
-   private boolean trouve = false;
    private int nbCoup = 0;
 
 
@@ -26,9 +25,12 @@ public class Challenger implements Mode {
       this.mp = mp;
    }
 
+
    public void run() {
       log.traceEntry();
-      System.out.println("\nMASTERMIND : Mode Challenger\n");
+      boolean trouve;
+
+      log.info("MASTERMIND : Mode Challenger\n");
 
       // initialisation des protagonistes
       Personnage ia = new Robot(mp.getNomRobot1(),mp);
@@ -37,12 +39,12 @@ public class Challenger implements Mode {
       ia.init();
 
       if (mp.isDebugMode())
-         System.out.println("(Combinaison secrète : " + ia.getNs().getNombre() + ")\n");
+         log.info("(Combinaison secrète : {})\n",ia.getNs().getNombre());
 
       if(mp.getLongueur() == 1) {
-         System.out.println("Trouvez un nombre à 1 chiffre.");
+         log.info("Trouvez un nombre à 1 chiffre.\n");
       } else {
-         System.out.println("Trouvez un nombre à " + mp.getLongueur() + " chiffres.");
+         log.info("Trouvez un nombre à {} chiffres.\n", mp.getLongueur());
       }
 
       do {
