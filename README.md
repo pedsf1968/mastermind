@@ -7,9 +7,14 @@ Lancez le lifecycle package pour créer les archives l'une avec et l'autre sans 
 ``` java
 mvn package
 ```
+Pour obtenir la Javadoc lancez la commande Maven suivante:
+```java
+mvn javadoc:javadoc
+```
 ## Exécution
+```
 java -jar mastermind-jar-with-dependencies.jar [-d] [-u nom_utilisateur] [-m valeur]
-
+```
 ## Utilisation
 
 Dans le menu d'accueil l'utilisateur peut choisir le mode de jeu et définir une nouvelle longueur pour les codes.
