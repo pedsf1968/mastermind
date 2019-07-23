@@ -10,7 +10,7 @@ import java.util.InputMismatchException;
 import static org.junit.Assert.*;
 
 public class DemandeReponseTest {
-
+/*
    @Test
    public void Given_code_When_get_Then_getSameCode(){
       System.setIn(new ByteArrayInputStream("+-+-=\n".getBytes()));
@@ -50,6 +50,6 @@ public class DemandeReponseTest {
    public void Given_longSign_When_ask_Then_getError() throws InputMismatchException{
       System.setIn(new ByteArrayInputStream("+-+=-=+\n".getBytes()));
       DemandeReponse.ask(4);
-   }
+   }*/
 
 }

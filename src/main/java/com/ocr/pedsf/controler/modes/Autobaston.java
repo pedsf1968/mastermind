@@ -19,7 +19,7 @@ public class Autobaston implements Mode {
    private MastermindProperties mp;
    private int nbCoup = 0;
 
-   public Autobaston(MastermindProperties mp){
+   public Autobaston(MastermindProperties mp) {
       this.mp = mp;
    }
 
@@ -39,7 +39,7 @@ public class Autobaston implements Mode {
       chapo.init();
 
       if (mp.isDebugMode()) {
-         log.info("(Combinaison secrète {} : {} )\n", chapi.getNom() ,chapi.getNs().getNombre());
+         log.info("(Combinaison secrète {} : {} )\n", chapi.getNom(),chapi.getNs().getNombre());
          log.info("(Combinaison secrète {} : {})\n", chapo.getNom(),chapo.getNs().getNombre());
       }
 

@@ -3,9 +3,6 @@ package com.ocr.pedsf.vue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 /**
  * DemandeProposition : class d'affichage pour demander une proposition de nombre secret au joueur
  *               on appel la class par la méthode get() qui se sert
@@ -16,7 +13,7 @@ import java.util.Scanner;
  * @author pedsf
  * @version 1.0
  */
-public class DemandeProposition {
+public class DemandeProposition extends Mode{
    private static final Logger log = LogManager.getLogger(DemandeProposition.class.getName());
 
    private DemandeProposition() {
@@ -35,40 +32,19 @@ public class DemandeProposition {
    public static String get(int digit, boolean isDebugMode){
       log.traceEntry();
 
-      do {
-         if(isDebugMode) display(digit);
-         try {
-            return log.traceExit(ask(digit));
-        } catch (InputMismatchException e) {
-            log.error("Mauvaise saisie !", e);
-         }
-
-      } while(true);
-   }
-
-   /**
-    * display : méthode d'affichage de la question
-    *
-    * @param digit taille du code à trouver
-    */
-   static void display(int digit){
-      if(digit==1)
-         log.info("Choisissez un nombre de 1 chiffre.");
-      else
-         log.info("Choisissez un nombre de {} chiffres.", digit);
-   }
-
-   /**
-    * ask : méthode de lecture sur l'entrée standard de la réponse de l'utilisateur
-    *
-    * @param digit taille du code à trouver
-    * @return int entier positif saisie par l'utilisateur
-    * @throws InputMismatchException si ce n'est pas un nombre
-    */
-   static String ask(int digit){
-      Scanner sc = new Scanner(System.in);
+      String message = "Choisissez un nombre de ";
+      String errorMessage = "Mauvaise saisie !\n";
       String pattern = "[0-9]{" + digit + "}";
 
-      return log.traceExit(sc.next(pattern));
+      if(digit==1) {
+         message += "1 chiffre.";
+         errorMessage += "Choisissez un nombre à 1 chiffre.";
+      } else {
+         message += digit + " chiffres.";
+         errorMessage += "Choisissez un nombre à "+ digit +" chiffres.\n";
+      }
+
+      return log.traceExit(getString(message,errorMessage,digit,pattern,isDebugMode));
+
    }
 }

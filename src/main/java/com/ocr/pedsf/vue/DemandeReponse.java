@@ -3,9 +3,6 @@ package com.ocr.pedsf.vue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 /**
  * DemandeReponse : class d'affichage pour demander une réponse de la proposition de l'adversaire
  *               on appel la class par la méthode get() qui se sert
@@ -16,7 +13,7 @@ import java.util.Scanner;
  * @author pedsf
  * @version 1.0
  */
-public class DemandeReponse {
+public class DemandeReponse extends Mode{
    private static final Logger log = LogManager.getLogger(DemandeReponse.class.getName());
 
    private DemandeReponse() {
@@ -34,39 +31,16 @@ public class DemandeReponse {
     */
    public static String get(int digit, boolean isDebugMode){
       log.traceEntry();
-
-      do {
-         if(isDebugMode) display();
-         try {
-            return log.traceExit(ask(digit));
-         } catch (InputMismatchException e) {
-            log.error("Mauvaise saisie !", e);
-            log.info("Indiquez pour chaque chiffre de la combinaison proposée si" +
-                  " le chiffre de sa combinaison est :\n" +
-                  "plus grand par un (+), plus petit par un (-) identique par un (=)\n");
-         }
-
-      } while(true);
-   }
-
-   /**
-    * display : méthode d'affichage de la question
-    */
-   static void display(){
-      log.info("Indiquez pour chaque chiffre si le résultat est + grand - petit = égal.");
-   }
-
-   /**
-    * ask : méthode de lecture sur l'entrée standard de la réponse de l'utilisateur
-    *
-    * @param digit taille du code à trouver
-    * @return String code de +-=
-    * @throws InputMismatchException si ce n'est pas une correspondance de +-=
-    */
-   static String ask(int digit){
-      Scanner sc = new Scanner(System.in);
+      String message = "Indiquez pour chaque chiffre si le résultat est + grand - petit = égal.";
+      String errorMessage = "Mauvaise saisie !" +
+            "Indiquez pour chaque chiffre de la combinaison proposée si" +
+            " le chiffre de sa combinaison est :\n" +
+            "plus grand par un (+), " +
+            "plus petit par un (-) " +
+            "identique par un (=)\n";
       String pattern = "[-+=]{" + digit + "}";
 
-      return log.traceExit(sc.next(pattern));
+      return log.traceExit(getString(message, errorMessage,digit,pattern,isDebugMode));
    }
+
 }
