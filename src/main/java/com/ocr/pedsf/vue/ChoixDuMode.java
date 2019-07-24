@@ -13,14 +13,6 @@ import org.apache.logging.log4j.Logger;
 public class ChoixDuMode extends Mode{
    static final Logger log = LogManager.getLogger(ChoixDuMode.class);
 
-   private ChoixDuMode() {
-      throw new UnsupportedOperationException();
-   }
-
-   public static Logger getLog() {
-      return log;
-   }
-
    /**
     * get : méthode générale pour demander le choix du mode de jeu
     *

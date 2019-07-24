@@ -16,10 +16,6 @@ import org.apache.logging.log4j.Logger;
 public class ChoixNombreDigit extends Mode {
    private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());
 
-   private ChoixNombreDigit() {
-      throw new UnsupportedOperationException();
-   }
-
    /**
     * get : méthode générale pour demander un nombre de digit pour le code
     *       elle pause la question avec display()

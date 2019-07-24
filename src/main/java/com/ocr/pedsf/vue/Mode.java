@@ -1,21 +1,31 @@
 package com.ocr.pedsf.vue;
 
 import com.ocr.pedsf.exceptions.BornageException;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Classe implémentant les méthodes pour demander et controler la saisie de l'utilisateur pour les
+ * différentes vues avec affichage de messages.
+ */
 public class Mode {
-   static final Logger log = LogManager.getLogger(ChoixDuMode.class);
+   private static Logger log = LogManager.getLogger(Mode.class);
+
+   protected Mode() {
+       throw new UnsupportedOperationException();
+   }
+
+
 
    /**
     * display : méthode d'affichage de la question
     */
    protected static void display(String message){
-      System.out.println(message);
+      log.info(message);
    }
 
    /**
@@ -30,9 +40,9 @@ public class Mode {
       Scanner sc = new Scanner(System.in);
       int response = sc.nextInt();
 
-      if(response<=min || response>=max) throw new BornageException();
+      if(response<min || response>max) throw new BornageException();
 
-      return log.traceExit(response);
+      return response;
    }
 
    /**
@@ -48,7 +58,7 @@ public class Mode {
 
       if(response<min) throw new BornageException();
 
-      return log.traceExit(response);
+      return response;
    }
 
    /**
@@ -59,24 +69,24 @@ public class Mode {
     */
    protected static String ask( String pattern){
       Scanner sc = new Scanner(System.in);
-      return log.traceExit(sc.next(pattern));
+      return sc.next(pattern);
    }
 
    /**
-    *
-    * @param message
-    * @param errorMessage
-    * @param min
-    * @param max
-    * @return
+    * getInt : méthode qui permet de demander un entier entre min et max avec
+    *          un message de question et un d'erreur
+    * @param message de la question
+    * @param errorMessage de l'erreur
+    * @param min borne minimale incluse
+    * @param max borne maxmale incluse
+    * @return un entier valide entre >=min et <=max
     */
    public static int getInt(String message, String errorMessage, int min, int max) {
-      log.traceEntry();
 
       do {
          display(message);
          try {
-            return log.traceExit(ask(min,max));
+            return ask(min,max);
          } catch (BornageException | InputMismatchException e) {
             log.error(errorMessage);
          }
@@ -84,17 +94,18 @@ public class Mode {
    }
 
    /**
-    *
-    * @param message
-    * @return
+    * getIntPositif : méthode qui permet de demander un entier positif avec
+    *          un message de question et un d'erreur
+    * @param message de la question
+    * @param errorMessage de l'erreur
+    * @return un entier positif valide
     */
    public static int getIntPositif(String message, String errorMessage) {
-      log.traceEntry();
 
       do {
          display(message);
          try {
-            return log.traceExit(ask(0));
+            return ask(0);
          } catch (BornageException | InputMismatchException e) {
             log.error(errorMessage);
          }
@@ -102,21 +113,21 @@ public class Mode {
    }
 
    /**
+    * getString : méthode qui permet de demander une chaine de caractère vérifiant une pattern avec
+    *             un message de question si isDebugMode est true et un d'erreur
     *
-    * @param message
-    * @param errorMessage
-    * @param digit
-    * @param pattern
-    * @param isDebugMode
-    * @return
+    * @param message de la question
+    * @param errorMessage de l'erreur
+    * @param pattern de la chaîne à respecter
+    * @param isDebugMode active l'affichage du message
+    * @return chaîne valide
     */
-   public static String getString(String message, String errorMessage, int digit, String pattern, boolean isDebugMode){
-      log.traceEntry();
+   public static String getString(String message, String errorMessage, String pattern, boolean isDebugMode){
 
       do {
          if(isDebugMode) display(message);
          try {
-            return log.traceExit(ask(pattern));
+            return ask(pattern);
          } catch (InputMismatchException e) {
             log.error(errorMessage);
          }

@@ -1,29 +1,30 @@
 package com.ocr.pedsf.vue;
 
 import com.ocr.pedsf.exceptions.BornageException;
+import org.apache.logging.log4j.LogManager;
+import org.junit.Rule;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+
 import java.util.InputMismatchException;
 
-import static com.ocr.pedsf.vue.Mode.ask;
-import static com.ocr.pedsf.vue.Mode.display;
+import static com.ocr.pedsf.vue.Mode.*;
 import static org.junit.Assert.*;
 
 public class ModeTest {
 
+   @Rule
+   public LogAppenderResource appender = new LogAppenderResource(LogManager.getLogger(Mode.class));
+
+
    @Test
    public void Given_Message_When_display_Then_displayTheRightMessage(){
-      ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
-      System.setOut(new PrintStream(outContent));
-      String message ="message 13654";
+      String message = "message 13654";
       display(message);
 
-      String[] output = outContent.toString().replace("\r\n", "\n").split("\n");
-      assertEquals(message,output[0]);
+      assertEquals(message, appender.getOutput());
    }
 
    @Test

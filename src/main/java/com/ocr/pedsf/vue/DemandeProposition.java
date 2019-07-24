@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 public class DemandeProposition extends Mode{
    private static final Logger log = LogManager.getLogger(DemandeProposition.class.getName());
 
-   private DemandeProposition() {
+   public DemandeProposition() {
       throw new UnsupportedOperationException();
    }
 
@@ -44,7 +44,7 @@ public class DemandeProposition extends Mode{
          errorMessage += "Choisissez un nombre à "+ digit +" chiffres.\n";
       }
 
-      return log.traceExit(getString(message,errorMessage,digit,pattern,isDebugMode));
+      return log.traceExit(getString(message,errorMessage,pattern,isDebugMode));
 
    }
 }

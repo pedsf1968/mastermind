@@ -30,6 +30,7 @@ public class User implements Personnage {
       this.nsToSearch = new NombreSecret(mp.getLongueur());
    }
 
+
    public void init(){
       // saisie du code de départ par l'utilisateur
       log.info("Entrez votre nombre secret.");

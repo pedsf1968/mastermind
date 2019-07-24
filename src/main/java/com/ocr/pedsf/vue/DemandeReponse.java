@@ -16,9 +16,6 @@ import org.apache.logging.log4j.Logger;
 public class DemandeReponse extends Mode{
    private static final Logger log = LogManager.getLogger(DemandeReponse.class.getName());
 
-   private DemandeReponse() {
-      throw new UnsupportedOperationException();
-   }
 
    /**
     * get : méthode générale pour demander une réponse à la proposition de l'adversaire
@@ -40,7 +37,7 @@ public class DemandeReponse extends Mode{
             "identique par un (=)\n";
       String pattern = "[-+=]{" + digit + "}";
 
-      return log.traceExit(getString(message, errorMessage,digit,pattern,isDebugMode));
+      return log.traceExit(getString(message, errorMessage,pattern,isDebugMode));
    }
 
 }

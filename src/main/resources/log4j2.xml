@@ -23,7 +23,7 @@
          <AppenderRef ref="FILE" />
       </Logger>
 
-      <Root level="error">
+      <Root level="INFO">
          <AppenderRef ref="FILE" />
          <AppenderRef ref="CONSOLE" />
       </Root>
