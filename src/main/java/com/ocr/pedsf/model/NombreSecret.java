@@ -25,6 +25,7 @@ public class NombreSecret {
 
    public NombreSecret(int taille) {
       this.taille = taille;
+      init();
    }
 
    public String getNombre() {
@@ -33,6 +34,7 @@ public class NombreSecret {
 
    public void setNombre(String nombre) {
       this.nombre = nombre;
+      this.taille = nombre.length();
    }
 
    public int getTaille() {
@@ -41,9 +43,21 @@ public class NombreSecret {
 
    public void setTaille(int taille) {
       this.taille = taille;
+      init();
    }
 
+   /**
+    * init : méthode d'initialisation avec un nombre aléatoire
+    */
+   public void init(){
+      StringBuilder sb = new StringBuilder();
 
+      for(int i=0; i<this.taille; i++) {
+         sb.append(Math.round(Math.floor( (Math.random() * 10.0))));
+      }
+
+      this.nombre = sb.toString();
+   }
    @Override
    public String toString() {
       return "NombreSecret{" +
@@ -111,5 +125,6 @@ public class NombreSecret {
 
       return log.traceExit(sb.toString());
    }
+
 
 }

@@ -45,8 +45,8 @@ public class Robot implements Personnage {
    @Override
    public void init() {
       // l'instanciation du NombreSecret est faite aléatoirement par le constructeur
-      this.ns = initNombreSecret();
-      this.nsToSearch = initNombreSecret();
+      this.ns = new NombreSecret(mp.getLongueur());
+      this.nsToSearch = new NombreSecret(mp.getLongueur());
    }
 
    @Override
@@ -145,18 +145,4 @@ public class Robot implements Personnage {
       return ns.equals(nombreSecret);
    }
 
-
-   /**
-    * initNombreSecret : initialise un nombreSecret avec une valeur aléatoire
-    * @return NombreSecret aléatoire
-    */
-   private NombreSecret initNombreSecret(){
-      StringBuilder sb = new StringBuilder();
-
-      for(int i=0; i<mp.getLongueur(); i++) {
-         sb.append(Math.round(Math.floor( (Math.random() * 10.0))));
-      }
-
-      return new NombreSecret(sb.toString());
-   }
 }

@@ -34,7 +34,7 @@ public class Resultat {
          log.info("{} a gagné contre {} en {} coups !\n",gagnant, perdant, coup);
       }
 
-      log.info("Le code à trouver était : {}",code);
+      log.info("Le code à trouver était : {}\n",code);
       log.traceExit("Le code à trouver était : " + code);
    }
 }
