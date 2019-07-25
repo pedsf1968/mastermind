@@ -7,21 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/LogAppenderResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/ActorFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mastermind.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mastermind.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/Personnage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Robot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixNombreDigit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixNombreDigit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeReponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Mode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Mode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixDuModeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixDuModeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixNombreDigitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixNombreDigitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandePropositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandePropositionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandeReponseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandeReponseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ModeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ModeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mastermind.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mastermind.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,26 +39,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Mode.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="289">
+              <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#493#494#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#754#755#0" expanded="true" />
-                <element signature="e#784#785#0" expanded="true" />
+                <element signature="e#494#495#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ModeTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            <state relative-caret-position="739">
+              <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,29 +76,65 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+            <state relative-caret-position="425">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#616#617#0" expanded="true" />
+                <element signature="e#641#642#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/LogAppenderResource.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+            <state relative-caret-position="184">
+              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1005#1006#0" expanded="true" />
-                <element signature="e#1049#1050#0" expanded="true" />
-                <element signature="e#1081#1082#0" expanded="true" />
-                <element signature="e#1122#1123#0" expanded="true" />
+                <element signature="e#641#642#0" expanded="true" />
+                <element signature="e#666#667#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+              <folding>
+                <element signature="e#711#712#0" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Mode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -113,9 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/mode/Duel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/mode/Defenseur.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/mode/Challenger.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/mode/AutoBaston.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/Signe.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/utils/NombreSecretTest.java" />
@@ -133,37 +174,40 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/Personnage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/Personnage.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Mode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/MauvaiseReponseException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/ParametreIncorrectException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/Robot.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ResultatTest.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mastermind.properties" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/TestLogAppender.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixDuModeTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandeReponseTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandePropositionTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixNombreDigitTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixNombreDigit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeReponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Mode.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/LogAppenderResource.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ModeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/Robot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/User.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j2.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/PersonnageFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/PersonnageFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/ActorFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" />
       </list>
     </option>
   </component>
@@ -207,9 +251,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="646" />
-    <option name="y" value="58" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="480" />
+    <option name="y" value="57" />
     <option name="width" value="1274" />
     <option name="height" value="1033" />
   </component>
@@ -222,6 +266,8 @@
     </navigator>
     <panes>
       <pane id="CatdeaLogs" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,7 +327,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pedsf" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="personnages" type="462c0819:PsiDirectoryNode" />
+              <item name="actors" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
@@ -338,12 +384,14 @@
               <item name="pedsf" type="462c0819:PsiDirectoryNode" />
               <item name="vue" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mastermind" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -384,7 +432,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ModeTest.Given_Message_When_display_Then_displayTheRightMessage">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.Main" />
       <module name="mastermind" />
@@ -461,17 +509,17 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.ChoixNombreDigitTest" />
       <item itemvalue="JUnit.ChoixNombreDigitTest.Given_numberOutOfRange_When_ask_Then_askAgain" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.ModeTest.Given_Message_When_display_Then_displayTheRightMessage" />
       <item itemvalue="JUnit.ModeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ModeTest.Given_Message_When_display_Then_displayTheRightMessage" />
         <item itemvalue="JUnit.ModeTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ChoixNombreDigitTest" />
         <item itemvalue="JUnit.ChoixNombreDigitTest.Given_numberOutOfRange_When_ask_Then_askAgain" />
       </list>
@@ -614,7 +662,21 @@
       <option name="project" value="LOCAL" />
       <updated>1563884183879</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Création d'une classe LogAppenderResource pour tester l'affichage des log.info dans la class ModeTest">
+      <created>1563960360688</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1563960360688</updated>
+    </task>
+    <task id="LOCAL-00020" summary="déplacement de la méthode d'initialisation aléatoire du code de la class Robot à la classe NombreSecret">
+      <created>1563961558544</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1563961558544</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -659,9 +721,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="646" y="58" width="1274" height="1033" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984127" visible="true" weight="0.31466228" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984127" visible="true" weight="0.21108742" />
       <window_info id="Structure" order="1" sideWeight="0.50158733" side_tool="true" weight="0.2521322" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -673,23 +736,23 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.34207526" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.45212767" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3287234" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3893617" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.33510637" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.3340935" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49939904" weight="0.340935" />
       <window_info anchor="bottom" id="Console" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32978722" />
       <window_info anchor="bottom" id="CheckStyle" order="13" show_stripe_button="false" sideWeight="0.49939904" weight="0.327252" />
-      <window_info anchor="bottom" id="SonarLint" order="14" weight="0.25425532" />
+      <window_info anchor="bottom" id="SonarLint" order="14" weight="0.25212765" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24938475" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" sideWeight="0.4991511" weight="0.24147122" />
+      <window_info anchor="right" id="Maven" order="3" sideWeight="0.4991511" weight="0.2413509" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Coverage" order="5" sideWeight="0.5008489" side_tool="true" weight="0.31670672" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -751,7 +814,9 @@
     <MESSAGE value="Ajout de javadoc au packaging" />
     <MESSAGE value="Amélioration du code avec SonarLint" />
     <MESSAGE value="correction du bug de génération de la javadoc&#10;Mise en commentaire des classes de test qui ne passent plus depuis&#10;le remplacement des System.out.println() par les log.info()" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction du bug de génération de la javadoc&#10;Mise en commentaire des classes de test qui ne passent plus depuis&#10;le remplacement des System.out.println() par les log.info()" />
+    <MESSAGE value="Création d'une classe LogAppenderResource pour tester l'affichage des log.info dans la class ModeTest" />
+    <MESSAGE value="déplacement de la méthode d'initialisation aléatoire du code de la class Robot à la classe NombreSecret" />
+    <option name="LAST_COMMIT_MESSAGE" value="déplacement de la méthode d'initialisation aléatoire du code de la class Robot à la classe NombreSecret" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -767,7 +832,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/utils/GestionSaisie.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Affichage.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/DefenseurOld.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/ChallengerOld.java" />
@@ -853,24 +917,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mastermind.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="-1972">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/TestLogAppender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#971#972#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/TestLogAppender.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ResultatTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -878,13 +925,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -938,32 +978,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-468">
-          <caret line="37" column="3" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#NombreSecret#0;class#NombreSecret#0" />
-            <element signature="e#868#869#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -988,136 +1008,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Mode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
-            <element signature="e#672#673#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/Robot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/Personnage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="46" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/personnages/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
           <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/LogAppenderResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1136,10 +1032,177 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#NombreSecret#0;class#NombreSecret#0" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#894#895#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Robot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Actor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="46" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="781">
+          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastermind.log" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ModeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="68">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/LogAppenderResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/ActorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Mode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="14" lean-forward="true" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding>
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

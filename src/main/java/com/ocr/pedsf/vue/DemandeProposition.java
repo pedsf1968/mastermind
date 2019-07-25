@@ -45,6 +45,5 @@ public class DemandeProposition extends Mode{
       }
 
       return log.traceExit(getString(message,errorMessage,pattern,isDebugMode));
-
    }
 }

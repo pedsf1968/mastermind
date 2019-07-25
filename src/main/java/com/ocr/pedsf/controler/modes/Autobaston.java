@@ -1,8 +1,9 @@
 package com.ocr.pedsf.controler.modes;
 
+import com.ocr.pedsf.Main;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.personnages.Personnage;
-import com.ocr.pedsf.model.personnages.Robot;
+import com.ocr.pedsf.model.actors.Actor;
+import com.ocr.pedsf.model.actors.ActorFactory;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,8 +20,8 @@ public class Autobaston implements Mode {
    private MastermindProperties mp;
    private int nbCoup = 0;
 
-   public Autobaston(MastermindProperties mp) {
-      this.mp = mp;
+   public Autobaston() {
+      this.mp = Main.getMp();
    }
 
    @Override
@@ -31,12 +32,8 @@ public class Autobaston implements Mode {
       log.info("MASTERMIND : Mode AutoBaston\n");
 
       // initialisation des protagonistes
-      Personnage chapi = new Robot(mp.getNomRobot1(),mp);
-      Personnage chapo = new Robot(mp.getNomRobot2(),mp);
-
-      // initialisation des NombresSecrets
-      chapi.init();
-      chapo.init();
+      Actor chapi = ActorFactory.get(ActorFactory.robotActor,mp.getNomRobot1(),mp);
+      Actor chapo = ActorFactory.get(ActorFactory.robotActor,mp.getNomRobot2(),mp);
 
       if (mp.isDebugMode()) {
          log.info("(Combinaison secrète {} : {} )\n", chapi.getNom(),chapi.getNs().getNombre());

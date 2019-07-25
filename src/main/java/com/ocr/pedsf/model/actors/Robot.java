@@ -1,4 +1,4 @@
-package com.ocr.pedsf.model.personnages;
+package com.ocr.pedsf.model.actors;
 
 import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
@@ -11,12 +11,12 @@ import org.apache.logging.log4j.Logger;
 import java.util.Random;
 
 /**
- * Robot : class implémentant Personnage pour gérer l'IA
+ * Robot : class implémentant Actor pour gérer l'IA
  *
  * @author PEDSF
  * @version 1.0
  */
-public class Robot implements Personnage {
+public class Robot implements Actor {
    private static final Logger log = LogManager.getLogger(Robot.class);
 
    private String nom;                       // nom du robot
@@ -32,10 +32,14 @@ public class Robot implements Personnage {
    public Robot(String nom, MastermindProperties mastermindProperties){
       this.nom = nom;
       this.mp = mastermindProperties;
+      // l'instanciation du NombreSecret est faite aléatoirement par le constructeur
+      this.ns = new NombreSecret(mp.getLongueur());
+      this.nsToSearch = new NombreSecret(mp.getLongueur());
 
       // on initialise les tableaux des bornes sup et inf
       codeinf = new char[mp.getLongueur()];
       codesup = new char[mp.getLongueur()];
+
       for(int i=0; i<mp.getLongueur(); i++){
          codeinf[i] = '0';
          codesup[i] = '9';
@@ -44,9 +48,6 @@ public class Robot implements Personnage {
 
    @Override
    public void init() {
-      // l'instanciation du NombreSecret est faite aléatoirement par le constructeur
-      this.ns = new NombreSecret(mp.getLongueur());
-      this.nsToSearch = new NombreSecret(mp.getLongueur());
    }
 
    @Override
@@ -65,7 +66,7 @@ public class Robot implements Personnage {
    }
 
    @Override
-   public boolean attack(Personnage personnage) {
+   public boolean attack(Actor personnage) {
 
       // on envoie la proposition à l'adversaire
       String combinaison = personnage.reply(nsToSearch);

@@ -1,4 +1,4 @@
-package com.ocr.pedsf.model.personnages;
+package com.ocr.pedsf.model.actors;
 
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.MauvaiseReponseException;
@@ -11,12 +11,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * User : class implémentant Personnage pour gérer l'utilisateur
+ * User : class implémentant Actor pour gérer l'utilisateur
  *
  * @author PEDSF
  * @version 1.0
  */
-public class User implements Personnage {
+public class User implements Actor {
    private static final Logger log = LogManager.getLogger(User.class);
 
    private String nom ;             // nom de l'utilisateur
@@ -29,7 +29,6 @@ public class User implements Personnage {
       this.mp = mastermindProperties;
       this.nsToSearch = new NombreSecret(mp.getLongueur());
    }
-
 
    public void init(){
       // saisie du code de départ par l'utilisateur
@@ -53,7 +52,7 @@ public class User implements Personnage {
    }
 
    @Override
-   public boolean attack(Personnage personnage) {
+   public boolean attack(Actor personnage) {
 
       if(mp.isDebugMode()) {
          log.info("{} ({}) : Proposition : ",personnage.getNom(),personnage.getNs().getNombre());
@@ -111,7 +110,6 @@ public class User implements Personnage {
 
    @Override
    public boolean isEqual(NombreSecret nombreSecret){
-
       return ns.equals(nombreSecret);
    }
 }

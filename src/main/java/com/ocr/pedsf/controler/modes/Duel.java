@@ -1,9 +1,11 @@
 package com.ocr.pedsf.controler.modes;
 
+import com.ocr.pedsf.Main;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.personnages.Personnage;
-import com.ocr.pedsf.model.personnages.Robot;
-import com.ocr.pedsf.model.personnages.User;
+import com.ocr.pedsf.model.actors.Actor;
+import com.ocr.pedsf.model.actors.ActorFactory;
+import com.ocr.pedsf.model.actors.Robot;
+import com.ocr.pedsf.model.actors.User;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,8 +22,8 @@ public class Duel implements Mode {
    private MastermindProperties mp;
    private int nbCoup = 0;
 
-   public Duel(MastermindProperties mp){
-      this.mp = mp;
+   public Duel(){
+      this.mp = Main.getMp();
    }
 
    /**
@@ -34,14 +36,13 @@ public class Duel implements Mode {
       log.info("MASTERMIND : Mode Duel\n");
 
       // initialisation des protagonistes
-      Personnage ia = new Robot(mp.getNomRobot1(),mp);
-      Personnage utilisateur = new User(mp.getNomUser(),mp);
+      Actor robot = ActorFactory.get(ActorFactory.robotActor,mp.getNomRobot1(),mp);
+      Actor utilisateur = ActorFactory.get(ActorFactory.userActor,mp.getNomUser(),mp);
       // initialisation des NombresSecrets
-      ia.init();
       utilisateur.init();
 
       if (mp.isDebugMode())
-         log.info("(Combinaison secrète : {})\n",ia.getNs().getNombre());
+         log.info("(Combinaison secrète : {})\n",robot.getNs().getNombre());
 
       if(mp.getLongueur() == 1) {
          log.info("Trouvez un nombre à 1 chiffre.");
@@ -51,18 +52,18 @@ public class Duel implements Mode {
 
       do {
          // l'utilisateur attaque l'ordinateur
-         trouve = utilisateur.attack(ia);
+         trouve = utilisateur.attack(robot);
 
          // au tour de l'ordinateur si la réponse n'est pas bonne
          if(!trouve)
-            trouve = ia.attack(utilisateur);
+            trouve = robot.attack(utilisateur);
          nbCoup++;
       } while (!trouve);
 
-      if (ia.getNs().equals(utilisateur.getNsToSearch())) {
-         Resultat.display(utilisateur.getNom(), ia.getNom(), nbCoup, ia.getNs().getNombre());
+      if (robot.getNs().equals(utilisateur.getNsToSearch())) {
+         Resultat.display(utilisateur.getNom(), robot.getNom(), nbCoup, robot.getNs().getNombre());
       } else {
-         Resultat.display(ia.getNom(), utilisateur.getNom(), nbCoup, ia.getNs().getNombre());
+         Resultat.display(robot.getNom(), utilisateur.getNom(), nbCoup, robot.getNs().getNombre());
       }
 
       log.traceExit();
