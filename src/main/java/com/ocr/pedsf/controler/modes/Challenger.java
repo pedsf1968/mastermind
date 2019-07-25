@@ -33,8 +33,8 @@ public class Challenger implements Mode {
       log.info("MASTERMIND : Mode Challenger\n");
 
       // initialisation des protagonistes
-      Actor robot = ActorFactory.get(ActorFactory.robotActor, mp.getNomRobot1(),mp);
-      Actor utilisateur = ActorFactory.get(ActorFactory.userActor, mp.getNomUser(),mp);
+      Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT, mp.getNomRobot1(),mp);
+      Actor utilisateur = ActorFactory.get(ActorFactory.ACTOR_USER, mp.getNomUser(),mp);
 
       if (mp.isDebugMode())
          log.info("(Combinaison secrète : {})\n",robot.getNs().getNombre());

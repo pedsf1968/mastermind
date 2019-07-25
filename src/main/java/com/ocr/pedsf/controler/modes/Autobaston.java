@@ -32,8 +32,8 @@ public class Autobaston implements Mode {
       log.info("MASTERMIND : Mode AutoBaston\n");
 
       // initialisation des protagonistes
-      Actor chapi = ActorFactory.get(ActorFactory.robotActor,mp.getNomRobot1(),mp);
-      Actor chapo = ActorFactory.get(ActorFactory.robotActor,mp.getNomRobot2(),mp);
+      Actor chapi = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getNomRobot1(),mp);
+      Actor chapo = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getNomRobot2(),mp);
 
       if (mp.isDebugMode()) {
          log.info("(Combinaison secrète {} : {} )\n", chapi.getNom(),chapi.getNs().getNombre());

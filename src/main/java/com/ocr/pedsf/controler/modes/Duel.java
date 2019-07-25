@@ -4,8 +4,6 @@ import com.ocr.pedsf.Main;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.actors.Actor;
 import com.ocr.pedsf.model.actors.ActorFactory;
-import com.ocr.pedsf.model.actors.Robot;
-import com.ocr.pedsf.model.actors.User;
 import com.ocr.pedsf.vue.Resultat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,8 +34,8 @@ public class Duel implements Mode {
       log.info("MASTERMIND : Mode Duel\n");
 
       // initialisation des protagonistes
-      Actor robot = ActorFactory.get(ActorFactory.robotActor,mp.getNomRobot1(),mp);
-      Actor utilisateur = ActorFactory.get(ActorFactory.userActor,mp.getNomUser(),mp);
+      Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getNomRobot1(),mp);
+      Actor utilisateur = ActorFactory.get(ActorFactory.ACTOR_USER,mp.getNomUser(),mp);
       // initialisation des NombresSecrets
       utilisateur.init();
 

@@ -32,8 +32,8 @@ public class Defenseur implements Mode {
       log.info("MASTERMIND : Mode Defenseur\n");
 
       // initialisation des protagonistes
-      Actor robot = ActorFactory.get(ActorFactory.robotActor, mp.getNomRobot1(),mp);
-      Actor utilisateur = ActorFactory.get(ActorFactory.userActor, mp.getNomUser(),mp);
+      Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT, mp.getNomRobot1(),mp);
+      Actor utilisateur = ActorFactory.get(ActorFactory.ACTOR_USER, mp.getNomUser(),mp);
 
       // initialisation des NombresSecrets
       utilisateur.init();

@@ -9,10 +9,11 @@ import com.ocr.pedsf.model.MastermindProperties;
  * robotActor : pour implémenter un robot
  */
 public class ActorFactory {
-   public final static int userActor = 1;
-   public final static int robotActor = 2;
+   public static final int ACTOR_USER = 1;
+   public static final int ACTOR_ROBOT = 2;
 
-    public ActorFactory() {
+   private ActorFactory(){
+      throw new IllegalStateException("Utility Class");
    }
 
    /**
@@ -25,12 +26,12 @@ public class ActorFactory {
     */
    public static Actor get(int actorType, String name, MastermindProperties mp){
       switch (actorType){
-         case userActor:
+         case ACTOR_USER:
             return new User(name, mp);
-         case robotActor:
+         case ACTOR_ROBOT:
             return new Robot(name, mp);
          default:
-            return null;
+            return new Robot(name, mp);
       }
    }
 
