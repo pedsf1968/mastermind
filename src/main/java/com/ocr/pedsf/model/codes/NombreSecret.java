@@ -1,11 +1,13 @@
 package com.ocr.pedsf.model.codes;
 
+import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * NombreSecret : class pour gérer les chaines de nombres
@@ -17,6 +19,10 @@ public class NombreSecret implements Code {
    private static final Logger log = LogManager.getLogger(NombreSecret.class);
    private String nombre = "";
    private int taille;
+   private char[] codesup;                   // bornes inférieures
+   private char[] codeinf;                   // bornes supérieures
+
+   private Random rand;
 
    public NombreSecret(String nombre) {
       this.nombre = nombre;
@@ -25,7 +31,7 @@ public class NombreSecret implements Code {
 
    public NombreSecret(int taille) {
       this.taille = taille;
-      init();
+      init(false);
    }
 
    public String getNombre() {
@@ -43,13 +49,13 @@ public class NombreSecret implements Code {
 
    public void setTaille(int taille) {
       this.taille = taille;
-      init();
+      init(false);
    }
 
    /**
     * init : méthode d'initialisation avec un nombre aléatoire
     */
-   public void init(){
+   public void init(boolean isSearching){
       StringBuilder sb = new StringBuilder();
 
       for(int i=0; i<this.taille; i++) {
@@ -57,6 +63,18 @@ public class NombreSecret implements Code {
       }
 
       this.nombre = sb.toString();
+
+      if(isSearching) {
+         rand = new Random();
+         // on initialise les tableaux des bornes sup et inf
+         codeinf = new char[this.taille];
+         codesup = new char[this.taille];
+
+         for (int i = 0; i < this.taille; i++) {
+            codeinf[i] = '0';
+            codesup[i] = '9';
+         }
+      }
    }
    @Override
    public String toString() {
@@ -125,6 +143,54 @@ public class NombreSecret implements Code {
       }
 
       return log.traceExit(sb.toString());
+   }
+
+   public void evaluateNext(String combinaison){
+      StringBuilder sb = new StringBuilder();
+
+      try {
+         for (int i = 0; i < combinaison.length(); i++) {
+            switch (combinaison.charAt(i)) {
+               case '+':
+                  // on défini une nouvelle borne inférieure
+                  codeinf[i] = getNombre().charAt(i);
+                  codeinf[i]++;
+                  if (codeinf[i] > codesup[i]) {
+                     codeinf[i] = '0';
+                     codesup[i] = '9';
+                     throw new BornageException();
+                  }
+                  // on cherche un chiffre entre les bornes min et max
+                  sb.append( rand.nextInt(codesup[i] - codeinf[i] + 1) + codeinf[i] - '0');
+                  break;
+               case '-':
+                  // on défini une nouvelle borne supérieur
+                  codesup[i] = getNombre().charAt(i);
+                  codesup[i]--;
+                  if (codeinf[i] > codesup[i]) {
+                     codeinf[i] = '0';
+                     codesup[i] = '9';
+                     throw new BornageException();
+                  }
+                  // on cherche un chiffre entre les bornes min et max
+                  sb.append( rand.nextInt(codesup[i] - codeinf[i] + 1) + codeinf[i] - '0');
+                  break;
+               case '=':
+                  // c'est le bon chiffre
+                  sb.append(getNombre().charAt(i));
+                  codeinf[i] = getNombre().charAt(i);
+                  codesup[i] = getNombre().charAt(i);
+                  break;
+               default:
+                  throw new CaractereIncorrectException();
+            }
+         }
+      } catch (BornageException | CaractereIncorrectException e){
+         log.error(e);
+      }
+
+      // on affecte la nouvelle valeur
+      setNombre( sb.toString());
    }
 
 

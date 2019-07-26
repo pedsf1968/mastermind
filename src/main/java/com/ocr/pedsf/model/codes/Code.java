@@ -11,15 +11,17 @@ import com.ocr.pedsf.exceptions.TailleDifferenteException;
  */
 
 public interface Code {
-   public String getNombre();
-   public int getTaille();
-   public void setNombre(String nombre);
-   public void setTaille(int taille);
+   String getNombre();
+   int getTaille();
+   void setNombre(String nombre);
+   void setTaille(int taille);
 
    /**
     * init : méthode d'initialisation avec un nombre aléatoire
+    *
+    * @param isSearching vaut true pour valider les bornes de recherche
     */
-   public void init();
+   void init(boolean isSearching);
 
    /**
     * test : compare le code avec un autre
@@ -29,7 +31,7 @@ public interface Code {
     * @throws TailleDifferenteException si les deux nombres sont de taille différentes
     * @throws CaractereIncorrectException si un nombre ne comporte pas que des chiffres
     */
-   public String test(Code code) throws TailleDifferenteException, CaractereIncorrectException;
+   String test(Code code) throws TailleDifferenteException, CaractereIncorrectException;
 
    /**
     * test : compare le NombreSecret avec une chaine de caractères
@@ -40,5 +42,13 @@ public interface Code {
     * @throws CaractereIncorrectException si un nombre ne comporte pas que des chiffres
     */
    String test(String chaine) throws TailleDifferenteException, CaractereIncorrectException;
+
+   /**
+    * evaluateNext : méthode de recherche du nombre secret en fonction de la combinaison
+    *                on doit faire un init(true) avant de l'utiliser pour initialiser les paramètres de recherche
+    *
+    * @param combinaison réponse de l'adversaire au code proposé
+    */
+   void evaluateNext(String combinaison);
 }
 
