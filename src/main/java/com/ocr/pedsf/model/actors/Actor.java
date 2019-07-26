@@ -1,6 +1,6 @@
 package com.ocr.pedsf.model.actors;
 
-import com.ocr.pedsf.model.codes.NombreSecret;
+import com.ocr.pedsf.model.codes.Code;
 
 /**
  * Actor : interface générale pour les acteurs du jeu User ou Robot
@@ -11,9 +11,9 @@ import com.ocr.pedsf.model.codes.NombreSecret;
 public interface Actor {
 
    String getNom();
-   NombreSecret getNs();
+   Code getNs();
    void setNs();
-   NombreSecret getNsToSearch();
+   Code getNsToSearch();
 
    /**
     * attack : méthode du actors qui attaque le actors passé en paramètre
@@ -27,16 +27,16 @@ public interface Actor {
    /**
     * reply : méthode de réponse du Actor quand il reçoit une proposition
     *
-    * @param nombreSecret proposé par l'adversaire
+    * @param code proposé par l'adversaire
     * @return la réponse sous forme de +-=
     */
-   String reply(NombreSecret nombreSecret);
+   String reply(Code code);
 
    /**
-    * isEqual : méthode qui renvoie true si le NombreSecret passé en paramètre est le même que celui du Actor
+    * isEqual : méthode qui renvoie true si le Code passé en paramètre est le même que celui du Actor
     *
-    * @param nombreSecret à comparer avec celui du Actor
+    * @param code à comparer avec celui du Actor
     * @return true si les nombes sont identique false sinon
     */
-   boolean isEqual(NombreSecret nombreSecret);
+   boolean isEqual(Code code);
 }

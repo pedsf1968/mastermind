@@ -3,6 +3,7 @@ package com.ocr.pedsf.model.actors;
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.codes.Code;
 import com.ocr.pedsf.model.codes.NombreSecret;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,10 +19,10 @@ public class Robot implements Actor {
 
    private String nom;                // nom du robot
    private MastermindProperties mp;   // propriétés du jeu
-   private NombreSecret ns;           // code secret de l'ordinateur
+   private Code ns;           // code secret de l'ordinateur
 
    // variables pour rechercher le code de l'adversaire
-   private NombreSecret nsToSearch;   // proposition de l'ordinateur pour trouver un code
+   private Code nsToSearch;   // proposition de l'ordinateur pour trouver un code
 
 
    public Robot(String nom, MastermindProperties mastermindProperties){
@@ -42,7 +43,7 @@ public class Robot implements Actor {
    }
 
    @Override
-   public NombreSecret getNs() {
+   public Code getNs() {
       return this.ns;
    }
 
@@ -53,7 +54,7 @@ public class Robot implements Actor {
    }
 
    @Override
-   public NombreSecret getNsToSearch() {
+   public Code getNsToSearch() {
       return nsToSearch;
    }
 
@@ -79,10 +80,10 @@ public class Robot implements Actor {
    }
 
    @Override
-   public String reply(NombreSecret nombreSecret) {
+   public String reply(Code code) {
       // appel de la méthode interne de NombreSecret pour avoir la réponse
       try {
-         return ns.test(nombreSecret);
+         return ns.test(code);
       } catch (TailleDifferenteException | CaractereIncorrectException e) {
          log.error(e);
       }
@@ -91,8 +92,8 @@ public class Robot implements Actor {
    }
 
    @Override
-   public boolean isEqual(NombreSecret nombreSecret){
-      return ns.equals(nombreSecret);
+   public boolean isEqual(Code code){
+      return ns.equals(code);
    }
 
 }

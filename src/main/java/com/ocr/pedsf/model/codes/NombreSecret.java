@@ -145,6 +145,7 @@ public class NombreSecret implements Code {
       return log.traceExit(sb.toString());
    }
 
+   @Override
    public void evaluateNext(String combinaison){
       StringBuilder sb = new StringBuilder();
 
