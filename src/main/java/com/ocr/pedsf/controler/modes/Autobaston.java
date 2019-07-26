@@ -4,7 +4,7 @@ import com.ocr.pedsf.Main;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.actors.Actor;
 import com.ocr.pedsf.model.actors.ActorFactory;
-import com.ocr.pedsf.vue.Resultat;
+import com.ocr.pedsf.vue.Result;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +21,8 @@ public class Autobaston implements Mode {
    private int nbCoup = 0;
 
    public Autobaston() {
-      this.mp = Main.getMp();
+      if(Main.getMp()!=null)
+         this.mp = Main.getMp();
    }
 
    @Override
@@ -32,8 +33,8 @@ public class Autobaston implements Mode {
       log.info("MASTERMIND : Mode AutoBaston\n");
 
       // initialisation des protagonistes
-      Actor chapi = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getNomRobot1(),mp);
-      Actor chapo = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getNomRobot2(),mp);
+      Actor chapi = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getRobot1Name(),mp);
+      Actor chapo = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getRobot2Name(),mp);
 
       if (mp.isDebugMode()) {
          log.info("(Combinaison secrète {} : {} )\n", chapi.getNom(),chapi.getNs().getNombre());
@@ -45,12 +46,12 @@ public class Autobaston implements Mode {
          trouve = chapi.attack(chapo);
 
          if(trouve) {
-            Resultat.display(chapi.getNom(), chapo.getNom(), nbCoup, chapo.getNs().getNombre());
+            Result.display(chapi.getNom(), chapo.getNom(), nbCoup, chapo.getNs().getNombre());
          } else {
             // au tour de Chapo
             trouve = chapo.attack(chapi);
             if(trouve)
-               Resultat.display(chapo.getNom(), chapi.getNom(), nbCoup, chapi.getNs().getNombre());
+               Result.display(chapo.getNom(), chapi.getNom(), nbCoup, chapi.getNs().getNombre());
          }
 
          nbCoup++;

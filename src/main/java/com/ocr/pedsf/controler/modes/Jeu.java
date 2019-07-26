@@ -2,8 +2,8 @@ package com.ocr.pedsf.controler.modes;
 
 import com.ocr.pedsf.Main;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.vue.ChoixDuMode;
-import com.ocr.pedsf.vue.ChoixNombreDigit;
+import com.ocr.pedsf.vue.AskGameMode;
+import com.ocr.pedsf.vue.AskCodeLength;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,7 +18,8 @@ public class Jeu implements Mode{
    private MastermindProperties mp;
 
    public  Jeu(){
-      this.mp = Main.getMp();
+      if(Main.getMp()!=null)
+         this.mp = Main.getMp();
      run();
    }
 
@@ -27,14 +28,14 @@ public class Jeu implements Mode{
     */
    public void run(){
       log.traceEntry();
-      int choixMode = ChoixDuMode.get();
+      int choixMode = AskGameMode.get();
       Mode mode;
 
       switch(choixMode){
          case 0 :
             // spécification du nombre de digits du code
             log.trace("Changement du nombre de digit");
-            mp.setLongueur(ChoixNombreDigit.get(mp.getMaxDigit()));
+            mp.setLength(AskCodeLength.get(mp.getMaxLength()));
             run();
             break;
          case 1 :
@@ -47,7 +48,7 @@ public class Jeu implements Mode{
          case 2 :
             //  lancement du modes défenseur
             log.trace("Lancement du mode Défenseur");
-            mode = new Defenseur();
+            mode = new Defender();
             mode.run();
             run();
             break;

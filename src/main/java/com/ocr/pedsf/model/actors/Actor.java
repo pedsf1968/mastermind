@@ -1,6 +1,6 @@
 package com.ocr.pedsf.model.actors;
 
-import com.ocr.pedsf.model.NombreSecret;
+import com.ocr.pedsf.model.codes.NombreSecret;
 
 /**
  * Actor : interface générale pour les acteurs du jeu User ou Robot
@@ -12,21 +12,17 @@ public interface Actor {
 
    String getNom();
    NombreSecret getNs();
+   void setNs();
    NombreSecret getNsToSearch();
-
-   /**
-    * init : méthode pour initialiser le Actor
-    */
-   void init();
 
    /**
     * attack : méthode du actors qui attaque le actors passé en paramètre
     *
-    * @param personage attaqué
+    * @param adversaire attaqué
     *
     * @return true si c'est le bon code
     */
-   boolean attack(Actor personage);
+   boolean attack(Actor adversaire);
 
    /**
     * reply : méthode de réponse du Actor quand il reçoit une proposition

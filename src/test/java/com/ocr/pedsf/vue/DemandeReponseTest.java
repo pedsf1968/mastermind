@@ -11,7 +11,7 @@ public class DemandeReponseTest {
    @Test
    public void Given_code_When_get_Then_getSameCode(){
       System.setIn(new ByteArrayInputStream("+-+-=\n".getBytes()));
-      assertEquals("+-+-=",DemandeReponse.get(5,false));
+      assertEquals("+-+-=", AskAnswer.get(5,false));
    }
 
 }

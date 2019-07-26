@@ -4,9 +4,9 @@ import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.MauvaiseReponseException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.NombreSecret;
-import com.ocr.pedsf.vue.DemandeProposition;
-import com.ocr.pedsf.vue.DemandeReponse;
+import com.ocr.pedsf.model.codes.NombreSecret;
+import com.ocr.pedsf.vue.AskProposition;
+import com.ocr.pedsf.vue.AskAnswer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,13 +27,14 @@ public class User implements Actor {
    public User( String nom, MastermindProperties mastermindProperties){
       this.nom = nom;
       this.mp = mastermindProperties;
-      this.nsToSearch = new NombreSecret(mp.getLongueur());
+      this.nsToSearch = new NombreSecret(mp.getLength());
    }
 
-   public void init(){
+   @Override
+   public void setNs() {
       // saisie du code de départ par l'utilisateur
       log.info("Entrez votre nombre secret.");
-      this.ns = new NombreSecret(DemandeProposition.get(mp.getLongueur(),mp.isDebugMode()));
+      this.ns = new NombreSecret(AskProposition.get(mp.getLength(),mp.isDebugMode()));
    }
 
    @Override
@@ -52,33 +53,33 @@ public class User implements Actor {
    }
 
    @Override
-   public boolean attack(Actor personnage) {
+   public boolean attack(Actor adversaire) {
 
       if(mp.isDebugMode()) {
-         log.info("{} ({}) : Proposition : ",personnage.getNom(),personnage.getNs().getNombre());
+         log.info("{} ({}) : Proposition : ",adversaire.getNom(),adversaire.getNs().getNombre());
       } else {
          log.info("Proposition : ");
       }
 
-      nsToSearch.setNombre(DemandeProposition.get(mp.getLongueur(),mp.isDebugMode()));
+      nsToSearch.setNombre(AskProposition.get(mp.getLength(),mp.isDebugMode()));
 
       if(mp.isDebugMode()) {
          log.info("{} ({}) : Proposition {} : {} ->Réponse {} : {}",
-               personnage.getNom(),
-               personnage.getNs().getNombre(),
+               adversaire.getNom(),
+               adversaire.getNs().getNombre(),
                getNom(),
                nsToSearch.getNombre(),
-               personnage.getNom(),
-               personnage.reply(nsToSearch));
+               adversaire.getNom(),
+               adversaire.reply(nsToSearch));
       } else {
          log.info("Proposition {} : {} -> Réponse {} : {}",
                getNom(),
                nsToSearch.getNombre(),
-               personnage.getNom(),
-               personnage.reply(nsToSearch));
+               adversaire.getNom(),
+               adversaire.reply(nsToSearch));
       }
 
-      return personnage.isEqual(nsToSearch);
+      return adversaire.isEqual(nsToSearch);
    }
 
    @Override
@@ -87,11 +88,11 @@ public class User implements Actor {
       log.info("{} ({}) : Proposition {} : {} -> Réponse {} :",
             getNom(),
             getNs().getNombre(),
-            mp.getNomRobot1(),
+            mp.getRobot1Name(),
             nombreSecret.getNombre(),
             getNom());
 
-      String reponse = DemandeReponse.get(mp.getLongueur(),mp.isDebugMode());
+      String reponse = AskAnswer.get(mp.getLength(),mp.isDebugMode());
 
       // on vérifie que l'utilisateur n'a pas fait d'erreur dans la saisie
       try {

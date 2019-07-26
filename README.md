@@ -1,119 +1,134 @@
 # Mastermind
-Jeu mastermind en ligne de commande
+Command line Mastermind game.
 
 ## Compilation
-Lancez le lifecycle package pour créer les archives l'une avec et l'autre sans dépendance.
+The lifecycle package create one two jar :
+- mastermind.jar without dependencies.
+- mastermind-jar-with-dependencies.jar that containts all neaded files.
  
 ``` java
 mvn package
 ```
-Pour obtenir la Javadoc lancez la commande Maven suivante:
+Use the command below to create javadoc :
 ```java
 mvn javadoc:javadoc
 ```
 ## Exécution
+Use the command below to start the game with java with unnecessary tags:
+- -d : activate the debug mode.
+- -u name : set the name for the user, default is "User".
+- -m value : set the maximum length for the code, default is 10.
 ```
-java -jar mastermind-jar-with-dependencies.jar [-d] [-u nom_utilisateur] [-m valeur]
+java -jar mastermind-jar-with-dependencies.jar [-d] [-u name] [-m value]
 ```
 ## Utilisation
 
-Dans le menu d'accueil l'utilisateur peut choisir le mode de jeu et définir une nouvelle longueur pour les codes.
-
-La taille par défaut est définie dans le fichier de configuration **mastermind.properties**
+In the starting menu the user can chose a new code length or start a new game mode.
+The default lenght for the code is 4, define in the configuration file **mastermind.properties**.
 
 ### Mode challenger
 
-L'ordinateur joue le rôle de défenseur. Elle définit une combinaison de X chiffres aléatoirement.
-Le joueur a le rôle d’attaquant et doit faire une proposition d’une combinaison de X chiffres.
-L'ordinateur indique pour chaque chiffre de la combinaison proposée si le chiffre de sa combinaison est plus grand (+), plus petit (-) ou si c’est le bon (=).
-Il y a un nombre limité d’essais spécifié dans le fichier de configuration.
+The computer is the defender and the user is the challenger. The computer générate a code and the user send propositions to find the code.
+On each caracter's code the computer respond with the sign :
+- (-) if the caracter is lower.
+- (+) if the caracter is bigger.
+- (=) if the caracter is equal.
+The number of trial 5 is specified in the  **mastermind.properties**. The user must find the code in the specified trials.
 
-### Mode defenseur
+### Mode defender
 
-Le joueur (cette fois dans le rôle de défenseur) définit une combinaison de X chiffres aléatoirement.
-L’ordinateur doit faire une proposition d’une combinaison de X chiffres (c’est le rôle attaquant).
-Le joueur indique pour chaque chiffre de la combinaison proposée si le chiffre de sa combinaison est plus grand (+), plus petit (-) ou si c’est le bon (=).
-L’intelligence artificielle fait une autre proposition en se basant sur la réponse fournit par le joueur.
-Il y a un nombre limité d’essais.
+The user is the defender and the computer is the challenger. 
+The user set his code and the computer ask him propositions to find the code.
+The user answer with a code string (-+=) for each caracter's code with this rule :
+- (-) if the caracter is lower.
+- (+) if the caracter is bigger.
+- (=) if the caracter is equal.
+The number of trial 5 is specified in the  **mastermind.properties**. The computer must find the code in the specified trials.
+
 
 ### Mode duel
 
-Le joueur et l’intelligence artificielle de l’ordinateur jouent tour à tour. Le premier à trouver la combinaison secrète de l'autre a gagné ! 
+The user and the computer are both challenger and defender. 
+The user specify his code and the computer generate a random's one.
+The user is the first challenger and the game stop when one code is found. 
 
+### Mode autobaston
 
+It's a duel between two computers.
 
 ## Architecture
 
-Le programme **Mastermind** est une version du jeu éponyme en ligne de commande avec le pattern MVC.
+It's a remaka of the **Mastermind** game in command line with the MVC pattern..
 
-### Package **controler**
+### Package **controler.modes**
 
-Il contient les class Controler du mode MVC :
-- **Jeu** est une classe qui gère les choix des modes de jeu : challenger, defenseur, duel et autobaston.
+Contain all controlers of MVC pattern.
+- **Mode** global interface for all modes.
 
-- **Mode** est une interface commune aux différents modes de jeu.
-
-#### sous-package **controler.modes**
-- **AutoBaston** implémentation du mode de jeu ordinateur contre ordinateur.
-- **Challenger** implémentation du mode de jeu où l'utilisateur attaque l'ordinateur.
-- **Defenseur** implémentation du mode de jeu où l'ordinateur attaque l'utilisateur.
-- **Duel** implémentation du mode de jeu où l'utilisateur et l'ordinateur s'attaquent à tour de rôle.
+- **Jeu** the main controler for the starting menu to select : challenger, defender, duel and autobaston.
+- **AutoBaston** computer versus computer mode implementation.
+- **Challenger** user challenger mode implementation.
+- **Defenseur** user defender mode implementation.
+- **Duel** user versus computer mode implementation.
  
 ### Package **model**
 
-Il renferme les class des Modèles du MVC :
-- **MastermindProperties** qui se charge des propriétés de l'application et le chargement de la configuration.
-- **NombreSecret** qui gère les codes.
-- **Personnage** interface pour gérer les protagonistes.
+Contains models of MVC pattern :
+- **MastermindProperties** loader for the game properties.
 
-### sous-pachage **model.personnages**
-- **Robot** implémentation de Personnage pour le protagoniste ordinateur.
-- **User** implémentation de Personnage pour le protagoniste utilisateur.
+### sous-pachage **model.codes**
+- **Code** global interface for all secret code.
+- **NombreSecret** simplefied mastermind code implémentation. 
+
+### sous-pachage **model.actors**
+- **Actor** global interface for game actors.
+- **ActorFactory** factory that implement actors.
+- **Robot** computer's actor implementation.
+- **User** user's actor implementation.
 
 ### Package **vue**
 
-Il regroupe les différents écrans du jeu.
-- **ChoixDuMode** demande du mode de jeu.
-- **ChoixNombreDigit** demande la taille du code en nombre de digit.
-- **DemandeProposition** demande à l'utilisateur de faire une proposition de code.
-- **DemandeReponse** demande à l'utilisateur de faire une réponse à une proposition.
-- **Resultat** affiche le résultat d'uin jeu.
+Contain vues of MVC pattern.
+- **Ask** global class for asking something to the user
+- **AskCodeLength** ask to the user a new code length.
+- **AskProposition** ask the user a code proposition.
+- **AskAnswer** ask the answer to to a proposition.
+- **Result** diplay the results.
 
 #
 ### Package **exceptions**
 
-pour la gestion des exceptions.
+Contain game exceptions.
+
 
 ### Package **resources**
-comporte le fichier de configuration :
- - **mastermind.properties** pour la configuration du jeu.
- - **log4j2.xml** pour la configuration de log4j2. 
+Contain property files.
+ - **mastermind.properties** for the game configuration.
+ - **log4j2.xml** for logger configuration. 
  
  ### fichier mastermind.properties
- Il contient les paramètres de l'application ainsi 
- que les tags utilisés pour redéfinir certains paramètres en ligne de commande lors du lancement.
+ Contain games parameters and the tag definitions for the args in command line.
  
- Contenu originel du fichier :
- #### propriétés générales de mastermind
+ #### global properties
  ``` java
  mastermind.combinaison.chiffres=4
  mastermind.combinaison.maxdigit=10
  mastermind.combinaison.essais=10
  ```
  
- ####Activation du mode développeur
+ ####Debug mode activation
  ``` java
  mastermind.mode.developpeur=false
  ```
  
- ####Nom des personnages
+ ####Actors names
  ``` java
  mastermind.nom.user=Utilisateur
  mastermind.nom.robot1=Chapi
  mastermind.nom.robot2=Chapo
  ```
  
- #####Définition des tags pour définir les paramètres en ligne de commande
+ #####Tags for the command line
  ``` java
  mastermind.tag.debug=-d
  mastermind.tag.user=-u

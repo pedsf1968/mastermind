@@ -4,7 +4,7 @@ import com.ocr.pedsf.exceptions.BornageException;
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
 import com.ocr.pedsf.model.MastermindProperties;
-import com.ocr.pedsf.model.NombreSecret;
+import com.ocr.pedsf.model.codes.NombreSecret;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,22 +33,19 @@ public class Robot implements Actor {
       this.nom = nom;
       this.mp = mastermindProperties;
       // l'instanciation du NombreSecret est faite aléatoirement par le constructeur
-      this.ns = new NombreSecret(mp.getLongueur());
-      this.nsToSearch = new NombreSecret(mp.getLongueur());
+      this.ns = new NombreSecret(mp.getLength());
+      this.nsToSearch = new NombreSecret(mp.getLength());
 
       // on initialise les tableaux des bornes sup et inf
-      codeinf = new char[mp.getLongueur()];
-      codesup = new char[mp.getLongueur()];
+      codeinf = new char[mp.getLength()];
+      codesup = new char[mp.getLength()];
 
-      for(int i=0; i<mp.getLongueur(); i++){
+      for(int i=0; i<mp.getLength(); i++){
          codeinf[i] = '0';
          codesup[i] = '9';
       }
    }
 
-   @Override
-   public void init() {
-   }
 
    @Override
    public String getNom() {
@@ -61,24 +58,30 @@ public class Robot implements Actor {
    }
 
    @Override
+   public void setNs() {
+      // permet de réinitialiser le NombreSecret avec une nouvelle valeur aléatoire
+      this.ns = new NombreSecret(mp.getLength());
+   }
+
+   @Override
    public NombreSecret getNsToSearch() {
       return nsToSearch;
    }
 
    @Override
-   public boolean attack(Actor personnage) {
+   public boolean attack(Actor adversaire) {
 
       // on envoie la proposition à l'adversaire
-      String combinaison = personnage.reply(nsToSearch);
+      String combinaison = adversaire.reply(nsToSearch);
 
       if(mp.isDebugMode()) {
-         log.info(personnage.getNom() + " (" + personnage.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
+         log.info(adversaire.getNom() + " (" + adversaire.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + adversaire.getNom() + " : " + combinaison);
       } else {
-         log.info("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + personnage.getNom() + " : " + combinaison);
+         log.info("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + adversaire.getNom() + " : " + combinaison);
       }
 
       // on sort de la boucle si c'est la bonne réponse
-      if(personnage.isEqual(nsToSearch)) return true;
+      if(adversaire.isEqual(nsToSearch)) return true;
 
       StringBuilder sb = new StringBuilder();
 

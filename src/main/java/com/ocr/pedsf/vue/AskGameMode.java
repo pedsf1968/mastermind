@@ -6,14 +6,21 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * ChoixDuMode : class d'affichage pour le choix du modes de jeu
- *               hérite
+ * AskGameMode : ask the mode choice
+ *  *            the get() method use
+ *  *            display() to diplay the message
+ *  *            and ask() to get right  answer
  *
  * @author pedsf
  * @version 1.0
  */
-public class ChoixDuMode extends Mode{
-   static final Logger log = LogManager.getLogger(ChoixDuMode.class);
+public class AskGameMode extends Ask {
+   static final Logger log = LogManager.getLogger(AskGameMode.class);
+   private static MastermindProperties mp;
+
+   public static void setMp(MastermindProperties mp) {
+      AskGameMode.mp = mp;
+   }
 
    /**
     * get : méthode générale pour demander le choix du mode de jeu
@@ -22,12 +29,13 @@ public class ChoixDuMode extends Mode{
     */
    public static int get() {
       log.traceEntry();
-      MastermindProperties mp = Main.getMp();
+      if(Main.getMp()!=null)
+         mp = Main.getMp();
 
       String message = "MASTERMIND\n\n" +
             "Choisissez le modes de jeu :\n" +
             "0 - Choix du nombre de digit (" +
-            mp.getLongueur() + ")\n" +
+            mp.getLength() + ")\n" +
             "1 - Challenger\n" +
             "2 - Défenseur\n" +
             "3 - Duel\n" +

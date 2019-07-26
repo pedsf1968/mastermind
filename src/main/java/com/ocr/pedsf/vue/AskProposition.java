@@ -4,19 +4,18 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * DemandeProposition : class d'affichage pour demander une proposition de nombre secret au joueur
- *               on appel la class par la méthode get() qui se sert
- *               de display() pour afficher la question
- *               et de ask() pour lire les entrées clavier
- *               et retourne une réponse valide
+ * AskProposition : ask a code proposition
+ *  *               the get() method use
+ *  *               display() to diplay the message
+ *  *               and ask() to get right  answer
  *
  * @author pedsf
  * @version 1.0
  */
-public class DemandeProposition extends Mode{
-   private static final Logger log = LogManager.getLogger(DemandeProposition.class.getName());
+public class AskProposition extends Ask {
+   private static final Logger log = LogManager.getLogger(AskProposition.class.getName());
 
-   public DemandeProposition() {
+   public AskProposition() {
       throw new UnsupportedOperationException();
    }
 

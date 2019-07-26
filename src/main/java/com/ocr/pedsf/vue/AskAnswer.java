@@ -4,17 +4,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * DemandeReponse : class d'affichage pour demander une réponse de la proposition de l'adversaire
- *               on appel la class par la méthode get() qui se sert
- *               de display() pour afficher la question
- *               et de ask() pour lire les entrées clavier
- *               et retourne une réponse valide
+ * AskAnswer : ask the answer of a proposition
+ *               the get() method use
+ *               display() to diplay the message
+ *               and ask() to get right  answer
  *
  * @author pedsf
  * @version 1.0
  */
-public class DemandeReponse extends Mode{
-   private static final Logger log = LogManager.getLogger(DemandeReponse.class.getName());
+public class AskAnswer extends Ask {
+   private static final Logger log = LogManager.getLogger(AskAnswer.class.getName());
 
 
    /**

@@ -9,13 +9,13 @@ import java.io.ByteArrayInputStream;
 
 import java.util.InputMismatchException;
 
-import static com.ocr.pedsf.vue.Mode.*;
+import static com.ocr.pedsf.vue.Ask.*;
 import static org.junit.Assert.*;
 
 public class ModeTest {
 
    @Rule
-   public LogAppenderResource appender = new LogAppenderResource(LogManager.getLogger(Mode.class));
+   public LogAppenderResource appender = new LogAppenderResource(LogManager.getLogger(Ask.class));
 
 
    @Test

@@ -2,6 +2,7 @@ package com.ocr.pedsf.model;
 
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
+import com.ocr.pedsf.model.codes.NombreSecret;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

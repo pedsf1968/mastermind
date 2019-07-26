@@ -4,16 +4,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * DemandeReponse : class d'affichage du résultat
+ * Result : display results
  *
  * @author pedsf
  * @version 1.0
  */
 
-public class Resultat {
-   private static final Logger log = LogManager.getLogger(Resultat.class.getName());
+public class Result {
+   private static final Logger log = LogManager.getLogger(Result.class.getName());
 
-   private Resultat() {
+   private Result() {
       throw new UnsupportedOperationException();
    }
 

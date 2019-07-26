@@ -7,127 +7,151 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
-import static java.lang.System.exit;
-
 
 /**
- * MastermindProperties : class pour gérer les propriétés du jeux
- *                        elle récupère les paramètres de l'application
- *                        dans le fichier mastermind.properties
- *                        et dans la ligne de commande
+ * MastermindProperties : class for the game properties
+ *                        read the properties file and the command line arguments
  *
  * @author pedsf
  * @version 1.0
  */
 public class MastermindProperties {
    private static final Logger log = LogManager.getLogger(MastermindProperties.class);
-   private static final String MESSAGE_NO_VALUE = " absente du fichier de configuration ";
+   private static final String MESSAGE_NO_VALUE = "no {} value in configuration file";
 
    // nom du fichier de configuration
-   private static String constMastermindConfigurationFile = "mastermind";
+   private static final String MASTERMIND_PROPERTIES = "mastermind";
 
    // constantes pour le nombre secret
-   private static int constMastermindLongueur = 4;
-   private static int constMastermindEssais = 10;
-   private static int constMastermindMaxDigit = 10;
-   private static boolean constMastermindDebugMode = false;
+   private static final int MASTERMIND_LENGTH = 4;
+   private static final int MASTERMIND_TRIALS = 10;
+   private static final int MASTERMIND_MAX_LENGTH = 10;
+   private static final boolean MASTERMIND_IS_DEBUG_MODE = false;
 
    // les noms des protagonistes par défaut
-   private static String constMastermindNomUser = "Utilisateur";
-   private static String constMastermindNomRobot1 = "Chapi";
-   private static String constMastermindNomRobot2 = "Chapo";
+   private static final String MASTERMIND_USER_NAME = "User";
+   private static final String MASTERMIND_ROBOT1_NAME = "Chapi";
+   private static final String MASTERMIND_ROBOT2_NAME = "Chapo";
 
    // Les tags par défaut pour passer des paramètres en arguments de la ligne de commande
-   private static String constMastermindTagDebug = "-d";
-   private static String constMastermindTagNomUser = "-u";
-   private static String constMastermindTagMaxDigit = "-m";
+   private static final String MASTERMIND_DEBUG_TAG = "-d";
+   private static final String MASTERMIND_USER_NAME_TAG = "-u";
+   private static final String MASTERMIND_MAX_LENGTH_TAG = "-m";
+   private static final String MASTERMIND_TRIALS_TAG = "-t";
 
    // variable pour lire les paramètres dans le fichier properties
    private ResourceBundle bundle;
 
    // variables pour le nombre secret
-   private int longueur;         // longueur du code à trouver
-   private int nbEssai;          // nombre max d'essai
-   private int maxDigit;         // longueur max autorisé du code. peut être changé avec : -m nouvelle_valeur
+   private int length;         // longueur du code à trouver
+   private int trials;          // nombre max d'essai
+   private int maxLength;         // longueur max autorisé du code. peut être changé avec : -m nouvelle_valeur
    private boolean isDebugMode;  // mode développeur. peut être activé avec : -d
 
    // les noms des protagonistes
-   private String nomUser;       // nom utilisateur. peut être changé avec : -u nouveau_nom
-   private String nomRobot1;     // nom du premier robot qui sert dans tous les modes
-   private String nomRobot2;     // nom du second robot pour le mode autobaston
+   private String userName;       // nom utilisateur. peut être changé avec : -u nouveau_nom
+   private String robot1Name;     // nom du premier robot qui sert dans tous les modes
+   private String robot2Name;     // nom du second robot pour le mode autobaston
 
    // les tags de la ligne de commande
-   private final String tagDebug;      // tag pour activer le mode debug en ligne de commande
-   private final String tagUser;       // tag pour changer le nom de l'utilisateur
-   private final String tagMaxDigit;   // tag pour changet le nombre max de digit
+   private String debugTag;      // tag to activate debug mode
+   private String userTag;       // tag for setting user name
+   private String maxLengthTag;   // tag for setting max code length
+   private String trialsTag;     // tag for the number of trials
 
-   public MastermindProperties( String[] args){
-      // initialisation de la resource bundle
-      bundle = ResourceBundle.getBundle(constMastermindConfigurationFile);
+   public MastermindProperties() {
+      //on récupère les propriétés dans le fichier
+      readProperties();
+   }
 
-      // lecture des paramètres dans le fichier
-      this.longueur = getInt("mastermind.combinaison.chiffres", constMastermindLongueur);
-      this.nbEssai = getInt("mastermind.combinaison.essais", constMastermindEssais);
-      this.maxDigit = getInt("mastermind.combinaison.maxdigit", constMastermindMaxDigit);
-      this.isDebugMode = getBoolean("mastermind.mode.developpeur", constMastermindDebugMode);
-      this.nomUser = getString("mastermind.nom.user",constMastermindNomUser);
-      this.nomRobot1 = getString("mastermind.nom.robot1", constMastermindNomRobot1);
-      this.nomRobot2 = getString("mastermind.nom.robot2", constMastermindNomRobot2);
-      this.tagDebug = getString("mastermind.tag.debug", constMastermindTagDebug);
-      this.tagUser = getString("mastermind.tag.user", constMastermindTagNomUser);
-      this.tagMaxDigit = getString("mastermind.tag.maxdigit", constMastermindTagMaxDigit);
+   public MastermindProperties(String[] args){
+      //on récupère les propriétés dans le fichier
+      readProperties();
 
       // on écrase avec les propriétées passées en ligne de commande
       List<String> paramList = new ArrayList<>(Arrays.asList(args));
       getArguments(paramList);
+
    }
 
-   public void setLongueur(int longueur) {
-      this.longueur = longueur;
+   public int getLength() {
+      return length;
    }
 
-   public int getLongueur() {
-      return longueur;
+   public void setLength(int length) {
+      this.length = length;
    }
 
-   public int getNbEssai() {
-      return nbEssai;
+   public int getTrials() {
+      return trials;
    }
 
-   public int getMaxDigit() {
-      return maxDigit;
+   public void setTrials(int trials) {
+      this.trials = trials;
+   }
+
+   public int getMaxLength() {
+      return maxLength;
+   }
+
+   public void setMaxLength(int maxLength) {
+      this.maxLength = maxLength;
    }
 
    public boolean isDebugMode() {
       return isDebugMode;
    }
 
-   public String getNomUser() {
-      return nomUser;
+   public void setDebugMode(boolean debugMode) {
+      isDebugMode = debugMode;
    }
 
-   public String getNomRobot1() {
-      return nomRobot1;
+   public String getUserName() {
+      return userName;
    }
 
-   public String getNomRobot2() {
-      return nomRobot2;
+   public void setUserName(String userName) {
+      this.userName = userName;
    }
 
-   @Override
-   public String toString() {
-      return "MastermindProperties {" +
-            "\nLongueur : " + longueur +
-            "\nNombre d'essais : " + nbEssai +
-            "\nTaille maximale : " + maxDigit +
-            "\nMode développeur actif : " + isDebugMode +
-            "\nNom utilisateur : '" + nomUser + '\'' +
-            "\nNom robot 1 : '" + nomRobot1 + '\'' +
-            "\nNom robot 2 : '" + nomRobot2 + '\'' +
-            "\ntagDebug : '" + tagDebug + '\'' +
-            "\ntagUser : '" + tagUser + '\'' +
-            "\ntagMaxDigit : '" + tagMaxDigit + '\'' +
-            '}';
+   public String getRobot1Name() {
+      return robot1Name;
+   }
+
+   public void setRobot1Name(String robot1Name) {
+      this.robot1Name = robot1Name;
+   }
+
+   public String getRobot2Name() {
+      return robot2Name;
+   }
+
+   public void setRobot2Name(String robot2Name) {
+      this.robot2Name = robot2Name;
+   }
+
+   /**
+    * readProperties : méthode qui récupère les propriétés dans le fichier
+    */
+   private void readProperties(){
+      // initialisation de la resource bundle
+      bundle = ResourceBundle.getBundle(MASTERMIND_PROPERTIES);
+
+      // lecture des paramètres dans le fichier
+      this.length = getInt("mastermind.code.length", MASTERMIND_LENGTH);
+      this.trials = getInt("mastermind.code.trials", MASTERMIND_TRIALS);
+      this.maxLength = getInt("mastermind.code.maxlength", MASTERMIND_MAX_LENGTH);
+
+      this.isDebugMode = getBoolean("mastermind.debug.mode", MASTERMIND_IS_DEBUG_MODE);
+
+      this.userName = getString("mastermind.name.user",MASTERMIND_USER_NAME);
+      this.robot1Name = getString("mastermind.name.robot1", MASTERMIND_ROBOT1_NAME);
+      this.robot2Name = getString("mastermind.name.robot2", MASTERMIND_ROBOT2_NAME);
+
+      this.debugTag = getString("mastermind.tag.debug", MASTERMIND_DEBUG_TAG);
+      this.userTag = getString("mastermind.tag.user", MASTERMIND_USER_NAME_TAG);
+      this.maxLengthTag = getString("mastermind.tag.maxlength", MASTERMIND_MAX_LENGTH_TAG);
+      this.trialsTag = getString("mastermind.tag.trials",MASTERMIND_TRIALS_TAG);
    }
 
    /**
@@ -135,64 +159,76 @@ public class MastermindProperties {
     *
     * @param paramList arguments de la ligne de commande
     */
-   private void getArguments(List<String> paramList){
+   private void getArguments(List<String> paramList) {
       log.traceEntry();
       int index = 0;
-
       // on récupère les paramètres en ligne de commande
-      if (paramList.contains(this.tagDebug)){
+
+      if (paramList.contains(this.debugTag)){
          // c'est l'activation du mode développeur
          this.isDebugMode = true;
-         paramList.remove(this.tagDebug);
+         paramList.remove(this.debugTag);
          log.info("Mode debug activé !");
-         log.trace("Mode debug activé !");
       }
 
-      if( paramList.contains(this.tagUser)){
-         // récupération du nom de l'utilisateur
-         index = paramList.indexOf(this.tagUser) + 1;
-         this.nomUser = paramList.get(index);
+      // récupération du nom de l'utilisateur
+      if( paramList.contains(this.userTag)){
+         index = paramList.indexOf(this.userTag) + 1;
+         this.userName = paramList.get(index);
          paramList.remove(index);
          paramList.remove(index-1);
-         log.info("User name : " + getNomUser());
-         log.trace("User name : " + getNomUser());
+         log.info("User name : {}",getUserName());
       }
 
-      if(paramList.contains(this.tagMaxDigit)) {
-         // récupération de la taille maximale
+      // récupération de la taille maximale
+      if(paramList.contains(this.maxLengthTag)) {
          try {
-            index = paramList.indexOf(this.tagMaxDigit) + 1;
-            this.maxDigit = Integer.valueOf(paramList.get(index));
+            index = paramList.indexOf(this.maxLengthTag) + 1;
+            this.maxLength = Integer.valueOf(paramList.get(index));
             paramList.remove(index);
             paramList.remove(index-1);
-            log.info("MaxDigit : " + getMaxDigit());
-            log.trace("MaxDigit : " + getMaxDigit());
+            log.info("Taille maximale du code : {}",getMaxLength());
          } catch (NumberFormatException nfE) {
-            log.error("Mauvaise valeur de MaxDigit : " + paramList.get(index) + "\n" + nfE);
+            log.error("Mauvaise valeur {} de taille maximale !",paramList.get(index));
          }
       }
 
-      // si la liste n'est pas vide il y a des paramètres incompris
+      // get number of trials
+      if(paramList.contains(this.trialsTag)) {
+         try {
+            index = paramList.indexOf(this.trialsTag) + 1;
+            this.trials = Integer.valueOf(paramList.get(index));
+            paramList.remove(index);
+            paramList.remove(index-1);
+            log.info("Nombre d'essais : " + getTrials());
+         } catch (NumberFormatException nfE) {
+            log.error("Mauvaise valeur {} d'essais !",paramList.get(index));
+         }
+      }
+
+      // si la liste n'est pas vide il y a des paramètres en double ou des erreurs
       if(!paramList.isEmpty()
-         &&( !StringUtils.equals(paramList.get(0),this.tagDebug)
-         || !StringUtils.equals(paramList.get(0),this.tagUser)
-         || !StringUtils.equals(paramList.get(0),this.tagMaxDigit))) {
+            &&( !StringUtils.equals(paramList.get(0),this.debugTag)
+            || !StringUtils.equals(paramList.get(0),this.userTag)
+            || !StringUtils.equals(paramList.get(0),this.maxLengthTag)
+            || !StringUtils.equals(paramList.get(0),this.trialsTag))) {
          try {
             throw new ParametreIncorrectException();
          } catch (ParametreIncorrectException e) {
+
             // affichage de l'aide en ligne
             log.info("\nOption non reconnue : {}\n", paramList.get(0));
-            log.info("mastermind [{}][{} nom][{} nombre]", this.tagDebug,this.tagUser,this.tagMaxDigit);
-            log.info("{} : activate debug",this.tagDebug);
-            log.info("{} nom : set user name",this.tagUser);
-            log.info("{} nombre: set maxdigit\n",this.tagMaxDigit);
+            log.info("mastermind [{}][{} nom][{} nombre][{} nombre]", this.debugTag,this.userTag,this.maxLengthTag,this.trialsTag);
+            log.info("{} : active le mode debug",this.debugTag);
+            log.info("{} nom : spécifie le nom de l'utilisateur",this.userTag);
+            log.info("{} nombre: spécifie la longueur maximale du code",this.maxLengthTag);
+            log.info("{} nombre: spécifie le nombre d'essais\n",this.trialsTag);
             //on supprime le paramètre défectueux et on rappel la méthode de lecture des paramètres
             paramList.remove(0);
             getArguments(paramList);
          }
 
       }
-
       log.traceExit();
    }
 
@@ -251,7 +287,7 @@ public class MastermindProperties {
          value = bundle.getString(key);
          return log.traceExit((value.equals("")) ? defaultValue : value);
       } catch (MissingResourceException mrE) {
-         log.error(key + MESSAGE_NO_VALUE + mrE);
+         log.error(MESSAGE_NO_VALUE, key);
          return log.traceExit(defaultValue);
       }
    }

@@ -1,4 +1,4 @@
-package com.ocr.pedsf.model;
+package com.ocr.pedsf.model.codes;
 
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author pedsf
  * @version 1.0
  */
-public class NombreSecret {
+public class NombreSecret implements Code {
    private static final Logger log = LogManager.getLogger(NombreSecret.class);
    private String nombre = "";
    private int taille;
@@ -88,12 +88,13 @@ public class NombreSecret {
    /**
     * test : compare le NombreSecret avec un autre
     *
-    * @param nombreSecret à comparer
+    * @param code à comparer
     * @return la chaine de caractères montrant les différences
     * @throws TailleDifferenteException si les deux nombres sont de taille différentes
     * @throws CaractereIncorrectException si un nombre ne comporte pas que des chiffres
     */
-   public String test(NombreSecret nombreSecret) throws TailleDifferenteException, CaractereIncorrectException {
+   public String test(Code code) throws TailleDifferenteException, CaractereIncorrectException {
+      NombreSecret nombreSecret = (NombreSecret) code;
 
      if(nombreSecret.getTaille()!=this.taille)
         throw new TailleDifferenteException();

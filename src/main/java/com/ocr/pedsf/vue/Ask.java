@@ -12,17 +12,17 @@ import java.util.Scanner;
  * Classe implémentant les méthodes pour demander et controler la saisie de l'utilisateur pour les
  * différentes vues avec affichage de messages.
  */
-public class Mode {
-   private static Logger log = LogManager.getLogger(Mode.class);
+public class Ask {
+   private static Logger log = LogManager.getLogger(Ask.class);
 
-   protected Mode() {
+   protected Ask() {
        throw new UnsupportedOperationException();
    }
 
 
-
    /**
     * display : méthode d'affichage de la question
+    * @param message affiché par la méthode
     */
    protected static void display(String message){
       log.info(message);
@@ -79,7 +79,7 @@ public class Mode {
     * @param errorMessage de l'erreur
     * @param min borne minimale incluse
     * @param max borne maxmale incluse
-    * @return un entier valide entre >=min et <=max
+    * @return un entier valide entre min et max
     */
    public static int getInt(String message, String errorMessage, int min, int max) {
 

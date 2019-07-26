@@ -4,7 +4,7 @@ import com.ocr.pedsf.Main;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.actors.Actor;
 import com.ocr.pedsf.model.actors.ActorFactory;
-import com.ocr.pedsf.vue.Resultat;
+import com.ocr.pedsf.vue.Result;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +21,8 @@ public class Duel implements Mode {
    private int nbCoup = 0;
 
    public Duel(){
-      this.mp = Main.getMp();
+      if(Main.getMp()!=null)
+         this.mp = Main.getMp();
    }
 
    /**
@@ -34,18 +35,18 @@ public class Duel implements Mode {
       log.info("MASTERMIND : Mode Duel\n");
 
       // initialisation des protagonistes
-      Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getNomRobot1(),mp);
-      Actor utilisateur = ActorFactory.get(ActorFactory.ACTOR_USER,mp.getNomUser(),mp);
-      // initialisation des NombresSecrets
-      utilisateur.init();
+      Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getRobot1Name(),mp);
+      Actor utilisateur = ActorFactory.get(ActorFactory.ACTOR_USER,mp.getUserName(),mp);
+      // demande à l'utilisateur son NombreSecret
+      utilisateur.setNs();
 
       if (mp.isDebugMode())
          log.info("(Combinaison secrète : {})\n",robot.getNs().getNombre());
 
-      if(mp.getLongueur() == 1) {
+      if(mp.getLength() == 1) {
          log.info("Trouvez un nombre à 1 chiffre.");
       } else {
-         log.info("Trouvez un nombre à {} chiffres.", mp.getLongueur());
+         log.info("Trouvez un nombre à {} chiffres.", mp.getLength());
       }
 
       do {
@@ -59,9 +60,9 @@ public class Duel implements Mode {
       } while (!trouve);
 
       if (robot.getNs().equals(utilisateur.getNsToSearch())) {
-         Resultat.display(utilisateur.getNom(), robot.getNom(), nbCoup, robot.getNs().getNombre());
+         Result.display(utilisateur.getNom(), robot.getNom(), nbCoup, robot.getNs().getNombre());
       } else {
-         Resultat.display(robot.getNom(), utilisateur.getNom(), nbCoup, robot.getNs().getNombre());
+         Result.display(robot.getNom(), utilisateur.getNom(), nbCoup, robot.getNs().getNombre());
       }
 
       log.traceExit();

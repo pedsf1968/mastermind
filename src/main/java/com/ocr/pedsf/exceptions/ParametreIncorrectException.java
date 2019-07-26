@@ -12,7 +12,7 @@ public class ParametreIncorrectException extends Exception {
       super("Le paramètre est incorrect !");
    }
 
-   ParametreIncorrectException(String message){
+   public ParametreIncorrectException(String message){
       super(message);
    }
 }

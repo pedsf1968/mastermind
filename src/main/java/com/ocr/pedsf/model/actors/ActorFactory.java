@@ -7,6 +7,9 @@ import com.ocr.pedsf.model.MastermindProperties;
  *
  * userActor : pour implémenter un utilisateur
  * robotActor : pour implémenter un robot
+ *
+ * @author pedsf
+ * @version 1.0
  */
 public class ActorFactory {
    public static final int ACTOR_USER = 1;

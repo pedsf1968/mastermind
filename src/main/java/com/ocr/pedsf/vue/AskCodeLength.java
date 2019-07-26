@@ -4,17 +4,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * ChoixNombreDigit : class d'affichage pour demander à l'utilisateur une nouvelle longueur du code
- *               on appel la class par la méthode get() qui se sert
- *               de display() pour afficher la question
- *               et de ask() pour lire les entrées clavier
- *               et retourne une réponse valide
+ * AskCodeLength : ask the new lenght for the code
+ *  *               the get() method use
+ *  *               display() to diplay the message
+ *  *               and ask() to get right  answer
  *
  * @author pedsf
  * @version 1.0
  */
-public class ChoixNombreDigit extends Mode {
-   private static final Logger log = LogManager.getLogger(ChoixNombreDigit.class.getName());
+public class AskCodeLength extends Ask {
+   private static final Logger log = LogManager.getLogger(AskCodeLength.class.getName());
 
    /**
     * get : méthode générale pour demander un nombre de digit pour le code

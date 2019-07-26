@@ -4,7 +4,7 @@ import com.ocr.pedsf.Main;
 import com.ocr.pedsf.model.MastermindProperties;
 import com.ocr.pedsf.model.actors.Actor;
 import com.ocr.pedsf.model.actors.ActorFactory;
-import com.ocr.pedsf.vue.Resultat;
+import com.ocr.pedsf.vue.Result;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,14 +14,16 @@ import org.apache.logging.log4j.Logger;
  * @author pedsf
  * @version 1.0
  */
-public class Defenseur implements Mode {
-   private static final Logger log = LogManager.getLogger(Defenseur.class);
+public class Defender implements Mode {
+   private static final Logger log = LogManager.getLogger(Defender.class);
 
    private MastermindProperties mp;
    private int nbCoup = 0;
 
-   public Defenseur(){
-      this.mp = Main.getMp();
+   public Defender(){
+
+      if(Main.getMp()!=null)
+         this.mp = Main.getMp();
    }
 
    /**
@@ -32,11 +34,11 @@ public class Defenseur implements Mode {
       log.info("MASTERMIND : Mode Defenseur\n");
 
       // initialisation des protagonistes
-      Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT, mp.getNomRobot1(),mp);
-      Actor utilisateur = ActorFactory.get(ActorFactory.ACTOR_USER, mp.getNomUser(),mp);
+      Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT, mp.getRobot1Name(),mp);
+      Actor utilisateur = ActorFactory.get(ActorFactory.ACTOR_USER, mp.getUserName(),mp);
 
-      // initialisation des NombresSecrets
-      utilisateur.init();
+      // demande à l'utilisateur son NombreSecret
+      utilisateur.setNs();
 
       if(mp.isDebugMode()) {
          log.info("\nIndiquez pour chaque chiffre de la combinaison proposée si" +
@@ -46,14 +48,14 @@ public class Defenseur implements Mode {
 
       do {
          nbCoup++;
-      } while (!robot.attack(utilisateur) && nbCoup<mp.getNbEssai());
+      } while (!robot.attack(utilisateur) && nbCoup<mp.getTrials());
 
-      if (nbCoup>mp.getNbEssai()) {
+      if (nbCoup>mp.getTrials()) {
          // l'adversaire n'a pas trouvé la solution
-         Resultat.display(utilisateur.getNom(), robot.getNom(), nbCoup, utilisateur.getNs().getNombre());
+         Result.display(utilisateur.getNom(), robot.getNom(), nbCoup, utilisateur.getNs().getNombre());
       } else {
          // l'adversaire a trouvé la réponse dans la limite du nombre de coups
-         Resultat.display(robot.getNom(), utilisateur.getNom(),nbCoup, utilisateur.getNs().getNombre());
+         Result.display(robot.getNom(), utilisateur.getNom(),nbCoup, utilisateur.getNs().getNombre());
       }
 
       log.traceExit();
