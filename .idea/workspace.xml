@@ -7,38 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/codes/Code.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defenseur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/ParametreIncorrectException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/ParametreIncorrectException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/TailleDifferenteException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/exceptions/TailleDifferenteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/NombreSecret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/codes/NombreSecret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/ActorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/ActorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixDuMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskGameMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/ChoixNombreDigit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskCodeLength.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeProposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskProposition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/DemandeReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Mode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Ask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Resultat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mastermind.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mastermind.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/model/NombreSecretTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/model/NombreSecretTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixDuModeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixDuModeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixNombreDigitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixNombreDigitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandePropositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandePropositionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandeReponseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandeReponseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ModeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ModeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ResultatTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ResultatTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/exceptions/TailleDifferenteException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/exceptions/TailleDifferenteException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/model/NombreSecret.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -373,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564039024257</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Refactoring de nom de variables et de class&#10;Modification README.md&#10;Ajout du tag -t pour définir le nombre d'essais (trials)">
+      <created>1564155384846</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1564155384846</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -429,7 +406,8 @@
     <MESSAGE value="Création d'une classe LogAppenderResource pour tester l'affichage des log.info dans la class ModeTest" />
     <MESSAGE value="déplacement de la méthode d'initialisation aléatoire du code de la class Robot à la classe NombreSecret" />
     <MESSAGE value="Création d'une ActorFactory pour instancier les acteurs robot et user&#10;suppression du passage de MastermindProperties en paramètre des modes et ajout d'un getter dans le Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Création d'une ActorFactory pour instancier les acteurs robot et user&#10;suppression du passage de MastermindProperties en paramètre des modes et ajout d'un getter dans le Main" />
+    <MESSAGE value="Refactoring de nom de variables et de class&#10;Modification README.md&#10;Ajout du tag -t pour définir le nombre d'essais (trials)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring de nom de variables et de class&#10;Modification README.md&#10;Ajout du tag -t pour définir le nombre d'essais (trials)" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
