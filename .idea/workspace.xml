@@ -6,32 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="Ajout de MastermindCode pour gérer un jeu de type mastermind&#10;Ajout de CodeFactory pour instancier les types de codes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/codes/CodeFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/codes/MastermindCode.java" afterDir="false" />
+    <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="Déplacement d'une partie de la class GameProperties dans Utils">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/utils/PropertiesUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Autobaston.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Challenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Defender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/MastermindProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/GameProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/ActorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/ActorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/RobotActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/UserActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/codes/NombreSecret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/codes/SimplifiedCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskCodeLength.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskCodeLength.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskGameMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/vue/AskGameMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/model/NombreSecretTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/model/NombreSecretTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixDuModeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/AskGameModeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ChoixNombreDigitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/AskCodeLengthTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandePropositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/AskPropositionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/DemandeReponseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/AskAnswerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ocr/pedsf/vue/ResultatTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ocr/pedsf/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/GameProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/GameProperties.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,9 +28,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -83,19 +62,20 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.ocr.pedsf.utils" />
       <recent name="com.ocr.pedsf.vue" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\dev\java\mastermind\src\main\java\META-INF" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ocr.pedsf.controler" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\model\codes" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\dev\java\mastermind\src\main\java\META-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -111,7 +91,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.Main" />
       <module name="mastermind" />
       <extension name="coverage">
@@ -187,15 +167,14 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.AskCodeLengthTest" />
       <item itemvalue="JUnit.NombreSecretTest" />
       <item itemvalue="JUnit.AskAnswerTest.Given_code_When_get_Then_getSameCode" />
       <item itemvalue="JUnit.ResultTest.Given_score_When_askDisplayScore_Then_getRightMessage" />
-      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ResultTest.Given_score_When_askDisplayScore_Then_getRightMessage" />
         <item itemvalue="JUnit.AskAnswerTest.Given_code_When_get_Then_getSameCode" />
         <item itemvalue="JUnit.NombreSecretTest" />
@@ -396,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564159993588</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Ajout de MastermindCode pour gérer un jeu de type mastermind&#10;Ajout de CodeFactory pour instancier les types de codes">
+      <created>1564224538085</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1564224538085</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">

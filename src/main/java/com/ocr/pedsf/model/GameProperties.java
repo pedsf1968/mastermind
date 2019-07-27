@@ -2,6 +2,7 @@ package com.ocr.pedsf.model;
 
 import com.ocr.pedsf.exceptions.ParametreIncorrectException;
 import com.ocr.pedsf.model.codes.CodeFactory;
+import com.ocr.pedsf.utils.PropertiesUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,7 +16,7 @@ import java.util.*;
  * @author pedsf
  * @version 1.0
  */
-public class GameProperties {
+public class GameProperties extends PropertiesUtils {
    private static final Logger log = LogManager.getLogger(GameProperties.class);
    private static final String MESSAGE_NO_VALUE = "no {} value in configuration file";
 
@@ -38,9 +39,6 @@ public class GameProperties {
    private static final String MASTERMIND_USER_NAME_TAG = "-u";
    private static final String MASTERMIND_MAX_LENGTH_TAG = "-m";
    private static final String MASTERMIND_TRIALS_TAG = "-t";
-
-   // variable pour lire les paramètres dans le fichier properties
-   private ResourceBundle bundle;
 
    // variables pour le nombre secret
    private int length;         // longueur du code à trouver
@@ -144,24 +142,24 @@ public class GameProperties {
     */
    private void readProperties(){
       // initialisation de la resource bundle
-      bundle = ResourceBundle.getBundle(MASTERMIND_PROPERTIES);
+      ResourceBundle bundle = ResourceBundle.getBundle(MASTERMIND_PROPERTIES);
 
       // lecture des paramètres dans le fichier
-      this.length = getInt("mastermind.code.length", MASTERMIND_LENGTH);
-      this.trials = getInt("mastermind.code.trials", MASTERMIND_TRIALS);
-      this.maxLength = getInt("mastermind.code.maxlength", MASTERMIND_MAX_LENGTH);
+      this.length = getBundleInt(bundle,"mastermind.code.length", MASTERMIND_LENGTH);
+      this.trials = getBundleInt(bundle,"mastermind.code.trials", MASTERMIND_TRIALS);
+      this.maxLength = getBundleInt(bundle,"mastermind.code.maxlength", MASTERMIND_MAX_LENGTH);
       this.gameType = CodeFactory.CODE_SIMPLIFIED;
 
-      this.isDebugMode = getBoolean("mastermind.debug.mode", MASTERMIND_IS_DEBUG_MODE);
+      this.isDebugMode = getBundleBoolean(bundle,"mastermind.debug.mode", MASTERMIND_IS_DEBUG_MODE);
 
-      this.userName = getString("mastermind.name.user",MASTERMIND_USER_NAME);
-      this.robot1Name = getString("mastermind.name.robot1", MASTERMIND_ROBOT1_NAME);
-      this.robot2Name = getString("mastermind.name.robot2", MASTERMIND_ROBOT2_NAME);
+      this.userName = getBundleString(bundle,"mastermind.name.user",MASTERMIND_USER_NAME);
+      this.robot1Name = getBundleString(bundle,"mastermind.name.robot1", MASTERMIND_ROBOT1_NAME);
+      this.robot2Name = getBundleString(bundle,"mastermind.name.robot2", MASTERMIND_ROBOT2_NAME);
 
-      this.debugTag = getString("mastermind.tag.debug", MASTERMIND_DEBUG_TAG);
-      this.userTag = getString("mastermind.tag.user", MASTERMIND_USER_NAME_TAG);
-      this.maxLengthTag = getString("mastermind.tag.maxlength", MASTERMIND_MAX_LENGTH_TAG);
-      this.trialsTag = getString("mastermind.tag.trials",MASTERMIND_TRIALS_TAG);
+      this.debugTag = getBundleString(bundle,"mastermind.tag.debug", MASTERMIND_DEBUG_TAG);
+      this.userTag = getBundleString(bundle,"mastermind.tag.user", MASTERMIND_USER_NAME_TAG);
+      this.maxLengthTag = getBundleString(bundle,"mastermind.tag.maxlength", MASTERMIND_MAX_LENGTH_TAG);
+      this.trialsTag = getBundleString(bundle,"mastermind.tag.trials",MASTERMIND_TRIALS_TAG);
    }
 
    /**
@@ -241,65 +239,4 @@ public class GameProperties {
       }
       log.traceExit();
    }
-
-   /**
-    * getBoolean : méthode qui lit un booléen dans le bundel et retourne la valeur par défaut s'il n'y a pas de valeur
-    *
-    * @param key nom du paramètre dans le fichier properties
-    * @param defaultValue valeur d'initialisation par défaut
-    * @return  valeur lue ou celle par défaut
-    */
-   private  boolean getBoolean(String key, boolean defaultValue){
-      log.traceEntry();
-      String value;
-
-      try {
-         value = bundle.getString(key);
-         return log.traceExit((value.equals("")) ? defaultValue : Boolean.valueOf(value));
-      } catch (MissingResourceException mrE) {
-         log.error(key + MESSAGE_NO_VALUE + mrE);
-         return log.traceExit(defaultValue);
-      }
-   }
-
-   /**
-    * getInt : méthode qui lit un int dans le bundel et retourne la valeur par défaut s'il n'y a pas de valeur
-    *
-    * @param key nom du paramètre dans le fichier properties
-    * @param defaultValue valeur d'initialisation par défaut
-    * @return  valeur lue ou celle par défaut
-    */
-   private int getInt(String key, int defaultValue){
-      log.traceEntry();
-      String value;
-
-      try {
-         value = bundle.getString(key);
-         return log.traceExit((value.equals("")) ? defaultValue : Integer.valueOf(value));
-      } catch (MissingResourceException mrE) {
-         log.error(key + MESSAGE_NO_VALUE + mrE);
-         return log.traceExit(defaultValue);
-      }
-   }
-
-   /**
-    * getString : méthode qui lit une String dans le bundel et retourne la valeur par défaut s'il n'y a pas de valeur
-    *
-    * @param key nom du paramètre dans le fichier properties
-    * @param defaultValue valeur d'initialisation par défaut
-    * @return  valeur lue ou celle par défaut
-    */
-   private String getString(String key, String defaultValue){
-      log.traceEntry();
-      String value;
-
-      try {
-         value = bundle.getString(key);
-         return log.traceExit((value.equals("")) ? defaultValue : value);
-      } catch (MissingResourceException mrE) {
-         log.error(MESSAGE_NO_VALUE, key);
-         return log.traceExit(defaultValue);
-      }
-   }
-
 }

@@ -107,6 +107,10 @@ Contain vues of MVC pattern.
 
 Contain game exceptions.
 
+### Package **utils**
+
+Contain utilities class
+- **PropertiesUtils** class for reading property files
 
 ### Package **resources**
 Contain property files.
