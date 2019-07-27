@@ -1,14 +1,14 @@
 package com.ocr.pedsf.vue;
 
-import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.GameProperties;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 
 import static org.junit.Assert.*;
 
-public class ChoixDuModeTest {
-   private MastermindProperties mp = new MastermindProperties();
+public class AskGameModeTest {
+   private GameProperties mp = new GameProperties();
 
    @Test
    public void Given_number0_When_get_Then_get0(){

@@ -10,26 +10,32 @@ import java.util.Objects;
 import java.util.Random;
 
 /**
- * NombreSecret : class pour gérer les chaines de nombres
+ * SecretNumber : class that implement a simple code game type
  *
  * @author pedsf
  * @version 1.0
  */
-public class NombreSecret implements Code {
-   private static final Logger log = LogManager.getLogger(NombreSecret.class);
+public class SimplifiedCode implements Code {
+   private static final Logger log = LogManager.getLogger(SimplifiedCode.class);
    private String nombre = "";
    private int taille;
+
+   public static final String SHORTMESSAGE = "Indiquez pour chaque chiffre (+) plus grand, (-) plus petit ou (=) identique";
+   public static final String LONGMESSAGE = "Indiquez pour chaque chiffre de la combinaison proposée si" +
+                                          " le chiffre de sa combinaison est :\n" +
+                                          "plus grand par un (+), plus petit par un (-) ou identique par un (=)";
+
    private char[] codesup;                   // bornes inférieures
    private char[] codeinf;                   // bornes supérieures
 
    private Random rand;
 
-   public NombreSecret(String nombre) {
+   public SimplifiedCode(String nombre) {
       this.nombre = nombre;
       this.taille = nombre.length();
    }
 
-   public NombreSecret(int taille) {
+   public SimplifiedCode(int taille) {
       this.taille = taille;
       init(false);
    }
@@ -52,9 +58,7 @@ public class NombreSecret implements Code {
       init(false);
    }
 
-   /**
-    * init : méthode d'initialisation avec un nombre aléatoire
-    */
+   @Override
    public void init(boolean isSearching){
       StringBuilder sb = new StringBuilder();
 
@@ -88,7 +92,7 @@ public class NombreSecret implements Code {
    public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
-      NombreSecret that = (NombreSecret) o;
+      SimplifiedCode that = (SimplifiedCode) o;
 
       if (this.taille != that.taille) return false;
 
@@ -112,7 +116,7 @@ public class NombreSecret implements Code {
     * @throws CaractereIncorrectException si un nombre ne comporte pas que des chiffres
     */
    public String test(Code code) throws TailleDifferenteException, CaractereIncorrectException {
-      NombreSecret nombreSecret = (NombreSecret) code;
+      SimplifiedCode nombreSecret = (SimplifiedCode) code;
 
      if(nombreSecret.getTaille()!=this.taille)
         throw new TailleDifferenteException();

@@ -1,7 +1,7 @@
 package com.ocr.pedsf.controler.modes;
 
 import com.ocr.pedsf.Main;
-import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.GameProperties;
 import com.ocr.pedsf.model.actors.Actor;
 import com.ocr.pedsf.model.actors.ActorFactory;
 import com.ocr.pedsf.vue.Result;
@@ -17,12 +17,13 @@ import org.apache.logging.log4j.Logger;
 public class Duel implements Mode {
    private static final Logger log = LogManager.getLogger(Duel.class);
 
-   private MastermindProperties mp;
+   private GameProperties mp;
    private int nbCoup = 0;
 
    public Duel(){
-      if(Main.getMp()!=null)
+      if(Main.getMp()!=null) {
          this.mp = Main.getMp();
+      }
    }
 
    /**

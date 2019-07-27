@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 
 import static org.junit.Assert.*;
 
-public class ChoixNombreDigitTest {
+public class AskCodeLengthTest {
 
    @Test
    public void Given_number1_When_get_Then_get1(){

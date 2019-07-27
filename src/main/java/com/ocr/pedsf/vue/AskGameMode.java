@@ -1,7 +1,8 @@
 package com.ocr.pedsf.vue;
 
 import com.ocr.pedsf.Main;
-import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.GameProperties;
+import com.ocr.pedsf.model.codes.CodeFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,11 +16,11 @@ import org.apache.logging.log4j.Logger;
  * @version 1.0
  */
 public class AskGameMode extends Ask {
-   static final Logger log = LogManager.getLogger(AskGameMode.class);
-   private static MastermindProperties mp;
+   private static final Logger log = LogManager.getLogger(AskGameMode.class);
+   private static GameProperties properties;
 
-   public static void setMp(MastermindProperties mp) {
-      AskGameMode.mp = mp;
+   public static void setMp(GameProperties properties) {
+      AskGameMode.properties = properties;
    }
 
    /**
@@ -30,16 +31,17 @@ public class AskGameMode extends Ask {
    public static int get() {
       log.traceEntry();
       if(Main.getMp()!=null)
-         mp = Main.getMp();
+         properties = Main.getMp();
 
       String message = "MASTERMIND\n\n" +
             "Choisissez le modes de jeu :\n" +
             "0 - Choix du nombre de digit (" +
-            mp.getLength() + ")\n" +
-            "1 - Challenger\n" +
-            "2 - Défenseur\n" +
-            "3 - Duel\n" +
-            "4 - AutoBaston\n\n" +
+            properties.getLength() + ")\n" +
+            "1 - Type " + ((properties.getGameType()==CodeFactory.CODE_SIMPLIFIED)?"simplifié\n":"Mastermind\n")+
+            "2 - Challenger\n" +
+            "3 - Défenseur\n" +
+            "4 - Duel\n" +
+            "5 - AutoBaston\n\n" +
             "Saisissez un nombre plus grand pour quitter.\n";
       String errorMessage = "Erreur de saisie!\nChoisissez un nombre positif.\n";
 

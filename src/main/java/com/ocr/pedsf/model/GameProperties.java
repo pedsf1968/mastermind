@@ -1,12 +1,12 @@
 package com.ocr.pedsf.model;
 
 import com.ocr.pedsf.exceptions.ParametreIncorrectException;
+import com.ocr.pedsf.model.codes.CodeFactory;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.*;
-
 
 /**
  * MastermindProperties : class for the game properties
@@ -15,8 +15,8 @@ import java.util.*;
  * @author pedsf
  * @version 1.0
  */
-public class MastermindProperties {
-   private static final Logger log = LogManager.getLogger(MastermindProperties.class);
+public class GameProperties {
+   private static final Logger log = LogManager.getLogger(GameProperties.class);
    private static final String MESSAGE_NO_VALUE = "no {} value in configuration file";
 
    // nom du fichier de configuration
@@ -47,6 +47,7 @@ public class MastermindProperties {
    private int trials;          // nombre max d'essai
    private int maxLength;         // longueur max autorisé du code. peut être changé avec : -m nouvelle_valeur
    private boolean isDebugMode;  // mode développeur. peut être activé avec : -d
+   private int gameType;
 
    // les noms des protagonistes
    private String userName;       // nom utilisateur. peut être changé avec : -u nouveau_nom
@@ -59,12 +60,12 @@ public class MastermindProperties {
    private String maxLengthTag;   // tag for setting max code length
    private String trialsTag;     // tag for the number of trials
 
-   public MastermindProperties() {
+   public GameProperties() {
       //on récupère les propriétés dans le fichier
       readProperties();
    }
 
-   public MastermindProperties(String[] args){
+   public GameProperties(String[] args){
       //on récupère les propriétés dans le fichier
       readProperties();
 
@@ -106,6 +107,14 @@ public class MastermindProperties {
       isDebugMode = debugMode;
    }
 
+   public int getGameType() {
+      return gameType;
+   }
+
+   public void setGameType(int gameType) {
+      this.gameType = gameType;
+   }
+
    public String getUserName() {
       return userName;
    }
@@ -141,6 +150,7 @@ public class MastermindProperties {
       this.length = getInt("mastermind.code.length", MASTERMIND_LENGTH);
       this.trials = getInt("mastermind.code.trials", MASTERMIND_TRIALS);
       this.maxLength = getInt("mastermind.code.maxlength", MASTERMIND_MAX_LENGTH);
+      this.gameType = CodeFactory.CODE_SIMPLIFIED;
 
       this.isDebugMode = getBoolean("mastermind.debug.mode", MASTERMIND_IS_DEBUG_MODE);
 

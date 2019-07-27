@@ -2,40 +2,40 @@ package com.ocr.pedsf.model.actors;
 
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
-import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.GameProperties;
 import com.ocr.pedsf.model.codes.Code;
-import com.ocr.pedsf.model.codes.NombreSecret;
+import com.ocr.pedsf.model.codes.CodeFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Robot : class implémentant Actor pour gérer l'IA
+ * RobotActor : class implémentant Actor pour gérer l'IA
  *
  * @author PEDSF
  * @version 1.0
  */
-public class Robot implements Actor {
-   private static final Logger log = LogManager.getLogger(Robot.class);
+public class RobotActor implements Actor {
+   private static final Logger log = LogManager.getLogger(RobotActor.class);
 
    private String nom;                // nom du robot
-   private MastermindProperties mp;   // propriétés du jeu
+   private GameProperties mp;   // propriétés du jeu
    private Code ns;           // code secret de l'ordinateur
 
    // variables pour rechercher le code de l'adversaire
    private Code nsToSearch;   // proposition de l'ordinateur pour trouver un code
 
 
-   public Robot(String nom, MastermindProperties mastermindProperties){
+   public RobotActor(String nom, GameProperties mastermindProperties){
       this.nom = nom;
       this.mp = mastermindProperties;
+
       // l'instanciation du NombreSecret est faite aléatoirement par le constructeur
-      this.ns = new NombreSecret(mp.getLength());
-      this.nsToSearch = new NombreSecret(mp.getLength());
+      this.ns = CodeFactory.get(mp.getGameType(),mp.getLength());
+      this.nsToSearch = CodeFactory.get(mp.getGameType(),mp.getLength());
 
       //active le mode recherche pour le second code
       this.nsToSearch.init(true);
    }
-
 
    @Override
    public String getNom() {
@@ -50,7 +50,7 @@ public class Robot implements Actor {
    @Override
    public void setNs() {
       // permet de réinitialiser le NombreSecret avec une nouvelle valeur aléatoire
-      this.ns = new NombreSecret(mp.getLength());
+      this.ns.init(false);
    }
 
    @Override

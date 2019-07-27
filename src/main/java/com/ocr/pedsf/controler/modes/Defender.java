@@ -1,12 +1,16 @@
 package com.ocr.pedsf.controler.modes;
 
 import com.ocr.pedsf.Main;
-import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.GameProperties;
 import com.ocr.pedsf.model.actors.Actor;
 import com.ocr.pedsf.model.actors.ActorFactory;
+import com.ocr.pedsf.model.codes.CodeFactory;
+import com.ocr.pedsf.model.codes.MastermindCode;
+import com.ocr.pedsf.model.codes.SimplifiedCode;
 import com.ocr.pedsf.vue.Result;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 /**
  * Defenseur : class implémentant Mode qui sert de contrôleur pour le modes Defenseur
@@ -17,13 +21,13 @@ import org.apache.logging.log4j.Logger;
 public class Defender implements Mode {
    private static final Logger log = LogManager.getLogger(Defender.class);
 
-   private MastermindProperties mp;
+   private GameProperties mp;
    private int nbCoup = 0;
 
    public Defender(){
-
-      if(Main.getMp()!=null)
+      if(Main.getMp()!=null) {
          this.mp = Main.getMp();
+      }
    }
 
    /**
@@ -40,11 +44,10 @@ public class Defender implements Mode {
       // demande à l'utilisateur son NombreSecret
       utilisateur.setNs();
 
-      if(mp.isDebugMode()) {
-         log.info("\nIndiquez pour chaque chiffre de la combinaison proposée si" +
-               " le chiffre de sa combinaison est :\n" +
-               "plus grand par un (+), plus petit par un (-) identique par un (=)\n");
-      }
+      if(mp.isDebugMode() && mp.getGameType()== CodeFactory.CODE_SIMPLIFIED)
+         log.info(SimplifiedCode.SHORTMESSAGE);
+      else
+         log.info(MastermindCode.SHORTMESSAGE);
 
       do {
          nbCoup++;

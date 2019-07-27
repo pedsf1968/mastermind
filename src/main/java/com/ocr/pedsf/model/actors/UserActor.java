@@ -3,39 +3,40 @@ package com.ocr.pedsf.model.actors;
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.MauvaiseReponseException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
-import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.GameProperties;
 import com.ocr.pedsf.model.codes.Code;
-import com.ocr.pedsf.model.codes.NombreSecret;
+import com.ocr.pedsf.model.codes.CodeFactory;
 import com.ocr.pedsf.vue.AskProposition;
 import com.ocr.pedsf.vue.AskAnswer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * User : class implémentant Actor pour gérer l'utilisateur
+ * UserActor : class implémentant Actor pour gérer l'utilisateur
  *
  * @author PEDSF
  * @version 1.0
  */
-public class User implements Actor {
-   private static final Logger log = LogManager.getLogger(User.class);
+public class UserActor implements Actor {
+   private static final Logger log = LogManager.getLogger(UserActor.class);
 
    private String nom ;             // nom de l'utilisateur
-   private MastermindProperties mp; // propriétés du jeu
-   private NombreSecret ns = null;  // code secret de l'utilisateur
-   private NombreSecret nsToSearch; // proposition de l'utilisateur
+   private GameProperties mp; // propriétés du jeu
+   private Code ns;                 // code secret de l'utilisateur
+   private Code nsToSearch;         // proposition de l'utilisateur
 
-   public User( String nom, MastermindProperties mastermindProperties){
+   public UserActor(String nom, GameProperties mastermindProperties){
       this.nom = nom;
       this.mp = mastermindProperties;
-      this.nsToSearch = new NombreSecret(mp.getLength());
+      this.nsToSearch = CodeFactory.get(mp.getGameType(),mp.getLength());
    }
 
    @Override
    public void setNs() {
       // saisie du code de départ par l'utilisateur
       log.info("Entrez votre nombre secret.");
-      this.ns = new NombreSecret(AskProposition.get(mp.getLength(),mp.isDebugMode()));
+
+      this.ns = CodeFactory.get(mp.getGameType(),AskProposition.get(mp.getLength(),mp.isDebugMode()));
    }
 
    @Override
@@ -44,12 +45,12 @@ public class User implements Actor {
    }
 
    @Override
-   public NombreSecret getNs() {
+   public Code getNs() {
       return this.ns;
    }
 
    @Override
-   public NombreSecret getNsToSearch() {
+   public Code getNsToSearch() {
       return nsToSearch;
    }
 
@@ -112,6 +113,7 @@ public class User implements Actor {
 
    @Override
    public boolean isEqual(Code code){
-      return ns.equals(code);
+         return ns.equals(code);
+
    }
 }

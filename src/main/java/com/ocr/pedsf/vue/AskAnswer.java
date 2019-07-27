@@ -1,5 +1,10 @@
 package com.ocr.pedsf.vue;
 
+import com.ocr.pedsf.Main;
+import com.ocr.pedsf.model.GameProperties;
+import com.ocr.pedsf.model.codes.CodeFactory;
+import com.ocr.pedsf.model.codes.MastermindCode;
+import com.ocr.pedsf.model.codes.SimplifiedCode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,7 +19,11 @@ import org.apache.logging.log4j.Logger;
  */
 public class AskAnswer extends Ask {
    private static final Logger log = LogManager.getLogger(AskAnswer.class.getName());
+   private static GameProperties properties;
 
+   public static void setMp(GameProperties properties) {
+      AskAnswer.properties = properties;
+   }
 
    /**
     * get : méthode générale pour demander une réponse à la proposition de l'adversaire
@@ -27,16 +36,22 @@ public class AskAnswer extends Ask {
     */
    public static String get(int digit, boolean isDebugMode){
       log.traceEntry();
-      String message = "Indiquez pour chaque chiffre si le résultat est + grand - petit = égal.";
-      String errorMessage = "Mauvaise saisie !" +
-            "Indiquez pour chaque chiffre de la combinaison proposée si" +
-            " le chiffre de sa combinaison est :\n" +
-            "plus grand par un (+), " +
-            "plus petit par un (-) " +
-            "identique par un (=)\n";
+      if(Main.getMp()!=null)
+         properties = Main.getMp();
+
+      String message;
+      String errorMessage;
       String pattern = "[-+=]{" + digit + "}";
 
-      return log.traceExit(getString(message, errorMessage,pattern,isDebugMode));
+      if(properties.getGameType()== CodeFactory.CODE_SIMPLIFIED){
+         message = SimplifiedCode.SHORTMESSAGE;
+         errorMessage = "Mauvaise saisie !\n"+ SimplifiedCode.LONGMESSAGE;
+      } else {
+         message = MastermindCode.SHORTMESSAGE;
+         errorMessage = "Mauvaise saisie !\n" + MastermindCode.LONGMESSAGE;
+      }
+
+      return log.traceExit(getString(message,  errorMessage,pattern,isDebugMode));
    }
 
 }

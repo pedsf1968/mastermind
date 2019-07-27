@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 
 import static org.junit.Assert.*;
 
-public class DemandePropositionTest {
+public class AskPropositionTest {
 
    @Test
    public void Given_number_When_get_Then_getSameNumber(){

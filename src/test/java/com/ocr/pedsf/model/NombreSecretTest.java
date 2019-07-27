@@ -2,7 +2,7 @@ package com.ocr.pedsf.model;
 
 import com.ocr.pedsf.exceptions.CaractereIncorrectException;
 import com.ocr.pedsf.exceptions.TailleDifferenteException;
-import com.ocr.pedsf.model.codes.NombreSecret;
+import com.ocr.pedsf.model.codes.SimplifiedCode;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,15 +11,15 @@ public class NombreSecretTest {
 
    @Test
    public void Given_taille_When_initNombreTailleN_Then_getAStringNumber(){
-      NombreSecret n = new NombreSecret(5);
-      assertEquals(n.getTaille(), 5);
-      n = new NombreSecret(20);
-      assertEquals(n.getTaille(), 20);
+      SimplifiedCode n = new SimplifiedCode(5);
+      assertEquals(5, n.getTaille());
+      n = new SimplifiedCode(20);
+      assertEquals(20,n.getTaille() );
    }
 
    @Test
    public void Given_twoNombreSecret_When_test_Then_getRightAnswer(){
-      NombreSecret n1 = new NombreSecret("1234");
+      SimplifiedCode n1 = new SimplifiedCode("1234");
 
       try {
          assertEquals("====",n1.test("1234"));
@@ -33,8 +33,8 @@ public class NombreSecretTest {
 
    @Test (expected = TailleDifferenteException.class)
    public void Given_twoNombreSecretWithDifferentLength_When_test_getException() throws TailleDifferenteException {
-      NombreSecret n1 = new NombreSecret("1234");
-      NombreSecret n2 = new NombreSecret("12345");
+      SimplifiedCode n1 = new SimplifiedCode("1234");
+      SimplifiedCode n2 = new SimplifiedCode("12345");
 
       try {
          n1.test(n2);
@@ -46,7 +46,7 @@ public class NombreSecretTest {
 
    @Test(expected = CaractereIncorrectException.class)
    public void Given_NombreSecretAndStringContainBadCaracter_When_test_getException() throws CaractereIncorrectException {
-      NombreSecret n1 = new NombreSecret("1234");
+      SimplifiedCode n1 = new SimplifiedCode("1234");
       try {
          n1.test("12d4");
       } catch (TailleDifferenteException e) {

@@ -1,7 +1,7 @@
 package com.ocr.pedsf;
 
 import com.ocr.pedsf.controler.modes.Jeu;
-import com.ocr.pedsf.model.MastermindProperties;
+import com.ocr.pedsf.model.GameProperties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,16 +13,16 @@ import org.apache.logging.log4j.Logger;
  */
 public class Main {
    private static final Logger log = LogManager.getLogger(Main.class);
-   private static MastermindProperties mp;
+   private static GameProperties mp;
 
-   public static MastermindProperties getMp() {
+   public static GameProperties getMp() {
       return mp;
    }
 
    public static void main(String[] args){
       log.traceEntry();
       // récupération de la configuration
-      mp = new MastermindProperties( args);
+      mp = new GameProperties( args);
 
       // lancement du jeu
       new Jeu();

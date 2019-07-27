@@ -17,13 +17,14 @@ import org.apache.logging.log4j.Logger;
 public class Challenger implements Mode {
    private static final Logger log = LogManager.getLogger(Challenger.class);
 
-   private MastermindProperties mp;
+   private GameProperties mp;
    private int nbCoup = 0;
 
 
    public Challenger() {
-      if(Main.getMp()!=null)
-      this.mp = Main.getMp();
+      if(Main.getMp()!=null){
+         this.mp = Main.getMp();
+      }
    }
 
 

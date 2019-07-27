@@ -1,5 +1,5 @@
 # Mastermind
-Command line Mastermind game.
+Command line Mastermind game code search.
 
 ## Compilation
 The lifecycle package create one two jar :
@@ -13,37 +13,42 @@ Use the command below to create javadoc :
 ```java
 mvn javadoc:javadoc
 ```
-## Exécution
+## Running
 Use the command below to start the game with java with unnecessary tags:
 - -d : activate the debug mode.
 - -u name : set the name for the user, default is "User".
 - -m value : set the maximum length for the code, default is 10.
+- -t value : set the number of trials.
 ```
-java -jar mastermind-jar-with-dependencies.jar [-d] [-u name] [-m value]
+java -jar mastermind-jar-with-dependencies.jar [-d] [-u name] [-m value] [-t value]
 ```
-## Utilisation
+## Rules
 
 In the starting menu the user can chose a new code length or start a new game mode.
-The default lenght for the code is 4, define in the configuration file **mastermind.properties**.
+The default length for the code is 4, define in the configuration file **mastermind.properties**.
+The game is stating with a simplified code game but you can activate the Mastermind type.
 
-### Mode challenger
-
-The computer is the defender and the user is the challenger. The computer générate a code and the user send propositions to find the code.
-On each caracter's code the computer respond with the sign :
+In the simplified mode on each code proposition the opponent respond with a string of characters "-+=":
 - (-) if the caracter is lower.
 - (+) if the caracter is bigger.
 - (=) if the caracter is equal.
+In the Mastermind mode the answer is different :
+- (-) if the caracter is not in the code.
+- (+) if the caracter is present in the code but not in the right place.
+- (=) if the caracter is present at the right place.
 The number of trial 5 is specified in the  **mastermind.properties**. The user must find the code in the specified trials.
+
+
+### Mode challenger
+
+The computer is the defender and the user is the challenger.
+The computer générate a code and the user send propositions to find the code.
+
 
 ### Mode defender
 
 The user is the defender and the computer is the challenger. 
 The user set his code and the computer ask him propositions to find the code.
-The user answer with a code string (-+=) for each caracter's code with this rule :
-- (-) if the caracter is lower.
-- (+) if the caracter is bigger.
-- (=) if the caracter is equal.
-The number of trial 5 is specified in the  **mastermind.properties**. The computer must find the code in the specified trials.
 
 
 ### Mode duel
@@ -58,7 +63,7 @@ It's a duel between two computers.
 
 ## Architecture
 
-It's a remaka of the **Mastermind** game in command line with the MVC pattern..
+It's a remake of the **Mastermind** game in command line with the MVC pattern..
 
 ### Package **controler.modes**
 
@@ -78,13 +83,15 @@ Contains models of MVC pattern :
 
 ### sous-pachage **model.codes**
 - **Code** global interface for all secret code.
-- **NombreSecret** simplefied mastermind code implémentation. 
+- **CodeFactory** factory that implement Code.
+- **MastermindCode** Mastermind code implementation. 
+- **SimplifiedCode** simplified mastermind code implementation. 
 
 ### sous-pachage **model.actors**
 - **Actor** global interface for game actors.
-- **ActorFactory** factory that implement actors.
-- **Robot** computer's actor implementation.
-- **User** user's actor implementation.
+- **ActorFactory** factory that implement Actors.
+- **RobotActor** computer's actor implementation.
+- **UserActor** user's actor implementation.
 
 ### Package **vue**
 
@@ -111,27 +118,32 @@ Contain property files.
  
  #### global properties
  ``` java
- mastermind.combinaison.chiffres=4
- mastermind.combinaison.maxdigit=10
- mastermind.combinaison.essais=10
+ #Mastermind global properties
+ mastermind.code.length=4
+ mastermind.code.maxlength=10
+ mastermind.code.trials=5
  ```
  
  ####Debug mode activation
  ``` java
- mastermind.mode.developpeur=false
+ #Debug mode activation
+ mastermind.debug.mode=false
  ```
  
  ####Actors names
  ``` java
- mastermind.nom.user=Utilisateur
- mastermind.nom.robot1=Chapi
- mastermind.nom.robot2=Chapo
+ #Actors names
+ mastermind.name.user=User
+ mastermind.name.robot1=Chapi
+ mastermind.name.robot2=Chapo
  ```
  
  #####Tags for the command line
  ``` java
+ #Tags for the command line
  mastermind.tag.debug=-d
  mastermind.tag.user=-u
- mastermind.tag.maxdigit=-m
+ mastermind.tag.maxlength=-m
+ mastermind.tag.trials=-t
 ```
 

@@ -25,6 +25,7 @@ public class AskCodeLength extends Ask {
     */
    public static int get(int max){
       log.traceEntry();
+
       String message = "Choisissez le nombre de digit entre 1 et " + max + " : ";
       String errorMessage = "Erreur de saisie!\n";
 

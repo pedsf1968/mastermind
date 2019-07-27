@@ -1,6 +1,7 @@
 package com.ocr.pedsf.model.actors;
 
-import com.ocr.pedsf.model.MastermindProperties;
+
+import com.ocr.pedsf.model.GameProperties;
 
 /**
  * ActorFactory : factory pour instancier les acteurs du jeu
@@ -27,14 +28,14 @@ public class ActorFactory {
     * @param mp propriétés du jeu
     * @return une instance d'Actor
     */
-   public static Actor get(int actorType, String name, MastermindProperties mp){
+   public static Actor get(int actorType, String name, GameProperties mp){
       switch (actorType){
          case ACTOR_USER:
-            return new User(name, mp);
+            return new UserActor(name, mp);
          case ACTOR_ROBOT:
-            return new Robot(name, mp);
+            return new RobotActor(name, mp);
          default:
-            return new Robot(name, mp);
+            return new RobotActor(name, mp);
       }
    }
 
