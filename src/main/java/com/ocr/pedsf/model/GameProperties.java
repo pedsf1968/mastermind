@@ -2,11 +2,12 @@ package com.ocr.pedsf.model;
 
 import com.ocr.pedsf.exceptions.ParametreIncorrectException;
 import com.ocr.pedsf.model.codes.CodeFactory;
-import com.ocr.pedsf.utils.PropertiesUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -16,12 +17,11 @@ import java.util.*;
  * @author pedsf
  * @version 1.0
  */
-public class GameProperties extends PropertiesUtils {
+public class GameProperties {
    private static final Logger log = LogManager.getLogger(GameProperties.class);
-   private static final String MESSAGE_NO_VALUE = "no {} value in configuration file";
 
    // nom du fichier de configuration
-   private static final String MASTERMIND_PROPERTIES = "mastermind";
+   private static final String MASTERMIND_PROPERTIES = "mastermind.properties";
 
    // constantes pour le nombre secret
    private static final int MASTERMIND_LENGTH = 4;
@@ -141,25 +141,37 @@ public class GameProperties extends PropertiesUtils {
     * readProperties : méthode qui récupère les propriétés dans le fichier
     */
    private void readProperties(){
-      // initialisation de la resource bundle
-      ResourceBundle bundle = ResourceBundle.getBundle(MASTERMIND_PROPERTIES);
 
-      // lecture des paramètres dans le fichier
-      this.length = getBundleInt(bundle,"mastermind.code.length", MASTERMIND_LENGTH);
-      this.trials = getBundleInt(bundle,"mastermind.code.trials", MASTERMIND_TRIALS);
-      this.maxLength = getBundleInt(bundle,"mastermind.code.maxlength", MASTERMIND_MAX_LENGTH);
-      this.gameType = CodeFactory.CODE_SIMPLIFIED;
+      try (InputStream input = getClass().getClassLoader().getResourceAsStream(MASTERMIND_PROPERTIES)) {
 
-      this.isDebugMode = getBundleBoolean(bundle,"mastermind.debug.mode", MASTERMIND_IS_DEBUG_MODE);
+         Properties prop = new Properties();
 
-      this.userName = getBundleString(bundle,"mastermind.name.user",MASTERMIND_USER_NAME);
-      this.robot1Name = getBundleString(bundle,"mastermind.name.robot1", MASTERMIND_ROBOT1_NAME);
-      this.robot2Name = getBundleString(bundle,"mastermind.name.robot2", MASTERMIND_ROBOT2_NAME);
+         if (input == null) {
+            log.error("Sorry, unable to find {}", MASTERMIND_PROPERTIES);
+            return;
+         }
 
-      this.debugTag = getBundleString(bundle,"mastermind.tag.debug", MASTERMIND_DEBUG_TAG);
-      this.userTag = getBundleString(bundle,"mastermind.tag.user", MASTERMIND_USER_NAME_TAG);
-      this.maxLengthTag = getBundleString(bundle,"mastermind.tag.maxlength", MASTERMIND_MAX_LENGTH_TAG);
-      this.trialsTag = getBundleString(bundle,"mastermind.tag.trials",MASTERMIND_TRIALS_TAG);
+         prop.load(input);
+         this.length = Integer.parseInt(prop.getProperty("mastermind.code.length",String.valueOf(MASTERMIND_LENGTH)));
+         this.trials = Integer.parseInt(prop.getProperty("mastermind.code.trials", String.valueOf(MASTERMIND_TRIALS)));
+         this.maxLength = Integer.parseInt(prop.getProperty("mastermind.code.maxlength", String.valueOf(MASTERMIND_MAX_LENGTH)));
+         this.gameType = CodeFactory.CODE_SIMPLIFIED;
+
+         this.isDebugMode = Boolean.parseBoolean(prop.getProperty("mastermind.debug.mode", String.valueOf(MASTERMIND_IS_DEBUG_MODE)));
+
+         this.userName = prop.getProperty("mastermind.name.user",MASTERMIND_USER_NAME);
+         this.robot1Name = prop.getProperty("mastermind.name.robot1", MASTERMIND_ROBOT1_NAME);
+         this.robot2Name = prop.getProperty("mastermind.name.robot2", MASTERMIND_ROBOT2_NAME);
+
+         this.debugTag = prop.getProperty("mastermind.tag.debug", MASTERMIND_DEBUG_TAG);
+         this.userTag = prop.getProperty("mastermind.tag.user", MASTERMIND_USER_NAME_TAG);
+         this.maxLengthTag = prop.getProperty("mastermind.tag.maxlength", MASTERMIND_MAX_LENGTH_TAG);
+         this.trialsTag = prop.getProperty("mastermind.tag.trials",MASTERMIND_TRIALS_TAG);
+
+      } catch (IOException ex) {
+         log.error(ex.getMessage());
+      }
+
    }
 
    /**
@@ -192,7 +204,7 @@ public class GameProperties extends PropertiesUtils {
       if(paramList.contains(this.maxLengthTag)) {
          try {
             index = paramList.indexOf(this.maxLengthTag) + 1;
-            this.maxLength = Integer.valueOf(paramList.get(index));
+            this.maxLength = Integer.parseInt(paramList.get(index));
             paramList.remove(index);
             paramList.remove(index-1);
             log.info("Taille maximale du code : {}",getMaxLength());
@@ -205,10 +217,10 @@ public class GameProperties extends PropertiesUtils {
       if(paramList.contains(this.trialsTag)) {
          try {
             index = paramList.indexOf(this.trialsTag) + 1;
-            this.trials = Integer.valueOf(paramList.get(index));
+            this.trials = Integer.parseInt(paramList.get(index));
             paramList.remove(index);
             paramList.remove(index-1);
-            log.info("Nombre d'essais : " + getTrials());
+            log.info("Nombre d'essais : {} ", getTrials());
          } catch (NumberFormatException nfE) {
             log.error("Mauvaise valeur {} d'essais !",paramList.get(index));
          }
@@ -239,4 +251,5 @@ public class GameProperties extends PropertiesUtils {
       }
       log.traceExit();
    }
+
 }

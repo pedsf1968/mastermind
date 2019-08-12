@@ -7,10 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="Déplacement d'une partie de la class GameProperties dans Utils">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/utils/PropertiesUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/GameProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/GameProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/utils/PropertiesUtils.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -382,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564224538085</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Déplacement d'une partie de la class GameProperties dans Utils">
+      <created>1564247834905</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1564247834905</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -442,7 +448,8 @@
     <MESSAGE value="Déplacement de la méthode de recherche d'un NombreSecret dans la class du NombreSecret pour avoir plusieurs types&#10;de codes" />
     <MESSAGE value="Utilisation de l'interface Code dans Robot et User au lieu de NombreSecret" />
     <MESSAGE value="Ajout de MastermindCode pour gérer un jeu de type mastermind&#10;Ajout de CodeFactory pour instancier les types de codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout de MastermindCode pour gérer un jeu de type mastermind&#10;Ajout de CodeFactory pour instancier les types de codes" />
+    <MESSAGE value="Déplacement d'une partie de la class GameProperties dans Utils" />
+    <option name="LAST_COMMIT_MESSAGE" value="Déplacement d'une partie de la class GameProperties dans Utils" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
