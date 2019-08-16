@@ -147,7 +147,20 @@ public class GameProperties {
          Properties prop = new Properties();
 
          if (input == null) {
-            log.error("Sorry, unable to find {}", MASTERMIND_PROPERTIES);
+            log.error("Fichier {} absent, initialisation avec les paramètres par défaut.", MASTERMIND_PROPERTIES);
+            // initialisation avec les valeurs par défaut
+            this.length = MASTERMIND_LENGTH;
+            this.trials = MASTERMIND_TRIALS;
+            this.maxLength = MASTERMIND_MAX_LENGTH;
+            this.gameType = CodeFactory.CODE_SIMPLIFIED;
+            this.isDebugMode = MASTERMIND_IS_DEBUG_MODE;
+            this.userName = MASTERMIND_USER_NAME;
+            this.robot1Name = MASTERMIND_ROBOT1_NAME;
+            this.robot2Name = MASTERMIND_ROBOT2_NAME;
+            this.debugTag =  MASTERMIND_DEBUG_TAG;
+            this.userTag = MASTERMIND_USER_NAME_TAG;
+            this.maxLengthTag = MASTERMIND_MAX_LENGTH_TAG;
+            this.trialsTag = MASTERMIND_TRIALS_TAG;
             return;
          }
 
@@ -170,6 +183,7 @@ public class GameProperties {
 
       } catch (IOException ex) {
          log.error(ex.getMessage());
+
       }
 
    }
