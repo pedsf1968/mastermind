@@ -33,7 +33,7 @@ public class Duel implements Mode {
       log.traceEntry();
       boolean trouve;
 
-      log.info("MASTERMIND : Mode Duel\n");
+      log.info("MASTERMIND : Mode Duel%n");
 
       // initialisation des protagonistes
       Actor robot = ActorFactory.get(ActorFactory.ACTOR_ROBOT,mp.getRobot1Name(),mp);

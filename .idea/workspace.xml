@@ -6,9 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="traitement de l'absence de fichier">
+    <list default="true" id="b57abc1f-5f86-4172-9e11-f2cc92f9bd70" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/GameProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/GameProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Duel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/controler/modes/Jeu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/RobotActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ocr/pedsf/model/actors/RobotActor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,17 +65,17 @@
       <recent name="com.ocr.pedsf.utils" />
       <recent name="com.ocr.pedsf.vue" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\dev\java\mastermind\src\main\java\META-INF" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ocr.pedsf.controler" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\dev\java\mastermind\src\main\java\com\ocr\pedsf\model\codes" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\dev\java\mastermind\src\main\java\META-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -92,6 +94,7 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ocr.pedsf.Main" />
       <module name="mastermind" />
+      <option name="PROGRAM_PARAMETERS" value="-d -u Paul -t 10" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ocr.pedsf.*" />
@@ -394,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565630209079</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="traitement de l'absence de fichier properties par une initialisation des valeurs par défaut">
+      <created>1565971745771</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1565971745771</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -456,7 +466,8 @@
     <MESSAGE value="Ajout de MastermindCode pour gérer un jeu de type mastermind&#10;Ajout de CodeFactory pour instancier les types de codes" />
     <MESSAGE value="Déplacement d'une partie de la class GameProperties dans Utils" />
     <MESSAGE value="Package model&#10;class GameProperties&#10;Remplacement de la classe Bundle par la classe Properties." />
-    <option name="LAST_COMMIT_MESSAGE" value="Package model&#10;class GameProperties&#10;Remplacement de la classe Bundle par la classe Properties." />
+    <MESSAGE value="traitement de l'absence de fichier properties par une initialisation des valeurs par défaut" />
+    <option name="LAST_COMMIT_MESSAGE" value="traitement de l'absence de fichier properties par une initialisation des valeurs par défaut" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

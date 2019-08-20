@@ -17,8 +17,8 @@ import org.apache.logging.log4j.Logger;
 public class RobotActor implements Actor {
    private static final Logger log = LogManager.getLogger(RobotActor.class);
 
-   private String nom;                // nom du robot
-   private GameProperties mp;   // propriétés du jeu
+   private String nom;        // nom du robot
+   private GameProperties mp; // propriétés du jeu
    private Code ns;           // code secret de l'ordinateur
 
    // variables pour rechercher le code de l'adversaire
@@ -65,9 +65,9 @@ public class RobotActor implements Actor {
       String combinaison = adversaire.reply(nsToSearch);
 
       if(mp.isDebugMode()) {
-         log.info(adversaire.getNom() + " (" + adversaire.getNs().getNombre() + ") : Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + adversaire.getNom() + " : " + combinaison);
+         log.info("{} ({}) : Proposition {} : {} -> Réponse {} : {}", adversaire.getNom(),adversaire.getNs().getNombre(), getNom(),nsToSearch.getNombre(),adversaire.getNom(),combinaison);
       } else {
-         log.info("Proposition " + getNom() + " : " + nsToSearch.getNombre() + " -> Réponse " + adversaire.getNom() + " : " + combinaison);
+         log.info("Proposition {} : {} -> Réponse {} : {}",getNom(),nsToSearch.getNombre(),adversaire.getNom(),combinaison);
       }
 
       // on sort de la boucle si c'est la bonne réponse
